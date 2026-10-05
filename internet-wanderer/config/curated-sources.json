@@ -428,5 +428,80 @@
     "displayPolicy": "link-only",
     "enabled": true,
     "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "digital-dunhuang",
+    "name": "敦煌研究院 · 数字敦煌",
+    "kind": "curated",
+    "url": "https://www.e-dunhuang.com/",
+    "publisherCountry": "中国 · 甘肃",
+    "publisherType": "institution",
+    "language": "zh",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-06"
+  },
+  {
+    "id": "npm-digital-archive",
+    "name": "國立故宮博物院 · 典藏資料檢索",
+    "kind": "curated",
+    "url": "https://digitalarchive.npm.gov.tw/opendata",
+    "publisherCountry": "中国 · 台湾（台北）",
+    "publisherType": "institution",
+    "language": "zh-Hant",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-06"
+  },
+  {
+    "id": "cas-kepu",
+    "name": "中国科学院计算机网络信息中心 · 中国科普博览",
+    "kind": "curated",
+    "url": "https://www.kepu.net.cn/",
+    "publisherCountry": "中国 · 北京",
+    "publisherType": "institution",
+    "language": "zh",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-06"
+  },
+  {
+    "id": "bunka-online",
+    "name": "文化庁 · 文化遺産オンライン",
+    "kind": "curated",
+    "url": "https://online.bunka.go.jp/",
+    "publisherCountry": "日本 · 京都",
+    "publisherType": "institution",
+    "language": "ja",
+    "displayPolicy": "link-only",
+    "termsUrl": "https://online.bunka.go.jp/about",
+    "enabled": true,
+    "checkedAt": "2026-10-06"
+  },
+  {
+    "id": "gsi-maps",
+    "name": "国土地理院 · 地理院地図",
+    "kind": "curated",
+    "url": "https://maps.gsi.go.jp/",
+    "publisherCountry": "日本 · 茨城",
+    "publisherType": "institution",
+    "language": "ja",
+    "displayPolicy": "link-only",
+    "termsUrl": "https://maps.gsi.go.jp/help/termsofuse.html",
+    "enabled": true,
+    "checkedAt": "2026-10-06"
+  },
+  {
+    "id": "reina-sofia",
+    "name": "Museo Reina Sofía",
+    "kind": "curated",
+    "url": "https://www.museoreinasofia.es/colecciones/",
+    "publisherCountry": "西班牙 · 马德里",
+    "publisherType": "institution",
+    "language": "es",
+    "displayPolicy": "link-only",
+    "termsUrl": "https://www.museoreinasofia.es/aviso-legal/",
+    "enabled": true,
+    "checkedAt": "2026-10-06"
   }
 ]

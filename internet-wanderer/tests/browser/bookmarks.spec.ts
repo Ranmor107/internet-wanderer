@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
-import { extname, resolve } from 'node:path';
+import { extname, resolve, sep } from 'node:path';
 import newsSnapshot from '../../data/news.snapshot.json' with { type: 'json' };
 
 const STORAGE_KEY = 'internet-wanderer:bookmarks:v1';
@@ -23,7 +23,7 @@ test.beforeEach(async ({ context }) => {
     const url = new URL(route.request().url());
     if (url.hostname !== 'wanderer.test') return route.abort();
     const path = resolve('dist', `.${url.pathname === '/' ? '/index.html' : url.pathname}`);
-    if (!path.startsWith(`${resolve('dist')}/`)) return route.abort();
+    if (!path.startsWith(`${resolve('dist')}${sep}`)) return route.abort();
     try {
       const contentType = ({ '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml' } as Record<string, string>)[extname(path)] ?? 'application/octet-stream';
       await route.fulfill({ body: await readFile(path), contentType });

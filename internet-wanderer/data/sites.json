@@ -420,6 +420,90 @@
         "复古"
       ],
       "enabled": true
+    },
+    {
+      "id": "site-digital-dunhuang",
+      "kind": "website",
+      "title": "数字敦煌",
+      "url": "https://www.e-dunhuang.com/",
+      "sourceId": "digital-dunhuang",
+      "blurb": "从一座洞窟的介绍出发，沿着壁画里的故事慢慢看；可切换中英文，部分细节浏览可能需要登录。",
+      "language": "zh",
+      "tags": [
+        "文化",
+        "壁画"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-npm-digital-archive",
+      "kind": "website",
+      "title": "故宮典藏資料檢索",
+      "url": "https://digitalarchive.npm.gov.tw/opendata",
+      "sourceId": "npm-digital-archive",
+      "blurb": "挑一个朝代或一种器物，从一块墨、一方砚开始，慢慢翻看馆藏里的细节。",
+      "language": "zh-Hant",
+      "tags": [
+        "文化",
+        "博物馆"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-cas-kepu",
+      "kind": "website",
+      "title": "中国科普博览",
+      "url": "https://www.kepu.net.cn/",
+      "sourceId": "cas-kepu",
+      "blurb": "从一个好奇的问题出发，在中文科普文章、讲座与科学专题之间走走看看。",
+      "language": "zh",
+      "tags": [
+        "科学",
+        "探索"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-bunka-online",
+      "kind": "website",
+      "title": "文化遺産オンライン",
+      "url": "https://online.bunka.go.jp/",
+      "sourceId": "bunka-online",
+      "blurb": "从一幅浮世绘或一件工艺品出发，在日语的文化遗产目录里，遇见不同地区和年代留下的作品。",
+      "language": "ja",
+      "tags": [
+        "文化",
+        "艺术"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-gsi-maps",
+      "kind": "website",
+      "title": "地理院地図",
+      "url": "https://maps.gsi.go.jp/",
+      "sourceId": "gsi-maps",
+      "blurb": "放大一处日本山川或街区，在日语地图里看看地形与标高；需要浏览器开启 JavaScript。",
+      "language": "ja",
+      "tags": [
+        "地图",
+        "探索"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-reina-sofia",
+      "kind": "website",
+      "title": "Museo Reina Sofía · Colecciones",
+      "url": "https://www.museoreinasofia.es/colecciones/",
+      "sourceId": "reina-sofia",
+      "blurb": "走进西班牙现代与当代艺术的馆藏，点开一件作品，顺着作者、年代与材料继续闲逛。",
+      "language": "es",
+      "tags": [
+        "艺术",
+        "博物馆"
+      ],
+      "enabled": true
     }
   ]
 }

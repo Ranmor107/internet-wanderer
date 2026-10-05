@@ -12,5 +12,5 @@ export function formatDate(value: string, time = false): string {
 }
 
 export function languageName(code?: string): string {
-  return ({ en: '英语', zh: '中文', 'zh-CN': '中文', ja: '日语', fr: '法语', es: '西班牙语', de: '德语', und: '语言未标注', multilingual: '多语言' } as Record<string, string>)[code ?? ''] ?? code ?? '语言未标注';
+  return ({ en: '英语', zh: '中文', 'zh-CN': '中文', 'zh-Hant': '中文（繁体）', ja: '日语', fr: '法语', es: '西班牙语', de: '德语', und: '语言未标注', multilingual: '多语言' } as Record<string, string>)[code ?? ''] ?? code ?? '语言未标注';
 }

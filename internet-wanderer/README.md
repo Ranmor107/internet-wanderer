@@ -2,13 +2,13 @@
 
 **Get lost on the Internet again.** 一个可以随手出发的互联网漫游器：遇见陌生网站、读一则远处的资讯，或打开过去留下的网页。
 
-当前是 **0.3.0 UI Demo**：React + Vite + TypeScript，默认使用项目内的静态内容，无需真实 API 联调、数据库、账号或 API key。四个入口为 Surprise Me、Elsewhere、News Drift、Time Machine；已实现上一站／下一站、最多 20 条最近遇见，以及本机收藏和 JSON 备份导入／导出。
+当前是 **0.3.1 UI Demo**：React + Vite + TypeScript，默认使用项目内的静态内容，无需真实 API 联调、数据库、账号或 API key。四个入口为 Surprise Me、Elsewhere、News Drift、Time Machine；已实现上一站／下一站、最多 20 条最近遇见，以及本机收藏和 JSON 备份导入／导出。
 
 0.3.0 增加手机固定漫游操作栏、每页结果恢复和整组年份包返回，强化出发与到达反馈。Elsewhere 使用三种手工明信片，News Drift 使用报刊刊头与自适应长标题；年代配置同时控制字体、控件和入场节奏。
 
 界面采用暖白纸面、橙色出发按钮与可以交互的浏览器窗口。Elsewhere、News Drift 和三个精选年份各有自己的视觉主题，设计依据见 [UI_DIRECTION.md](UI_DIRECTION.md)。
 
-静态样本包含 **30 个精选网站、18 条历史内容（1999 / 2007 / 2012 各 6 条）、3 个来源的 32 条真实资讯记录**。新闻明确标为样本，保留原始发表时间；样本可供持续体验，不声称实时更新。外站只有在用户主动打开链接后才会访问。
+静态样本包含 **36 个精选网站、18 条历史内容（1999 / 2007 / 2012 各 6 条）、3 个来源的 32 条真实资讯记录**。0.3.1 新增 6 个经核验的非英语网站：中文 3 个（含繁体中文）、日语 2 个、西班牙语 1 个，覆盖文化、科普、地图与艺术。审核证据、语言切换和登录限制见 [非英语内容核验记录](docs/NON_ENGLISH_CONTENT_REVIEW.md)。新闻明确标为样本，保留原始发表时间；样本可供持续体验，不声称实时更新。外站只有在用户主动打开链接后才会访问。
 
 本项目尚未公开部署。GitHub Pages 工作流保留在仓库中，但没有在远程仓库执行。
 
@@ -42,7 +42,7 @@ npm run preview
 
 在本地 Codex 或 IDE 打开项目根目录，可用这段交接说明：
 
-> 请先阅读 README.md、UI_DIRECTION.md、ROADMAP.md 和 docs 下的来源记录，继续 Internet Wanderer 0.3.0 UI Demo。先验证本地启动、测试和构建，保留默认静态 Demo、现有收藏及署名规则。按路线图完善体验，暂不开展真实 API、数据库、RSS 或 Archive 自动接入。
+> 请先阅读 README.md、UI_DIRECTION.md、ROADMAP.md 和 docs 下的来源记录，继续 Internet Wanderer 0.3.1 UI Demo。先验证本地启动、测试和构建，保留默认静态 Demo、现有收藏及署名规则。按路线图完善体验，暂不开展真实 API、数据库、RSS 或 Archive 自动接入。
 
 ## Demo 与 Live 内容模式
 
@@ -104,7 +104,7 @@ npx playwright install chromium
 npm run test:browser
 ```
 
-28 项产品回归读取实际 `dist/` 文件，通过请求拦截提供页面；2 项数据提供层集成测试自动启动并关闭本机 Vite 测试夹具，验证失败重试、取消旧加载和临时收藏保留。测试不访问外站，无需另外启动服务器。修改源码后重新构建，再运行浏览器测试。若已有 Chromium，可在 Bash 中指定其实际可执行文件路径：
+产品回归读取实际 `dist/` 文件，通过请求拦截提供页面，包括非英语卡片的语言、链接及收藏恢复；2 项数据提供层集成测试自动启动并关闭本机 Vite 测试夹具，验证失败重试、取消旧加载和临时收藏保留。测试不访问外站，无需另外启动服务器；截图保存在项目内 `test-results/`。修改源码后重新构建，再运行浏览器测试。若已有 Chromium，可在 Bash 中指定其实际可执行文件路径：
 
 ```sh
 PLAYWRIGHT_CHROMIUM_EXECUTABLE=/path/to/chromium npm run test:browser

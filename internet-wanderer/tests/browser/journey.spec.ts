@@ -1,7 +1,11 @@
 import { test, expect, type Page } from '@playwright/test';
-import { readFile, mkdir } from 'node:fs/promises';
-import { resolve, extname } from 'node:path';
+import { readFile } from 'node:fs/promises';
+import { resolve, extname, sep } from 'node:path';
 import newsSnapshot from '../../data/news.snapshot.json' with { type: 'json' };
+import sites from '../../data/sites.json' with { type: 'json' };
+
+const nonEnglishSites = sites.items.filter((item) => item.enabled !== false && item.language !== 'en' && item.language !== 'und');
+const languageLabels: Record<string, string> = { zh: '中文', 'zh-Hant': '中文（繁体）', ja: '日语', es: '西班牙语' };
 
 // Serve the actual production build through intercepted requests: deterministic,
 // offline browser checks, without external sites or a separate local server.
@@ -10,7 +14,7 @@ test.beforeEach(async ({ context }) => {
     const url = new URL(route.request().url());
     if (url.hostname !== 'wanderer.test') return route.abort();
     const path = resolve('dist', `.${url.pathname === '/' ? '/index.html' : url.pathname}`);
-    if (!path.startsWith(`${resolve('dist')}/`)) return route.abort();
+    if (!path.startsWith(`${resolve('dist')}${sep}`)) return route.abort();
     try {
       const contentType = ({ '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml' } as Record<string, string>)[extname(path)] ?? 'application/octet-stream';
       await route.fulfill({ body: await readFile(path), contentType });
@@ -60,6 +64,39 @@ test('twenty Elsewhere encounters stay distinct and the last result survives rel
   await page.reload();
   await expect(page.getByTestId('wander-card').getByRole('heading')).toHaveText(titles[19]);
 });
+
+test('reviewed non-English destinations cover Chinese, Japanese and Spanish content', () => {
+  expect(nonEnglishSites.map((item) => item.id)).toEqual(expect.arrayContaining(['site-digital-dunhuang', 'site-npm-digital-archive', 'site-cas-kepu']));
+  expect(nonEnglishSites.map((item) => item.language)).toEqual(expect.arrayContaining(['zh', 'zh-Hant', 'ja', 'es']));
+});
+
+for (const item of nonEnglishSites) {
+  test(`non-English destination ${item.id} keeps its language and original content after saving`, async ({ page }, testInfo) => {
+    await page.addInitScript((id) => localStorage.setItem('internet-wanderer:journey:v1', JSON.stringify({ version: 1, entries: [], currentId: id, currentMode: 'elsewhere' })), item.id);
+    await page.goto('/#/wander?mode=elsewhere');
+    const card = page.getByTestId('wander-card');
+    await expect(card.getByRole('heading')).toHaveText(item.title);
+    await expect(card.getByRole('heading')).toHaveAttribute('lang', item.language);
+    expect(item.blurb).toMatch(/\p{Script=Han}/u);
+    await expect(card.getByText(item.blurb, { exact: true })).toBeVisible();
+    await expect(card.getByText(languageLabels[item.language], { exact: true })).toBeVisible();
+    await expect(card.getByRole('link', { name: `打开这一站：${item.title}`, exact: true })).toHaveAttribute('href', item.url);
+    await page.screenshot({ path: testInfo.outputPath(`${item.id}.png`), fullPage: true, animations: 'disabled' });
+    await card.getByRole('button', { name: `收藏：${item.title}`, exact: true }).click();
+    await page.reload();
+    await expect(card.getByRole('heading')).toHaveText(item.title);
+    await expect(card.getByRole('heading')).toHaveAttribute('lang', item.language);
+    await expect(card.getByRole('button', { name: `取消收藏：${item.title}`, exact: true })).toHaveAttribute('aria-pressed', 'true');
+    await page.getByRole('button', { name: '打开收藏', exact: true }).click();
+    const drawer = page.getByRole('dialog', { name: '我的收藏', exact: true });
+    const entry = drawer.getByTestId('bookmark-entry');
+    await expect(entry).toHaveCount(1);
+    await expect(entry.getByRole('heading')).toHaveText(item.title);
+    await expect(entry.getByRole('link', { name: `打开收藏：${item.title}`, exact: true })).toHaveAttribute('href', item.url);
+    const saved = await page.evaluate((id) => JSON.parse(localStorage.getItem('internet-wanderer:bookmarks:v1')!).bookmarks.find((bookmark: { id: string }) => bookmark.id === id), item.id);
+    expect(saved.item).toMatchObject({ id: item.id, title: item.title, blurb: item.blurb, url: item.url, language: item.language, sourceId: item.sourceId });
+  });
+}
 
 test('previous encounter then next then reload restores the current card, not old route state', async ({ page }) => {
   await page.goto('/#/wander?mode=elsewhere');
@@ -238,8 +275,7 @@ test('320px and 390px layouts keep every mode inside the viewport and the home C
   }
 });
 
-test('capture desktop and mobile product views', async ({ page }) => {
-  await mkdir('/tmp/internet-wanderer-qa', { recursive: true });
+test('capture desktop and mobile product views', async ({ page }, testInfo) => {
   for (const [name, route] of [
     ['home', '/'],
     ['elsewhere', '/#/wander?mode=elsewhere'],
@@ -254,20 +290,20 @@ test('capture desktop and mobile product views', async ({ page }) => {
       const params = new URLSearchParams(route.split('?')[1]);
       await expectExperience(page, params.get('mode')!, params.get('year') ?? undefined);
     }
-    await page.screenshot({ path: `/tmp/internet-wanderer-qa/${name}-desktop.png`, fullPage: true, animations: 'disabled' });
+    await page.screenshot({ path: testInfo.outputPath(`${name}-desktop.png`), fullPage: true, animations: 'disabled' });
   }
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
-  await page.screenshot({ path: '/tmp/internet-wanderer-qa/home-mobile.png', fullPage: true, animations: 'disabled' });
+  await page.screenshot({ path: testInfo.outputPath('home-mobile.png'), fullPage: true, animations: 'disabled' });
   await page.goto('/#/wander?mode=time&year=1999');
   await expectExperience(page, 'time', '1999');
-  await page.screenshot({ path: '/tmp/internet-wanderer-qa/time-1999-mobile.png', fullPage: true, animations: 'disabled' });
+  await page.screenshot({ path: testInfo.outputPath('time-1999-mobile.png'), fullPage: true, animations: 'disabled' });
   await page.goto('/#/wander?mode=elsewhere');
   await expectExperience(page, 'elsewhere');
-  await page.screenshot({ path: '/tmp/internet-wanderer-qa/elsewhere-mobile.png', animations: 'disabled' });
+  await page.screenshot({ path: testInfo.outputPath('elsewhere-mobile.png'), animations: 'disabled' });
   await page.goto('/#/wander?mode=news');
   await expectExperience(page, 'news');
-  await page.screenshot({ path: '/tmp/internet-wanderer-qa/news-mobile.png', animations: 'disabled' });
+  await page.screenshot({ path: testInfo.outputPath('news-mobile.png'), animations: 'disabled' });
 });
 
 test('browser back and forward restore the presentation belonging to each history entry', async ({ page }) => {
