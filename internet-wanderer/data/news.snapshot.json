@@ -1,0 +1,376 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "news-global-voices-4cc0b8f89144ca16bce1",
+      "title": "How Cambodia’s law on ‘freedom parks’ curtailed people’s right to protest",
+      "url": "https://globalvoices.org/2026/10/02/how-cambodias-law-on-freedom-parks-curtailed-the-peoples-right-to-protest/",
+      "sourceId": "global-voices",
+      "author": "Mong Palatino",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-10-02T08:10:31.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-global-voices-49d241c30c56fac446d8",
+      "title": "The sound of resistance",
+      "url": "https://globalvoices.org/2026/10/01/the-sound-of-resistance/",
+      "sourceId": "global-voices",
+      "author": "Sydney Allen",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-10-01T20:45:32.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-global-voices-b59e8d9e2f3ada8b47b0",
+      "title": "West-to-east energy, east-to-west computing: The Uyghur costs of China’s digital order",
+      "url": "https://globalvoices.org/2026/10/01/west-to-east-energy-east-to-west-computing-the-uyghur-costs-of-chinas-digital-order/",
+      "sourceId": "global-voices",
+      "author": "Asiye Uyghur",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-10-01T07:34:18.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-global-voices-7f47b034064f36ddee2f",
+      "title": "In Brazil’s capital, residents grow their own heat-fighting solutions",
+      "url": "https://globalvoices.org/2026/09/30/in-brazils-capital-residents-grow-their-own-heat-fighting-solutions/",
+      "sourceId": "global-voices",
+      "author": "Dialogue Earth",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-30T14:09:26.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-global-voices-4cdd5f7f6b7dfd2a0efe",
+      "title": "Who can speak on behalf of the people? The new frontiers of protest in the Sahel",
+      "url": "https://globalvoices.org/2026/09/30/who-can-speak-on-behalf-of-the-people-the-new-frontiers-of-protest-in-the-sahel/",
+      "sourceId": "global-voices",
+      "author": "Jean Sovon",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-30T03:37:48.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-global-voices-51fee6d56bb1ee78b0c1",
+      "title": "Equating protest with terrorism: A narrative against dissent",
+      "url": "https://globalvoices.org/2026/09/29/equating-protest-with-terrorism-a-narrative-against-dissent/",
+      "sourceId": "global-voices",
+      "author": "Civic Media Observatory",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-29T00:00:00.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-global-voices-705154cbb541712dd803",
+      "title": "When the right to protest remains, but demonstrating comes at a price",
+      "url": "https://globalvoices.org/2026/09/29/when-the-right-to-protest-remains-but-protesting-comes-at-a-price/",
+      "sourceId": "global-voices",
+      "author": "Elmira Lyapina",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-29T00:00:00.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-global-voices-3a10c19efe8cb7aaf063",
+      "title": "When telcos shut down the internet, they shut down protests for the government",
+      "url": "https://globalvoices.org/2026/09/28/when-telcos-shut-down-the-internet-they-shut-down-protests-for-the-government/",
+      "sourceId": "global-voices",
+      "author": "Ranking Digital Rights",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-28T18:11:19.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-global-voices-0f282d9170b300f7b7ee",
+      "title": "Bye-bye, Birdie: The Calypso King of the World dies at 91",
+      "url": "https://globalvoices.org/2026/09/28/bye-bye-birdie-the-calypso-king-of-the-world-dies-at-91/",
+      "sourceId": "global-voices",
+      "author": "Janine Mendes-Franco",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-28T14:37:18.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-global-voices-ff5a801325fd602fe1c5",
+      "title": "After five years of war, how do Ukrainian small businesses survive?",
+      "url": "https://globalvoices.org/2026/09/28/after-five-years-of-war-how-do-ukrainian-small-businesses-survive/",
+      "sourceId": "global-voices",
+      "author": "Nevena Borisova",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-28T06:00:15.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-global-voices-c5813b412903c11911e3",
+      "title": "Beyond protest: Mob violence and the struggle for institutional response in Bangladesh",
+      "url": "https://globalvoices.org/2026/09/27/beyond-protest-mob-violence-and-the-struggle-for-institutional-response-in-bangladesh/",
+      "sourceId": "global-voices",
+      "author": "Maksuda Akter",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-27T22:36:38.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-global-voices-e16aec95cf98c5eb4a02",
+      "title": "‘We cannot take it anymore’: Haiti’s informal vendors protest over gang warfare",
+      "url": "https://globalvoices.org/2026/09/27/we-cannot-take-it-anymore-haitis-informal-vendors-protest-over-gang-warfare/",
+      "sourceId": "global-voices",
+      "author": "Jude Pierre Louis",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-27T13:03:40.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-global-voices-78217194d9880abad1ac",
+      "title": "What #EndSARS left behind in Nigeria: A generation caught between protest, politics, and departure",
+      "url": "https://globalvoices.org/2026/09/27/what-endsars-left-behind-in-nigeria-a-generation-caught-between-protest-politics-and-departure/",
+      "sourceId": "global-voices",
+      "author": "Guest Contributor",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-27T08:20:29.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-global-voices-3aaed0383335c2dafa3a",
+      "title": "An exiled Myanmar journalist’s story: Echoing public’s voice and resilience",
+      "url": "https://globalvoices.org/2026/09/26/an-exiled-myanmar-journalists-story-echoing-publics-voice-and-resilience/",
+      "sourceId": "global-voices",
+      "author": "Exile Hub",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-26T00:00:00.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-global-voices-cee362c789cd360a4aa2",
+      "title": "Movement from behind your gadget",
+      "url": "https://globalvoices.org/2026/09/25/movement-from-behind-your-gadget/",
+      "sourceId": "global-voices",
+      "author": "Juliana Harsianti",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-25T18:58:21.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-nasa-8260199402adf7737316",
+      "title": "APOD: 2026 October 2 – The Complete Sharpless Catalog: 313 Nebulas",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-2-the-complete-sharpless-catalog-313-nebulae/",
+      "sourceId": "nasa",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-10-02T04:05:00.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-nasa-f38c5a86853151ed54c2",
+      "title": "Rains Swamp the Gandak River",
+      "url": "https://science.nasa.gov/earth/earth-observatory/rains-swamp-the-gandak-river/",
+      "sourceId": "nasa",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-10-02T04:01:00.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-nasa-b5edc6943fceb3533a26",
+      "title": "10 Things: Movie Night",
+      "url": "https://science.nasa.gov/solar-system/10-things-movie-night/",
+      "sourceId": "nasa",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-10-02T00:25:36.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-nasa-cdfffcdb4afb2f99a5f4",
+      "title": "NASA Awards Enterprise Logistics Support Services Agreements",
+      "url": "https://www.nasa.gov/news-release/nasa-awards-enterprise-logistics-support-services-agreements/",
+      "sourceId": "nasa",
+      "author": "Jessica Taveau",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-10-01T20:34:27.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-nasa-5d947fccd15dbc1f0891",
+      "title": "NASA’s SpaceX Crew-13 Launches",
+      "url": "https://www.nasa.gov/image-article/nasas-spacex-crew-13-launches/",
+      "sourceId": "nasa",
+      "author": "HQ Web Team",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-10-01T18:05:38.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-nasa-e2c78b8df324231e1e4f",
+      "title": "What’s Up: October 2026 Skywatching Tips from NASA",
+      "url": "https://science.nasa.gov/solar-system/skywatching/whats-up-october-2026-skywatching-tips-from-nasa/",
+      "sourceId": "nasa",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-10-01T16:58:10.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-nasa-ede541027696753d76f4",
+      "title": "NASA’s SpaceX Crew-13 Launches to International Space Station",
+      "url": "https://www.nasa.gov/news-release/nasas-spacex-crew-13-launches-to-international-space-station/",
+      "sourceId": "nasa",
+      "author": "Lauren E. Low",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-10-01T15:59:24.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-nasa-6dd5f16404b729895df2",
+      "title": "NASA’s Webb Provides Crash Course on Planet-Shattering Collisions",
+      "url": "https://science.nasa.gov/missions/webb/nasas-webb-provides-crash-course-on-planet-shattering-collisions/",
+      "sourceId": "nasa",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-10-01T14:00:00.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-nasa-b1f90b956474857f1304",
+      "title": "APOD: 2026 October 1 – Harvest Moon with Erupting Mount Etna",
+      "url": "https://science.nasa.gov/image-article/apod-2026-october-1-harvest-moon-with-belt-of-venus-and-erupting-mount-etna/",
+      "sourceId": "nasa",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-10-01T04:05:00.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-nasa-6843c55c0738db271803",
+      "title": "An Agricultural “Island” in the Saskatchewan River Delta",
+      "url": "https://science.nasa.gov/earth/earth-observatory/an-agricultural-island-in-the-saskatchewan-river-delta/",
+      "sourceId": "nasa",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-10-01T04:00:00.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-ecb-948785e80d375de04479",
+      "title": "Isabel Schnabel: Central banks on-chain",
+      "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261001_1~a0be67193b.en.pdf",
+      "sourceId": "ecb",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-10-01T15:30:00.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-ecb-1a51741a0c7f69915fab",
+      "title": "Christine Lagarde: Where AI risks meet",
+      "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp261001~cf3c630379.en.html",
+      "sourceId": "ecb",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-10-01T13:30:00.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-ecb-c4fef6aa5954e2ec8938",
+      "title": "Christine Lagarde: Interview with La Croix",
+      "url": "https://www.ecb.europa.eu//press/inter/date/2026/html/ecb.in260930~10084a5f3d.en.html",
+      "sourceId": "ecb",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-30T17:00:00.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-ecb-769e7ce5f60e12b6aa83",
+      "title": "Isabel Schnabel: Monetary policy in a world of overlapping shocks",
+      "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260930_1~7c6c120482.en.html",
+      "sourceId": "ecb",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-30T15:45:00.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-ecb-7460efb74f082e554b01",
+      "title": "Frank Elderson: Supervisory risk appetite, efficiency and effectiveness",
+      "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260930~d495288355.en.html",
+      "sourceId": "ecb",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-30T02:20:00.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-ecb-8a4638ed9ab3637df452",
+      "title": "ECB amends monetary policy implementation guidelines as part of regular review",
+      "url": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260929~050089e922.en.html",
+      "sourceId": "ecb",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-29T08:00:00.000Z",
+      "kind": "news"
+    },
+    {
+      "id": "news-ecb-dec770ac92ea5f0cb3fc",
+      "title": "Christine Lagarde: Hearing of the Committee on Economic and Monetary Affairs of the European Parliament",
+      "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260928~a875675544.en.html",
+      "sourceId": "ecb",
+      "language": "en",
+      "enabled": true,
+      "publishedAt": "2026-09-28T13:30:00.000Z",
+      "kind": "news"
+    }
+  ],
+  "generatedAt": "2026-10-02T08:58:01.128Z",
+  "sourceStates": {
+    "global-voices": {
+      "lastSuccessAt": "2026-10-02T08:58:01.128Z",
+      "lastAttemptAt": "2026-10-02T08:58:01.128Z",
+      "status": "ok"
+    },
+    "nasa": {
+      "lastSuccessAt": "2026-10-02T08:58:01.128Z",
+      "lastAttemptAt": "2026-10-02T08:58:01.128Z",
+      "status": "ok"
+    },
+    "ecb": {
+      "lastSuccessAt": "2026-10-02T08:58:01.128Z",
+      "lastAttemptAt": "2026-10-02T08:58:01.128Z",
+      "status": "ok"
+    }
+  }
+}

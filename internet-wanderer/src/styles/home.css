@@ -1,0 +1,111 @@
+.home-hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 50px; align-items: center; padding: 72px 0 76px; }
+.home-kicker { display: flex; align-items: center; gap: 9px; font: 10px var(--mono); letter-spacing: 1.15px; margin-bottom: 27px; }
+.live-dot { width: 6px; height: 6px; display: inline-block; background: #647a39; border-radius: 50%; }
+.hero-copy h1 { font-size: clamp(64px, 6.5vw, 95px); font-weight: 500; letter-spacing: -5.5px; line-height: .99; position: relative; }
+.hero-copy h1 em { color: #80629f; font: italic 1.14em/.94 var(--serif); letter-spacing: -6px; }
+.title-spark { display: inline-block; margin-left: 27px; color: #80629f; width: .64em; height: .64em; transform: translateY(-9px) rotate(14deg); }
+.hero-intro { color: #686b61; font-size: 14px; letter-spacing: .4px; line-height: 1.95; margin: 30px 0 28px; }
+.hero-copy .surprise-button { min-height: 65px; min-width: 293px; justify-content: flex-start; gap: 19px; border-radius: 7px; padding: 13px 22px; }
+.surprise-button > span { font-size: 16px; font-weight: 650; letter-spacing: .6px; }
+.surprise-button small { display: block; font-weight: 400; font-size: 10px; letter-spacing: 1.6px; margin-top: 3px; }
+.surprise-button > svg:last-child { margin-left: auto; }
+.hero-footnote { font: 9px/1.6 var(--mono); color: var(--muted); margin-top: 17px; }
+.unknown-window { min-width: 0; position: relative; padding: 75px 19px 82px 3px; }
+.portal-link { display: block; position: relative; }
+.portal-window { --portal-tilt: -4deg; border-color: #55554e; box-shadow: 9px 13px 0 #e3dfd5; }
+.portal-window .browser-frame__chrome { height: 38px; background: #fdfbf6; border-color: #b7b1a7; }
+.portal-art { position: relative; overflow: hidden; height: 330px; background: #d7c7e8; }
+.portal-caption { position: absolute; z-index: 2; left: 22px; top: 22px; font: 8px/1.5 var(--mono); letter-spacing: .6px; }
+.portal-door { position: absolute; width: 65%; height: 89%; top: 15%; left: 18%; border-radius: 48% 48% 0 0; border: 1px solid #9a7abc; padding: 17px; background: #c3a9dd; }
+.portal-door > div, .portal-door > div > div, .portal-door > div > div > div { width: 100%; height: 100%; border-radius: 48% 48% 0 0; border: 1px solid #9371b3; padding: 17px; background: #aa88c9; }
+.portal-door > div > div { background: #9271b2; }
+.portal-door > div > div > div { display: flex; justify-content: center; align-items: center; background: #363342; border-color: #363342; }
+.portal-door svg { width: 80px; height: 80px; color: #e0edb4; margin-top: 35px; }
+.portal-cursor { position: absolute; z-index: 2; width: 41px; height: 53px; bottom: 37px; right: 62px; transform: rotate(7deg); filter: drop-shadow(3px 3px 0 #312b3b33); }
+.portal-coordinate { position: absolute; font: 7px var(--mono); letter-spacing: .4px; left: 20px; bottom: 14px; color: #584464; writing-mode: vertical-rl; transform: rotate(180deg); }
+.portal-status { display: flex; justify-content: space-between; align-items: center; padding: 14px 17px; font: 9px var(--mono); }
+.portal-status span { display: flex; align-items: center; gap: 7px; }
+.portal-status i { width: 6px; height: 6px; border-radius: 50%; background: #779447; }
+.floating-note { z-index: 2; position: absolute; pointer-events: none; }
+.note-hello { top: 16px; right: -3px; transform: rotate(7deg); padding: 14px 19px 17px; border: 1px solid #858974; background: #e0edb4; box-shadow: 3px 4px 0 #e8e2d5; }
+.note-hello > span { display: block; font: 8px var(--mono); border-bottom: 1px solid #bac49b; padding-bottom: 8px; margin-bottom: 10px; }
+.note-hello strong { font: 25px var(--serif); letter-spacing: -.8px; display: block; }
+.note-hello i { display: block; font: 8px var(--mono); margin-top: 9px; }
+.note-year { bottom: 38px; left: -32px; background: #fffdf7; padding: 15px 23px; border: 1px solid #aca69c; transform: rotate(5deg); box-shadow: 3px 4px 0 #e3dfd5; }
+.note-year > span { font: 7px var(--mono); letter-spacing: .6px; }
+.note-year strong { display: block; font: italic 22px var(--serif); margin: 8px 0 11px; }
+.note-year div { font: 8px var(--mono); color: #756489; }
+.portal-side-note { position: absolute; right: -10px; top: 47%; writing-mode: vertical-rl; font: 8px var(--mono); letter-spacing: 1.3px; color: #817b6f; }
+.door-section-label { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); padding-bottom: 18px; color: var(--muted); font-size: 11px; }
+.door-section-label > span:first-child { display: flex; align-items: center; gap: 10px; font: 9px var(--mono); letter-spacing: 1.4px; }
+.mode-doors { display: grid; grid-template-columns: repeat(3, 1fr); padding: 31px 0 34px; border-bottom: 1px solid var(--line); }
+.mode-door { display: block; padding: 1px 31px; min-width: 0; }
+.mode-door:first-child { padding-left: 0; }
+.mode-door:last-child { padding-right: 0; }
+.mode-door + .mode-door { border-left: 1px solid var(--line); }
+.door-top { display: flex; align-items: center; gap: 13px; color: var(--muted); font: 9px var(--mono); margin-bottom: 22px; }
+.door-icon { display: grid; place-items: center; height: 42px; width: 45px; border-radius: 11px; color: #35472a; background: #e0edb4; transform: rotate(-6deg); }
+.tint-lilac .door-icon { color: #654580; background: #e3d7ee; transform: rotate(5deg); }
+.tint-peach .door-icon { color: #865a40; background: #f0d5bf; transform: rotate(-4deg); }
+.door-arrow { margin-left: auto; transition: transform .18s; }
+.mode-door:hover .door-arrow { transform: translate(3px, -3px); }
+.mode-door:hover h2 { color: #765793; }
+.mode-door h2 { font-size: 26px; font-weight: 500; letter-spacing: -.8px; line-height: 1.2; }
+.door-subtitle { font: italic 17px/1.5 var(--serif); margin: 6px 0 11px; color: #777365; }
+.door-description { font-size: 12px; color: var(--muted); line-height: 1.8; }
+.door-detail { display: block; font: 7px var(--mono); letter-spacing: 1.3px; margin-top: 25px; color: #74776b; }
+.home-endnote { display: flex; justify-content: center; gap: 12px; align-items: center; font: italic 21px/1.7 var(--serif); color: #7d7669; padding: 38px 0 41px; }
+.mobile-break { display: none; }
+@media (max-width: 1100px) {
+  .home-hero { gap: 35px; padding-top: 59px; }
+  .hero-copy h1 { font-size: 76px; letter-spacing: -4.7px; }
+  .portal-art { height: 290px; }
+  .note-year { left: -8px; }
+  .portal-door { padding: 13px; }
+  .portal-door > div, .portal-door > div > div, .portal-door > div > div > div { padding: 13px; }
+  .note-hello { right: -5px; }
+  .mode-door { padding-left: 23px; padding-right: 23px; }
+  .door-subtitle { font-size: 16px; }
+}
+@media (max-width: 760px) {
+  .home-hero { display: flex; flex-direction: column; gap: 0; align-items: stretch; padding: 41px 0 42px; }
+  .home-kicker { font-size: 8px; letter-spacing: 1px; margin-bottom: 23px; }
+  .hero-copy h1 { font-size: clamp(60px, 14.5vw, 90px); letter-spacing: -3.8px; line-height: 1.01; }
+  .hero-copy h1 em { letter-spacing: -4px; }
+  .title-spark { margin-left: 23px; transform: translateY(-4px) rotate(14deg); }
+  .hero-intro { font-size: 12px; margin: 24px 0 22px; line-height: 1.9; }
+  .hero-copy .surprise-button { width: 100%; min-width: 0; min-height: 62px; padding: 12px 20px; }
+  .hero-footnote { font-size: 8px; text-align: center; margin-top: 14px; }
+  .unknown-window { width: min(470px, 100%); align-self: center; margin-top: 26px; padding: 40px 17px 40px 10px; }
+  .portal-art { height: 225px; }
+  .portal-door { width: 62%; left: 20%; }
+  .portal-door svg { width: 56px; height: 56px; margin-top: 15px; }
+  .portal-window .browser-frame__chrome { height: 30px; }
+  .portal-status { font-size: 8px; padding: 11px 13px; }
+  .portal-caption { font-size: 6px; left: 15px; top: 16px; }
+  .portal-cursor { width: 29px; height: 38px; bottom: 25px; right: 46px; }
+  .note-hello { top: 1px; right: 4px; padding: 8px 13px 10px; }
+  .note-hello > span { font-size: 6px; margin-bottom: 6px; padding-bottom: 6px; }
+  .note-hello strong { font-size: 21px; }
+  .note-hello i { font-size: 6px; margin-top: 6px; }
+  .note-year { bottom: 3px; left: 0; padding: 9px 15px; }
+  .note-year > span { font-size: 6px; }
+  .note-year strong { font-size: 17px; margin: 5px 0 7px; }
+  .note-year div { font-size: 6px; }
+  .portal-side-note { font-size: 6px; right: 0; }
+  .door-section-label { font-size: 10px; padding-bottom: 16px; }
+  .door-section-label > span:first-child { font-size: 8px; letter-spacing: .6px; }
+  .mode-doors { grid-template-columns: 1fr; padding: 0; }
+  .mode-door, .mode-door:first-child, .mode-door:last-child { position: relative; padding: 24px 0 24px 62px; }
+  .mode-door + .mode-door { border-left: 0; border-top: 1px solid var(--line); }
+  .door-top { margin: 0; }
+  .door-icon { position: absolute; left: 1px; top: 26px; width: 41px; height: 42px; }
+  .door-top > span:nth-child(2) { display: none; }
+  .door-arrow { position: absolute; right: 0; top: 27px; width: 18px; }
+  .mode-door h2 { font-size: 23px; }
+  .door-subtitle { font-size: 15px; margin: 4px 0 7px; }
+  .door-description { font-size: 11px; }
+  .door-detail { display: none; }
+  .home-endnote { font-size: 20px; line-height: 1.4; padding: 28px 0; gap: 15px; }
+  .mobile-break { display: block; }
+}

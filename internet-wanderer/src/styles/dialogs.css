@@ -1,0 +1,19 @@
+.recent-dialog { color: var(--color-ink); background: var(--color-paper); border: 1px solid var(--color-border); border-radius: 12px 0 0 12px; width: min(490px, 100%); max-width: 100%; max-height: 100dvh; height: 100dvh; margin: 0 0 0 auto; padding: 0; overflow: auto; box-shadow: -15px 0 70px #23231f14; }
+.recent-dialog::backdrop { background: #29282055; backdrop-filter: blur(5px); }
+.recent-content { padding: 31px; }
+.recent-content > header { display: flex; gap: 20px; align-items: center; justify-content: space-between; }
+.recent-content .eyebrow { font-size: 8px; letter-spacing: 1px; color: var(--color-muted); }
+.recent-content h2 { font-size: 27px; font-weight: 450; letter-spacing: -.5px; margin-top: 8px; }
+.recent-intro { font-size: 12px; line-height: 1.8; color: var(--color-muted); margin: 22px 0 25px; }
+.recent-list { list-style: none; margin: 0; padding: 0; }
+.recent-list li { display: flex; gap: 18px; border-top: 1px solid var(--color-border); padding: 15px 0; }
+.recent-index { font: 10px var(--mono); color: #9b9687; margin-top: 7px; }
+.recent-list button { text-align: left; color: inherit; background: transparent; padding: 0; min-height: 44px; }
+.recent-list strong { display: block; font-size: 15px; font-weight: 450; line-height: 1.5; }
+.recent-list button span { display: block; font: 9px/1.7 var(--mono); color: var(--color-muted); margin-top: 5px; }
+.recent-empty { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 80px 0; color: #817666; }
+.recent-empty p { font-size: 14px; line-height: 1.9; margin-top: 20px; }
+.recent-content > footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-top: 20px; border-top: 1px solid var(--color-border); color: var(--color-muted); }
+.recent-content > footer > span { font-size: 10px; line-height: 1.8; }
+.recent-content > footer button { font-size: 11px; text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 760px) { .recent-dialog { border-radius: 0; } .recent-content { padding: 24px; } }

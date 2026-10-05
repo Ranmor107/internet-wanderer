@@ -1,0 +1,41 @@
+.item-bottom { flex-wrap: wrap; }
+.save-bookmark { display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 10px 13px; min-height: 44px; border: 1px solid var(--line); border-radius: 5px; color: var(--muted); background: transparent; font-size: 12px; }
+.save-bookmark:hover, .save-bookmark[aria-pressed='true'] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.bookmarks-dialog { width: min(520px, 100%); }
+.bookmark-count { display: inline-grid; place-items: center; font: 12px var(--mono); color: #6e547f; background: #eee4f3; border-radius: 50%; min-width: 28px; min-height: 28px; padding: 4px; vertical-align: middle; margin-left: 9px; }
+.bookmark-intro { color: var(--color-muted); font-size: 13px; line-height: 1.9; margin: 22px 0 19px; }
+.bookmark-tools { display: flex; gap: 10px; margin-bottom: 23px; }
+.bookmark-tool { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 10px 16px; border: 1px solid #c5bfb2; border-radius: 5px; color: #5b574b; background: transparent; font-size: 12px; }
+.bookmark-tool:hover:not(:disabled) { background: #eee9df; }
+.bookmark-warning, .bookmark-error, .bookmark-notice { font-size: 12px; line-height: 1.8; padding: 12px 14px; margin: 0 0 18px; border-radius: 5px; overflow-wrap: anywhere; }
+.bookmark-warning { color: #775c24; background: #fbf0d8; border: 1px solid #dfca9b; }
+.bookmark-error { color: #894d3c; background: #f9eae4; border: 1px solid #ddbdaf; }
+.bookmark-notice { color: #4b653c; background: #eaf0dd; border: 1px solid #c0cfa6; }
+.import-preview { padding: 18px; background: #f0e9f5; border: 1px solid #cdbddb; border-radius: 6px; margin-bottom: 23px; }
+.import-preview h3 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+.import-preview p { font-size: 12px; color: #685477; line-height: 1.8; margin-bottom: 16px; }
+.import-preview .import-filename { font: 10px/1.6 var(--mono); color: #82718f; overflow-wrap: anywhere; margin-bottom: 10px; }
+.import-preview > div { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+.bookmark-import-confirm { background: #d9c5e8; color: #483156; padding: 11px 16px; min-height: 44px; border-radius: 4px; font-size: 12px; }
+.bookmark-list { display: flex; flex-direction: column; margin-bottom: 22px; }
+.bookmark-entry { border-top: 1px solid var(--color-border); padding: 14px 0 21px; overflow-wrap: anywhere; }
+.bookmark-entry-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: #867564; font-size: 10px; margin-bottom: 4px; }
+.bookmark-remove { display: flex; align-items: center; justify-content: center; background: transparent; color: #8b8477; border-radius: 50%; width: 44px; height: 44px; flex-shrink: 0; }
+.bookmark-remove:hover { color: #915138; background: #f6e5d7; }
+.bookmark-entry h3 { font-size: 20px; font-weight: 450; line-height: 1.4; letter-spacing: -.4px; margin-bottom: 8px; }
+.bookmark-domain { font: 10px/1.65 var(--mono); color: #857c6a; margin-bottom: 13px; }
+.bookmark-meta, .bookmark-source, .bookmark-snapshot, .bookmark-saved-date { color: var(--color-muted); font-size: 10px; line-height: 1.9; margin-bottom: 6px; }
+.bookmark-source { display: flex; gap: 12px; flex-wrap: wrap; }
+.bookmark-source a { text-decoration: underline; text-underline-offset: 3px; }
+.bookmark-source a:hover { color: #816095; }
+.bookmark-snapshot { color: #927744; margin-top: 11px; }
+.bookmark-open { display: inline-flex; align-items: center; gap: 11px; padding: 10px 14px; min-height: 44px; color: #463b51; background: #eee5f3; border-radius: 5px; font-size: 11px; margin: 11px 0; }
+.bookmark-open:hover { background: #e1d0ed; }
+.bookmark-saved-date { color: #918775; margin: 0; }
+.bookmark-entry .bookmark-warning { margin-top: 12px; }
+.bookmark-empty h3 { font-size: 18px; font-weight: 400; color: #77674e; margin-top: 20px; }
+.bookmarks-content > footer { gap: 8px; }
+.bookmarks-content > footer > span { font-size: 10px; line-height: 1.7; }
+.bookmark-feedback { position: fixed; z-index: 10; bottom: 25px; left: 50%; transform: translateX(-50%) translateY(12px); max-width: min(520px, calc(100% - 36px)); padding: 13px 19px; border: 1px solid #c3b8cd; border-radius: 6px; background: #f3edf8; color: #554361; box-shadow: 0 7px 30px #30213924; font-size: 12px; line-height: 1.7; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
+.bookmark-feedback.is-visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+@media (max-width: 760px) { .bookmark-tools { gap: 9px; } .bookmark-tool { flex: 1; padding: 10px 12px; } .bookmark-entry h3 { font-size: 19px; } }

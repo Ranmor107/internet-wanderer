@@ -1,0 +1,395 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "history-1999-http11",
+      "kind": "event",
+      "title": "HTTP/1.1 的一份重要说明书",
+      "url": "https://www.rfc-editor.org/info/rfc2616/",
+      "sourceId": "rfc-editor",
+      "blurb": "1999 年 6 月，RFC 2616 整理了 HTTP/1.1 的规则。打开原文，看看网页怎样向服务器要来一张页面。",
+      "language": "en",
+      "tags": [
+        "互联网史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 1999,
+        "role": "event"
+      },
+      "evidenceUrls": [
+        "https://www.rfc-editor.org/info/rfc2616/"
+      ]
+    },
+    {
+      "id": "history-1999-apache",
+      "kind": "event",
+      "title": "Apache 有了自己的基金会",
+      "url": "https://www.apache.org/history/",
+      "sourceId": "apache",
+      "blurb": "1999 年，Apache 软件基金会成立。这个由协作维护的 Web 服务器项目，开始有了更长久的组织。",
+      "language": "en",
+      "tags": [
+        "互联网史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 1999,
+        "role": "event"
+      },
+      "evidenceUrls": [
+        "https://www.apache.org/history/"
+      ]
+    },
+    {
+      "id": "history-1999-debian",
+      "kind": "event",
+      "title": "Debian 2.1「slink」发布",
+      "url": "https://chronicles.debian.org/www/News/1999/19990309",
+      "sourceId": "debian",
+      "blurb": "看看一份 1999 年的发行公告：用光盘安装操作系统，仍是网络生活的一部分。",
+      "language": "en",
+      "tags": [
+        "互联网史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 1999,
+        "role": "event",
+        "occurredOn": "1999-03-09"
+      },
+      "evidenceUrls": [
+        "https://chronicles.debian.org/www/News/1999/19990309"
+      ]
+    },
+    {
+      "id": "history-1999-html401",
+      "kind": "website",
+      "title": "翻开 HTML 4.01 的目录",
+      "url": "https://www.w3.org/TR/1999/REC-html401-19991224/",
+      "sourceId": "w3c",
+      "blurb": "这是 W3C 保留的 1999 年规范版本。表格、表单和框架，拼出了那个年代的网页工具箱。",
+      "language": "en",
+      "tags": [
+        "网页",
+        "技术"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 1999,
+        "role": "place"
+      },
+      "evidenceUrls": [
+        "https://www.w3.org/TR/1999/REC-html401-19991224/"
+      ]
+    },
+    {
+      "id": "history-1999-apod",
+      "kind": "website",
+      "title": "1999 年的一张宇宙明信片",
+      "url": "https://science.nasa.gov/image-article/apod-1999-october-02-phi-persei-double-star/",
+      "sourceId": "nasa-apod",
+      "blurb": "NASA 保留的 1999 年 10 月 2 日天文每日一图，讲述英仙座的一对恒星。页面采用今天的站点布局。",
+      "language": "en",
+      "tags": [
+        "太空",
+        "旧文章"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 1999,
+        "role": "place"
+      },
+      "evidenceUrls": [
+        "https://science.nasa.gov/image-article/apod-1999-october-02-phi-persei-double-star/"
+      ]
+    },
+    {
+      "id": "history-1999-yahoo",
+      "kind": "archive",
+      "title": "Yahoo!：目录里的互联网",
+      "url": "https://web.archive.org/web/19991010040012/http://www9.yahoo.com:80/",
+      "sourceId": "wayback",
+      "blurb": "在搜索框旁边，网站还被排进一层层目录。这是 1999 年保存的首页，不是今天的 Yahoo。",
+      "language": "en",
+      "tags": [
+        "互联网史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 1999,
+        "role": "archive"
+      },
+      "evidenceUrls": [
+        "https://archive.org/wayback/available?url=www.yahoo.com&timestamp=19991002",
+        "https://web.archive.org/web/19991010040012/http://www9.yahoo.com:80/"
+      ],
+      "archive": {
+        "originalUrl": "http://www9.yahoo.com:80/",
+        "capturedAt": "1999-10-10T04:00:12Z"
+      }
+    },
+    {
+      "id": "history-2007-iphone",
+      "kind": "event",
+      "title": "iPhone 首次登场",
+      "url": "https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/",
+      "sourceId": "apple",
+      "blurb": "回到发布公告里的 2007 年：手机、音乐播放器和互联网通信设备，被放进同一块屏幕。",
+      "language": "en",
+      "tags": [
+        "互联网史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2007,
+        "role": "event",
+        "occurredOn": "2007-01-09"
+      },
+      "evidenceUrls": [
+        "https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/"
+      ]
+    },
+    {
+      "id": "history-2007-android",
+      "kind": "event",
+      "title": "Android 与开放手机联盟",
+      "url": "https://www.openhandsetalliance.com/press_110507.html",
+      "sourceId": "open-handset-alliance",
+      "blurb": "2007 年 11 月，开放手机联盟宣布 Android 平台。读一读智能手机另一条路线的起点。",
+      "language": "en",
+      "tags": [
+        "互联网史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2007,
+        "role": "event",
+        "occurredOn": "2007-11-05"
+      },
+      "evidenceUrls": [
+        "https://www.openhandsetalliance.com/press_110507.html"
+      ]
+    },
+    {
+      "id": "history-2007-atom",
+      "kind": "website",
+      "title": "博客时代的发布协议",
+      "url": "https://www.rfc-editor.org/info/rfc5023/",
+      "sourceId": "rfc-editor",
+      "blurb": "2007 年的 Atom Publishing Protocol，试着让不同工具都能发布和编辑网络内容。原始技术文档仍可翻阅。",
+      "language": "en",
+      "tags": [
+        "博客",
+        "技术"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2007,
+        "role": "place"
+      },
+      "evidenceUrls": [
+        "https://www.rfc-editor.org/info/rfc5023/"
+      ]
+    },
+    {
+      "id": "history-2007-scratch",
+      "kind": "website",
+      "title": "Scratch：让故事变成程序",
+      "url": "https://www.scratchfoundation.org/home",
+      "sourceId": "scratch",
+      "blurb": "Scratch 在 2007 年由 MIT 媒体实验室团队推出。这里是项目今天的介绍入口，可以沿着积木式编程继续探索。",
+      "language": "en",
+      "tags": [
+        "创作",
+        "代码"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2007,
+        "role": "place"
+      },
+      "evidenceUrls": [
+        "https://www.scratchfoundation.org/home"
+      ]
+    },
+    {
+      "id": "history-2007-openstreetmap",
+      "kind": "website",
+      "title": "一张由大家一起画的地图",
+      "url": "https://www.openstreetmap.org/about",
+      "sourceId": "openstreetmap",
+      "blurb": "2007 年，OpenStreetMap 迎来 Potlatch 编辑器与首届 State of the Map。打开今天的地图，看看这条协作路线走到了哪里。",
+      "language": "en",
+      "tags": [
+        "地图",
+        "协作"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2007,
+        "role": "place"
+      },
+      "evidenceUrls": [
+        "https://wiki.openstreetmap.org/wiki/History_of_OpenStreetMap"
+      ]
+    },
+    {
+      "id": "history-2007-twitter",
+      "kind": "archive",
+      "title": "Twitter：What are you doing?",
+      "url": "https://web.archive.org/web/20071003073724/http://twitter.com:80/",
+      "sourceId": "wayback",
+      "blurb": "那时的首页用一句简单的问题邀请人们发短消息。进入 2007 年的页面快照，看看早期社交网络的样子。",
+      "language": "en",
+      "tags": [
+        "互联网史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2007,
+        "role": "archive"
+      },
+      "evidenceUrls": [
+        "https://archive.org/wayback/available?url=www.twitter.com&timestamp=20071002",
+        "https://web.archive.org/web/20071003073724/http://twitter.com:80/"
+      ],
+      "archive": {
+        "originalUrl": "http://twitter.com:80/",
+        "capturedAt": "2007-10-03T07:37:24Z"
+      }
+    },
+    {
+      "id": "history-2012-higgs",
+      "kind": "event",
+      "title": "一个新粒子的信号",
+      "url": "https://home.cern/science/physics/higgs-boson/",
+      "sourceId": "cern",
+      "blurb": "2012 年 7 月 4 日，CERN 的实验团队宣布发现一个新粒子。后续研究确认它是希格斯玻色子；这里解释这次发现意味着什么。",
+      "language": "en",
+      "tags": [
+        "科学",
+        "发现"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2012,
+        "role": "event",
+        "occurredOn": "2012-07-04"
+      },
+      "evidenceUrls": [
+        "https://home.cern/science/physics/higgs-boson/"
+      ]
+    },
+    {
+      "id": "history-2012-ipv6",
+      "kind": "event",
+      "title": "World IPv6 Launch",
+      "url": "https://www.worldipv6launch.org/",
+      "sourceId": "internet-society",
+      "blurb": "2012 年 6 月 6 日，参与者开始长期启用 IPv6。互联网地址的变化不太显眼，却发生在每天使用的网络底下。",
+      "language": "en",
+      "tags": [
+        "互联网史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2012,
+        "role": "event",
+        "occurredOn": "2012-06-06"
+      },
+      "evidenceUrls": [
+        "https://www.worldipv6launch.org/"
+      ]
+    },
+    {
+      "id": "history-2012-curiosity",
+      "kind": "event",
+      "title": "Curiosity 抵达火星",
+      "url": "https://science.nasa.gov/mission/msl-curiosity/",
+      "sourceId": "nasa-science",
+      "blurb": "2012 年 8 月 6 日，好奇号在火星着陆。NASA 的任务页面把当年的抵达与此后的探索连在一起。",
+      "language": "en",
+      "tags": [
+        "太空",
+        "探索"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2012,
+        "role": "event",
+        "occurredOn": "2012-08-06"
+      },
+      "evidenceUrls": [
+        "https://science.nasa.gov/mission/msl-curiosity/"
+      ]
+    },
+    {
+      "id": "history-2012-raspberrypi",
+      "kind": "website",
+      "title": "Raspberry Pi 的最初一批",
+      "url": "https://www.raspberrypi.com/news/the-raspberry-pi-launch/",
+      "sourceId": "raspberry-pi",
+      "blurb": "翻开 2012 年的官方文章，看看一块小电脑怎样邀请更多人动手编程和制作。",
+      "language": "en",
+      "tags": [
+        "创作",
+        "硬件"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2012,
+        "role": "place"
+      },
+      "evidenceUrls": [
+        "https://www.raspberrypi.com/news/the-raspberry-pi-launch/"
+      ]
+    },
+    {
+      "id": "history-2012-html5",
+      "kind": "website",
+      "title": "HTML5 走向新的网页",
+      "url": "https://www.w3.org/TR/2012/CR-html5-20121217/",
+      "sourceId": "w3c",
+      "blurb": "2012 年 12 月的候选推荐标准，记录了浏览器逐渐成为应用平台时的规则。这是保留的原始规范页面。",
+      "language": "en",
+      "tags": [
+        "网页",
+        "技术"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2012,
+        "role": "place"
+      },
+      "evidenceUrls": [
+        "https://www.w3.org/TR/2012/CR-html5-20121217/"
+      ]
+    },
+    {
+      "id": "history-2012-mozilla",
+      "kind": "archive",
+      "title": "Mozilla：开放网络的首页",
+      "url": "https://web.archive.org/web/20120329110124/http://www.mozilla.org/",
+      "sourceId": "wayback",
+      "blurb": "看看 2012 年的 Mozilla 怎样介绍自己的使命，以及浏览器之外正在探索的方向。",
+      "language": "en",
+      "tags": [
+        "互联网史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2012,
+        "role": "archive"
+      },
+      "evidenceUrls": [
+        "https://archive.org/wayback/available?url=www.mozilla.org&timestamp=20121002",
+        "https://web.archive.org/web/20120329110124/http://www.mozilla.org/"
+      ],
+      "archive": {
+        "originalUrl": "http://www.mozilla.org/",
+        "capturedAt": "2012-03-29T11:01:24Z"
+      }
+    }
+  ]
+}

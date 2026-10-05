@@ -1,0 +1,85 @@
+:root {
+  --motion-fast: 140ms;
+  --motion-enter: 380ms;
+  --motion-ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+@keyframes wander-page-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wander-result-in {
+  from { opacity: 0; transform: translateY(9px) scale(.992); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes wander-window-in {
+  from { opacity: 0; transform: translateY(16px) rotate(var(--portal-tilt, -3deg)) scale(.975); }
+  to { opacity: 1; transform: translateY(0) rotate(var(--portal-tilt, -3deg)) scale(1); }
+}
+
+.page-enter {
+  animation: wander-page-in var(--motion-enter) var(--motion-ease) backwards;
+}
+
+.result-enter {
+  animation: wander-result-in var(--experience-enter-duration, 230ms) var(--motion-ease) backwards;
+}
+
+.portal-window {
+  transform: rotate(var(--portal-tilt, -3deg));
+  transform-origin: center;
+  animation: wander-window-in 520ms var(--motion-ease) backwards;
+  transition: transform 240ms var(--motion-ease);
+}
+
+:where(button, [role='button'], .primary-button, .secondary-button, .next-button, .visit-button, .surprise-button) {
+  transition: transform var(--motion-fast) var(--motion-ease), opacity var(--motion-fast) ease;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  :where(button, [role='button'], .primary-button, .secondary-button, .next-button, .visit-button, .surprise-button):not(:disabled):hover {
+    transform: translateY(-1px);
+  }
+
+  .portal-window:hover {
+    transform: translateY(-3px) rotate(var(--portal-tilt, -3deg));
+  }
+}
+
+:where(button, [role='button'], .primary-button, .secondary-button, .next-button, .visit-button, .surprise-button):not(:disabled):active {
+  transform: translateY(1px) scale(.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .page-enter, .result-enter {
+    transform: none;
+  }
+
+  .portal-window,
+  .portal-window:hover {
+    transform: rotate(var(--portal-tilt, -3deg));
+  }
+
+  :where(button, [role='button'], .primary-button, .secondary-button, .next-button, .visit-button, .surprise-button):not(:disabled):active {
+    transform: none;
+  }
+}
+
+@keyframes wander-snap-in { from { opacity: .25; } to { opacity: 1; } }
+[data-motion='snap'] .result-enter, .page-enter[data-motion='snap'] { animation-name: wander-snap-in; animation-duration: 90ms; }
+.portal-door, .portal-door > div, .portal-door svg, .portal-cursor, .title-spark, .postcard-art > svg { transition: transform 260ms var(--motion-ease); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .home-hero:has(.surprise-button:hover) .portal-door, .home-hero:has(.surprise-button:focus-visible) .portal-door, .portal-link:hover .portal-door { transform: scale(1.045) translateY(-3px); }
+  .home-hero:has(.surprise-button:hover) .portal-door svg, .portal-link:hover .portal-door svg { transform: rotate(90deg) scale(1.15); }
+  .home-hero:has(.surprise-button:hover) .portal-cursor { transform: translate(-9px, -6px) rotate(4deg); }
+  .surprise-button:hover > svg:first-child { transform: rotate(-12deg); }
+  .item-card:hover .postcard-art > svg { transform: rotate(3deg) scale(1.035); }
+}

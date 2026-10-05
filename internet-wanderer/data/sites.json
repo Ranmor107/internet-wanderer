@@ -1,0 +1,425 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "site-radio-garden",
+      "kind": "website",
+      "title": "Radio Garden",
+      "url": "https://radio.garden/",
+      "sourceId": "radio-garden",
+      "blurb": "转动地球，停在一座陌生城市的电台。当地此刻的声音，比旅行攻略更直接。",
+      "language": "en",
+      "tags": [
+        "声音",
+        "地图"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-window-swap",
+      "kind": "website",
+      "title": "WindowSwap",
+      "url": "https://www.window-swap.com/",
+      "sourceId": "window-swap",
+      "blurb": "借一扇别人的窗，看看世界另一头的雨、阳光和街道。",
+      "language": "en",
+      "tags": [
+        "日常",
+        "慢下来"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-earth-nullschool",
+      "kind": "website",
+      "title": "earth :: 风的地图",
+      "url": "https://earth.nullschool.net/",
+      "sourceId": "earth-nullschool",
+      "blurb": "把地球的风画成流动的线，跟着一场海上的气旋慢慢转。",
+      "language": "en",
+      "tags": [
+        "地球",
+        "可视化"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-radiooooo",
+      "kind": "website",
+      "title": "Radiooooo",
+      "url": "https://app.radiooooo.com/",
+      "sourceId": "radiooooo",
+      "blurb": "选一个国家和一个年代，让音乐带路；部分收听功能可能需要登录。",
+      "language": "en",
+      "tags": [
+        "声音",
+        "年代"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-nicky-case",
+      "kind": "website",
+      "title": "Nicky Case",
+      "url": "https://ncase.me/",
+      "sourceId": "nicky-case",
+      "blurb": "用可玩的故事和小实验，摸一摸信任、群体和思考的运作方式。",
+      "language": "en",
+      "tags": [
+        "互动",
+        "故事"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-ciechanowski",
+      "kind": "website",
+      "title": "Bartosz Ciechanowski",
+      "url": "https://ciechanow.ski/",
+      "sourceId": "ciechanowski",
+      "blurb": "拖动图里的零件，让齿轮、光线和自行车自己解释物理。",
+      "language": "en",
+      "tags": [
+        "科学",
+        "互动"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-wiby",
+      "kind": "website",
+      "title": "Wiby",
+      "url": "https://wiby.me/",
+      "sourceId": "wiby",
+      "blurb": "一台偏爱简单网页的搜索引擎，通往那些还保留个人笔迹的小站。",
+      "language": "en",
+      "tags": [
+        "独立网络",
+        "发现"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-marginalia",
+      "kind": "website",
+      "title": "Marginalia Search",
+      "url": "https://marginalia-search.com/",
+      "sourceId": "marginalia",
+      "blurb": "沿着文字密集的网页，遇见主流搜索结果之外的个人兴趣。",
+      "language": "en",
+      "tags": [
+        "独立网络",
+        "发现"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-poolsuite",
+      "kind": "website",
+      "title": "Poolsuite",
+      "url": "https://poolsuite.net/",
+      "sourceId": "poolsuite",
+      "blurb": "打开一台像度假桌面一样的音乐播放器，给今天换点阳光。",
+      "language": "en",
+      "tags": [
+        "声音",
+        "复古"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-little-alchemy",
+      "kind": "website",
+      "title": "Little Alchemy 2",
+      "url": "https://littlealchemy2.com/",
+      "sourceId": "little-alchemy",
+      "blurb": "从几个基本元素出发，把看似无关的东西拖在一起试试。",
+      "language": "en",
+      "tags": [
+        "游戏",
+        "组合"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-music-for-programming",
+      "kind": "website",
+      "title": "Music for Programming",
+      "url": "https://musicforprogramming.net/",
+      "sourceId": "music-for-programming",
+      "blurb": "一份安静的长音轨目录，界面像终端，适合把注意力留给手边的事。",
+      "language": "en",
+      "tags": [
+        "声音",
+        "专注"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-patatap",
+      "kind": "website",
+      "title": "Patatap",
+      "url": "https://patatap.com/",
+      "sourceId": "patatap",
+      "blurb": "把键盘当成一件会画画的乐器；点击进入后再打开声音。",
+      "language": "en",
+      "tags": [
+        "声音",
+        "互动"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-mynoise",
+      "kind": "website",
+      "title": "myNoise",
+      "url": "https://mynoise.net/",
+      "sourceId": "mynoise",
+      "blurb": "滑动几个频段，把雨、风和背景声调成自己的小环境。",
+      "language": "en",
+      "tags": [
+        "声音",
+        "慢下来"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-soft-murmur",
+      "kind": "website",
+      "title": "A Soft Murmur",
+      "url": "https://asoftmurmur.com/",
+      "sourceId": "soft-murmur",
+      "blurb": "给雨声、雷声和咖啡馆声各一点音量，拼出一个可以歇脚的地方。",
+      "language": "en",
+      "tags": [
+        "声音",
+        "慢下来"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-zoomquilt",
+      "kind": "website",
+      "title": "Zoomquilt",
+      "url": "https://zoomquilt.org/",
+      "sourceId": "zoomquilt",
+      "blurb": "一幅不断向深处延伸的画。没有终点，也不用急着找答案。",
+      "language": "en",
+      "tags": [
+        "艺术",
+        "循环"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-pointer-pointer",
+      "kind": "website",
+      "title": "Pointer Pointer",
+      "url": "https://pointerpointer.com/",
+      "sourceId": "pointer-pointer",
+      "blurb": "把鼠标停在任意角落，等一张照片认真地指出你的位置。",
+      "language": "und",
+      "tags": [
+        "小惊喜",
+        "互动"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-mapcrunch",
+      "kind": "website",
+      "title": "MapCrunch",
+      "url": "https://www.mapcrunch.com/",
+      "sourceId": "mapcrunch",
+      "blurb": "落在一段随机街景里，先看看路，再决定自己可能身在何处。",
+      "language": "en",
+      "tags": [
+        "地图",
+        "漫游"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-stellarium",
+      "kind": "website",
+      "title": "Stellarium Web",
+      "url": "https://stellarium-web.org/",
+      "sourceId": "stellarium",
+      "blurb": "把浏览器变成小型天文馆，寻找此刻天空里的星座与行星。",
+      "language": "en",
+      "tags": [
+        "太空",
+        "地图"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-nasa-apod",
+      "kind": "website",
+      "title": "Astronomy Picture of the Day",
+      "url": "https://science.nasa.gov/apod/",
+      "sourceId": "nasa-apod",
+      "blurb": "从一张天文照片出发，把今天的视线借给遥远的宇宙。",
+      "language": "en",
+      "tags": [
+        "太空",
+        "影像"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-oimo",
+      "kind": "website",
+      "title": "oimo.io",
+      "url": "https://oimo.io/works",
+      "sourceId": "oimo",
+      "blurb": "一排浏览器里的物理与图形实验；挑一个，让鼠标进入画面。",
+      "language": "und",
+      "tags": [
+        "实验",
+        "互动"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-dwitter",
+      "kind": "website",
+      "title": "Dwitter",
+      "url": "https://www.dwitter.net/",
+      "sourceId": "dwitter",
+      "blurb": "一小段 JavaScript 可以变成什么？这里的动画把答案压缩在很短的代码里。",
+      "language": "en",
+      "tags": [
+        "代码",
+        "艺术"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-the-pudding",
+      "kind": "website",
+      "title": "The Pudding",
+      "url": "https://pudding.cool/",
+      "sourceId": "the-pudding",
+      "blurb": "让图形和交互慢慢讲故事，从流行文化走到平时忽略的社会细节。",
+      "language": "en",
+      "tags": [
+        "故事",
+        "可视化"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-public-domain-review",
+      "kind": "website",
+      "title": "The Public Domain Review",
+      "url": "https://publicdomainreview.org/",
+      "sourceId": "public-domain-review",
+      "blurb": "走进旧插图、奇书和影像组成的柜子，发现公共领域里的偏僻角落。",
+      "language": "en",
+      "tags": [
+        "档案",
+        "艺术"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-explorable-explanations",
+      "kind": "website",
+      "title": "Explorable Explanations",
+      "url": "https://explorabl.es/",
+      "sourceId": "explorable-explanations",
+      "blurb": "这里的解释可以亲手拨动；从一个小实验开始，理解一个大问题。",
+      "language": "en",
+      "tags": [
+        "科学",
+        "互动"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-webb-compare",
+      "kind": "website",
+      "title": "Webb Compare",
+      "url": "https://www.webbcompare.com/",
+      "sourceId": "webb-compare",
+      "blurb": "拖动分界线，对照韦布与哈勃望远镜看见的同一片宇宙。",
+      "language": "en",
+      "tags": [
+        "太空",
+        "影像"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-moon-one-pixel",
+      "kind": "website",
+      "title": "If the Moon Were Only 1 Pixel",
+      "url": "https://www.joshworth.com/dev/pixelspace/pixelspace_solarsystem.html",
+      "sourceId": "moon-one-pixel",
+      "blurb": "假如月亮只有一个像素，走到下一颗行星要滚动多久？",
+      "language": "en",
+      "tags": [
+        "太空",
+        "尺度"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-silk",
+      "kind": "website",
+      "title": "Silk",
+      "url": "https://weavesilk.com/",
+      "sourceId": "silk",
+      "blurb": "轻轻拖动画笔，让对称的彩色丝线自己长成一幅画。",
+      "language": "en",
+      "tags": [
+        "艺术",
+        "创作"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-sandspiel",
+      "kind": "website",
+      "title": "Sandspiel",
+      "url": "https://sandspiel.club/",
+      "sourceId": "sandspiel",
+      "blurb": "撒一点沙，加一点水，再让火与植物加入这个像素小世界。",
+      "language": "en",
+      "tags": [
+        "游戏",
+        "实验"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-thisissand",
+      "kind": "website",
+      "title": "Thisissand",
+      "url": "https://thisissand.com/",
+      "sourceId": "thisissand",
+      "blurb": "用彩色沙粒堆出山和天空。形状慢慢出现，不需要先想好画什么。",
+      "language": "en",
+      "tags": [
+        "艺术",
+        "创作"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "site-camerons-world",
+      "kind": "website",
+      "title": "Cameron's World",
+      "url": "https://www.cameronsworld.net/",
+      "sourceId": "camerons-world",
+      "blurb": "在由旧个人主页素材拼成的花园里，重逢闪烁的 GIF 与自由生长的网页。",
+      "language": "en",
+      "tags": [
+        "独立网络",
+        "复古"
+      ],
+      "enabled": true
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "global-voices",
+    "name": "Global Voices",
+    "kind": "rss",
+    "publisherType": "media",
+    "url": "https://globalvoices.org/",
+    "feedUrl": "https://globalvoices.org/feed/",
+    "publisherCountry": "荷兰 · 全球作者网络",
+    "language": "en",
+    "displayPolicy": "headline-only",
+    "termsUrl": "https://globalvoices.org/about/global-voices-attribution-policy/",
+    "checkedAt": "2026-10-02",
+    "enabled": true
+  },
+  {
+    "id": "nasa",
+    "name": "NASA",
+    "kind": "rss",
+    "publisherType": "institution",
+    "url": "https://www.nasa.gov/",
+    "feedUrl": "https://www.nasa.gov/feed/",
+    "publisherCountry": "美国",
+    "language": "en",
+    "displayPolicy": "headline-only",
+    "termsUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "checkedAt": "2026-10-02",
+    "enabled": true
+  },
+  {
+    "id": "ecb",
+    "name": "European Central Bank",
+    "kind": "rss",
+    "publisherType": "institution",
+    "url": "https://www.ecb.europa.eu/",
+    "feedUrl": "https://www.ecb.europa.eu/rss/press.html",
+    "publisherCountry": "德国 · 欧盟机构",
+    "language": "en",
+    "displayPolicy": "headline-only",
+    "termsUrl": "https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html",
+    "checkedAt": "2026-10-02",
+    "enabled": true
+  }
+]

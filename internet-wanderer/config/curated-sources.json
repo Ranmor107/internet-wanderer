@@ -1,0 +1,432 @@
+[
+  {
+    "id": "radio-garden",
+    "name": "Radio Garden",
+    "kind": "curated",
+    "url": "https://radio.garden/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "window-swap",
+    "name": "WindowSwap",
+    "kind": "curated",
+    "url": "https://www.window-swap.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "earth-nullschool",
+    "name": "earth :: 风的地图",
+    "kind": "curated",
+    "url": "https://earth.nullschool.net/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "radiooooo",
+    "name": "Radiooooo",
+    "kind": "curated",
+    "url": "https://app.radiooooo.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "nicky-case",
+    "name": "Nicky Case",
+    "kind": "curated",
+    "url": "https://ncase.me/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "ciechanowski",
+    "name": "Bartosz Ciechanowski",
+    "kind": "curated",
+    "url": "https://ciechanow.ski/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "wiby",
+    "name": "Wiby",
+    "kind": "curated",
+    "url": "https://wiby.me/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "marginalia",
+    "name": "Marginalia Search",
+    "kind": "curated",
+    "url": "https://marginalia-search.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "poolsuite",
+    "name": "Poolsuite",
+    "kind": "curated",
+    "url": "https://poolsuite.net/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "little-alchemy",
+    "name": "Little Alchemy 2",
+    "kind": "curated",
+    "url": "https://littlealchemy2.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "music-for-programming",
+    "name": "Music for Programming",
+    "kind": "curated",
+    "url": "https://musicforprogramming.net/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "patatap",
+    "name": "Patatap",
+    "kind": "curated",
+    "url": "https://patatap.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "mynoise",
+    "name": "myNoise",
+    "kind": "curated",
+    "url": "https://mynoise.net/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "soft-murmur",
+    "name": "A Soft Murmur",
+    "kind": "curated",
+    "url": "https://asoftmurmur.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "zoomquilt",
+    "name": "Zoomquilt",
+    "kind": "curated",
+    "url": "https://zoomquilt.org/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "pointer-pointer",
+    "name": "Pointer Pointer",
+    "kind": "curated",
+    "url": "https://pointerpointer.com/",
+    "language": "und",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "mapcrunch",
+    "name": "MapCrunch",
+    "kind": "curated",
+    "url": "https://www.mapcrunch.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "stellarium",
+    "name": "Stellarium Web",
+    "kind": "curated",
+    "url": "https://stellarium-web.org/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "nasa-apod",
+    "name": "Astronomy Picture of the Day",
+    "kind": "curated",
+    "url": "https://science.nasa.gov/apod/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "oimo",
+    "name": "oimo.io",
+    "kind": "curated",
+    "url": "https://oimo.io/works",
+    "language": "und",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "dwitter",
+    "name": "Dwitter",
+    "kind": "curated",
+    "url": "https://www.dwitter.net/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "the-pudding",
+    "name": "The Pudding",
+    "kind": "curated",
+    "url": "https://pudding.cool/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "public-domain-review",
+    "name": "The Public Domain Review",
+    "kind": "curated",
+    "url": "https://publicdomainreview.org/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "explorable-explanations",
+    "name": "Explorable Explanations",
+    "kind": "curated",
+    "url": "https://explorabl.es/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "webb-compare",
+    "name": "Webb Compare",
+    "kind": "curated",
+    "url": "https://www.webbcompare.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "moon-one-pixel",
+    "name": "If the Moon Were Only 1 Pixel",
+    "kind": "curated",
+    "url": "https://www.joshworth.com/dev/pixelspace/pixelspace_solarsystem.html",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "silk",
+    "name": "Silk",
+    "kind": "curated",
+    "url": "https://weavesilk.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "sandspiel",
+    "name": "Sandspiel",
+    "kind": "curated",
+    "url": "https://sandspiel.club/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "thisissand",
+    "name": "Thisissand",
+    "kind": "curated",
+    "url": "https://thisissand.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "camerons-world",
+    "name": "Cameron's World",
+    "kind": "curated",
+    "url": "https://www.cameronsworld.net/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "rfc-editor",
+    "name": "RFC Editor",
+    "kind": "reference",
+    "url": "https://www.rfc-editor.org/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "apache",
+    "name": "Apache Software Foundation",
+    "kind": "reference",
+    "url": "https://www.apache.org/history/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "debian",
+    "name": "Debian Chronicles",
+    "kind": "reference",
+    "url": "https://chronicles.debian.org/www/News/1999/19990309",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "w3c",
+    "name": "W3C",
+    "kind": "reference",
+    "url": "https://www.w3.org/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "wayback",
+    "name": "Internet Archive · Wayback Machine",
+    "kind": "archive",
+    "url": "https://web.archive.org/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "apple",
+    "name": "Apple Newsroom",
+    "kind": "reference",
+    "url": "https://www.apple.com/newsroom/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "open-handset-alliance",
+    "name": "Open Handset Alliance",
+    "kind": "reference",
+    "url": "https://www.openhandsetalliance.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "scratch",
+    "name": "Scratch Foundation",
+    "kind": "reference",
+    "url": "https://www.scratchfoundation.org/home",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "openstreetmap",
+    "name": "OpenStreetMap",
+    "kind": "reference",
+    "url": "https://www.openstreetmap.org/about",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "cern",
+    "name": "CERN",
+    "kind": "reference",
+    "url": "https://home.cern/science/physics/higgs-boson/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "internet-society",
+    "name": "Internet Society · World IPv6 Launch",
+    "kind": "reference",
+    "url": "https://www.worldipv6launch.org/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "nasa-science",
+    "name": "NASA Science",
+    "kind": "reference",
+    "url": "https://science.nasa.gov/mission/msl-curiosity/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  },
+  {
+    "id": "raspberry-pi",
+    "name": "Raspberry Pi",
+    "kind": "reference",
+    "url": "https://www.raspberrypi.com/news/the-raspberry-pi-launch/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-02T08:54:55Z"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "classic", "label": "The hyperlink years", "skin": "bevel", "font": "mono", "motion": "snap",
+    "caption": "LINKS ARE THE WAY", "connection": "DIRECTORY ERA", "note": "一个链接，再一个链接。", "windowLabel": "A little window into the hyperlink years",
+    "colors": { "accent": "#23468c", "accentInk": "#ffffff", "paper": "#ecebe5", "ink": "#292b28", "muted": "#686b61", "line": "#777972", "chrome": "#23468c", "chromeInk": "#ffffff" }
+  },
+  {
+    "id": "web2", "label": "The connected years", "skin": "glass", "font": "sans", "motion": "float",
+    "caption": "THE WEB IS OPENING UP", "connection": "CONNECTED ERA", "note": "世界开始连接，每个人都有一小块空间。", "windowLabel": "A little window into the connected years",
+    "colors": { "accent": "#d0e6ee", "accentInk": "#345969", "paper": "#fffdf7", "ink": "#292b28", "muted": "#686b61", "line": "#b0c7d0", "chrome": "#e2eff4", "chromeInk": "#345969" }
+  },
+  {
+    "id": "minimal", "label": "The always-online years", "skin": "flat", "font": "sans", "motion": "slide",
+    "caption": "THE BROWSER GOES EVERYWHERE", "connection": "ALWAYS-ONLINE ERA", "note": "一扇更轻的窗口，通向更大的世界。", "windowLabel": "A little window into the always-online years",
+    "colors": { "accent": "#ef895e", "accentInk": "#292b28", "paper": "#fffdf7", "ink": "#292b28", "muted": "#686b61", "line": "#d4d7d4", "chrome": "#f0f1ee", "chromeInk": "#686b61" }
+  }
+]
