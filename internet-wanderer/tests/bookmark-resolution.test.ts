@@ -8,13 +8,25 @@ const item: WanderItem = { id: 'saved', kind: 'news', title: 'A past story', url
 const bookmark: Bookmark = { id: item.id, savedAt: '2020-01-02T00:00:00Z', item, source: { id: 'example', name: 'Example source', url: 'https://example.org/' } };
 const source: ContentSource = { id: 'example', name: 'Example source', kind: 'rss', url: 'https://example.org/', displayPolicy: 'headline-only', enabled: true };
 
-test('an absent expired article keeps its saved link, date and attribution as a snapshot', () => {
+test('an absent historical article keeps its saved link, date and attribution as a snapshot', () => {
   const result = resolveBookmark(bookmark, new Map(), new Map(), Date.parse('2026-10-02T00:00:00Z'));
   assert.equal(result.status, 'snapshot');
   assert.equal(result.oldNews, true);
   assert.equal(result.item.author, 'An author');
   assert.equal(result.item.url, item.url);
   assert.equal(result.source?.name, 'Example source');
+});
+
+test('historical news in the catalog keeps its original date and language while labeled as old news', () => {
+  const historical = { ...item, publishedAt: '2000-01-01T00:00:00Z', language: 'ja', translator: 'A Translator' };
+  const saved = { ...bookmark, item: historical };
+  const result = resolveBookmark(saved, new Map([[historical.id, historical]]), new Map([[source.id, source]]), Date.parse('2026-10-02T00:00:00Z'));
+  assert.equal(result.status, 'current');
+  assert.equal(result.oldNews, true);
+  assert.equal(result.item.publishedAt, '2000-01-01T00:00:00Z');
+  assert.equal(result.item.language, 'ja');
+  assert.equal(result.item.translator, 'A Translator');
+  assert.equal(result.item.history, undefined);
 });
 
 test('current curated content wins over imported metadata sharing the same ID', () => {

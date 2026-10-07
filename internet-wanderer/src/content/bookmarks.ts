@@ -17,6 +17,6 @@ export function resolveBookmark(
     item,
     source,
     status: withdrawn ? 'withdrawn' as const : current ? 'current' as const : 'snapshot' as const,
-    oldNews: item.kind === 'news' && now - Date.parse(item.publishedAt) > SELECTION_RULES.newsMaxAgeMs,
+    oldNews: item.kind === 'news' && now - Date.parse(item.publishedAt) > SELECTION_RULES.newsRecentAgeMs,
   };
 }

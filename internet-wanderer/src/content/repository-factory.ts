@@ -24,11 +24,10 @@ export function createContentRepository(input: ContentBundle, runtime: ContentRu
     if (!item || !itemById.has(item.id) || item.enabled === false) return false;
     if (mode === 'news' && item.kind !== 'news') return false;
     if (mode === 'elsewhere' && (item.kind !== 'website' || item.history)) return false;
-    if (mode === 'time' && !item.history) return false;
+    if (mode === 'time' && (item.kind === 'news' || !item.history)) return false;
     if (item.kind !== 'news') return true;
     const age = now - Date.parse(item.publishedAt);
-    if (age < 0 || age > SELECTION_RULES.newsMaxAgeMs) return false;
-    return mode !== 'surprise' || isSourceFresh(item.sourceId, now);
+    return Number.isFinite(age) && age >= 0;
   }
   return { sources, sourceById, catalogItems, catalogItemById, allItems, itemById, years, newsSnapshot,
     websiteCount: allItems.filter(item => item.kind === 'website' && !item.history).length, canRestore, isSourceFresh };

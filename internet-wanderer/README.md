@@ -2,13 +2,17 @@
 
 **Get lost on the Internet again.** 一个可以随手出发的互联网漫游器：遇见陌生网站、读一则远处的资讯，或打开过去留下的网页。
 
-当前是 **0.3.1 UI Demo**：React + Vite + TypeScript，默认使用项目内的静态内容，无需真实 API 联调、数据库、账号或 API key。四个入口为 Surprise Me、Elsewhere、News Drift、Time Machine；已实现上一站／下一站、最多 20 条最近遇见，以及本机收藏和 JSON 备份导入／导出。
+当前是 **0.4.0（2026-10-07）**：React + Vite + TypeScript，默认读取项目内快照，可离线浏览已保存的多语言近期与历史新闻，无需账号、数据库服务或 API key。维护脚本在 Node.js 中采集官方接口；浏览器不会直接请求 RSS。四个入口为 Surprise Me、Elsewhere、News Drift、Time Machine；已实现上一站／下一站、最多 20 条最近遇见，以及本机收藏和 JSON 备份导入／导出。
 
 0.3.0 增加手机固定漫游操作栏、每页结果恢复和整组年份包返回，强化出发与到达反馈。Elsewhere 使用三种手工明信片，News Drift 使用报刊刊头与自适应长标题；年代配置同时控制字体、控件和入场节奏。
 
 界面采用暖白纸面、橙色出发按钮与可以交互的浏览器窗口。Elsewhere、News Drift 和三个精选年份各有自己的视觉主题，设计依据见 [UI_DIRECTION.md](UI_DIRECTION.md)。
 
-静态样本包含 **36 个精选网站、18 条历史内容（1999 / 2007 / 2012 各 6 条）、3 个来源的 32 条真实资讯记录**。0.3.1 新增 6 个经核验的非英语网站：中文 3 个（含繁体中文）、日语 2 个、西班牙语 1 个，覆盖文化、科普、地图与艺术。审核证据、语言切换和登录限制见 [非英语内容核验记录](docs/NON_ENGLISH_CONTENT_REVIEW.md)。新闻明确标为样本，保留原始发表时间；样本可供持续体验，不声称实时更新。外站只有在用户主动打开链接后才会访问。
+内容包含 **36 个精选网站、18 条历史切片（1999 / 2007 / 2012 各 6 条）**，以及保存于本地的新闻库。新闻接入 Global Voices 的英语、中文、日语、法语、西班牙语接口，加上 NASA 和 European Central Bank，共 7 个接口、3 个发布主体；保留可靠的原始发表时间、作者、译者及必要许可。历史新闻可以进入 News Drift 与 Surprise Me，不会自动变成 Time Machine 的年份切片。
+
+本轮实际保存 **2,243 条新闻记录**，发表时间覆盖 **2004～2026 年**：英语 724 条、简体中文 284 条、日语 393 条、法语 400 条、西班牙语 442 条。每年最多取 2 页，这是档案抽样而非全量数据库；各语言的起止日期与缺年情况见 [导入验收记录](docs/MULTILINGUAL_NEWS_ARCHIVES.md)。
+
+0.3.1 新增的 6 个非英语网站覆盖文化、科普、地图与艺术；审核证据、语言切换和登录限制见 [非英语内容核验记录](docs/NON_ENGLISH_CONTENT_REVIEW.md)。默认页面展示已保存的内容，不声称实时更新；外站只有在用户主动打开链接后才会访问。
 
 本项目尚未公开部署。GitHub Pages 工作流保留在仓库中，但没有在远程仓库执行。
 
@@ -42,11 +46,11 @@ npm run preview
 
 在本地 Codex 或 IDE 打开项目根目录，可用这段交接说明：
 
-> 请先阅读 README.md、UI_DIRECTION.md、ROADMAP.md 和 docs 下的来源记录，继续 Internet Wanderer 0.3.1 UI Demo。先验证本地启动、测试和构建，保留默认静态 Demo、现有收藏及署名规则。按路线图完善体验，暂不开展真实 API、数据库、RSS 或 Archive 自动接入。
+> 请先阅读 README.md、UI_DIRECTION.md、ROADMAP.md 和 docs 下的来源记录，继续 Internet Wanderer 0.4.0。先验证本地启动、测试和构建，保留默认本地快照、固定一键启动入口、现有收藏及原始日期与署名。新闻维护已有 data:refresh 和有界 data:backfill；新闻不限制发表年代，未来日期仍排除。按路线图完善体验，暂不增加浏览器运行时抓取、账号、数据库服务或 Wayback 自动接入。
 
 ## Demo 与 Live 内容模式
 
-默认 **Demo** 使用 `news.snapshot.json` 的 `generatedAt` 作为漫游参考时间，因此几个月后打开仍可体验同一批新闻样本。新闻真实发表时间、来源成功采集时间和收藏保存时间都不会被改写。页面会显示 Demo／样本说明。
+默认 **Demo** 使用 `news.snapshot.json` 的 `generatedAt` 作为漫游参考时间，因此以后打开仍可浏览同一份新闻库快照。新闻原始发表时间、来源成功采集时间和收藏保存时间分别记录，不会被改写。页面会说明新闻库的整理日期和静态展示边界。
 
 只需默认运行即可。也可在自己的 `.env.local` 中写入以下内容；这是配置示例，项目交付不需要创建这个文件：
 
@@ -69,17 +73,17 @@ npm run preview
 
 也可以把 `.env.local` 中的值改为 `live`，然后重启开发服务器或重新构建。PowerShell 可先执行 `$env:VITE_CONTENT_MODE="live"`，再运行对应 npm 命令。构建完成后，仅在 `preview` 命令前改变量不会改变已生成的模式。
 
-**Live 只切换时效判断，不会自动接入 API 或抓取新闻。** 它依然读取项目内快照：新闻超过 7 天就退出漫游池，来源超过 48 小时未成功更新就退出 Surprise Me 的新闻候选。全部新闻到期时显示空状态，其他模式仍可玩。
+**Live 只切换参考时钟，不会自动抓取新闻。** 它依然读取项目内快照；可靠且不在未来的新闻，无论发表年代，都可进入 News Drift 和 Surprise Me。来源超过 48 小时未成功更新只影响状态提示，不使已保存新闻退出漫游池。
 
-Demo 使用同样的时效规则，只把漫游与恢复的参考时间固定在样本生成时刻。收藏中的旧闻标记继续使用真实时间；收藏快照不会让过期新闻重新进入漫游池。
+Demo 使用相同的有效性规则，只把漫游与恢复的参考时间固定在快照生成时刻。7 天阈值仅用于标注历史新闻或收藏中的旧闻，标记使用真实时间，不表示条目不可选。导入收藏不会向新闻库添加内容，仅存在收藏里的快照不会进入漫游池。
 
 ## 本机收藏与备份
 
-内容卡可收藏／取消收藏，导航中的收藏入口可重新打开、移除、导出与导入。收藏保留内容及必要来源快照；原数据更新后优先显示当前条目，已下架条目不会通过旧副本重新开放。已到期或不再位于当前目录的新闻，可作为个人保存的旧快照查看，并保留原始日期和署名。
+内容卡可收藏／取消收藏，导航中的收藏入口可重新打开、移除、导出与导入。收藏保留内容及必要来源快照；原数据更新后优先显示当前条目，已下架条目不会通过旧副本重新开放。不再位于当前目录的新闻，可作为个人保存的旧快照查看，并保留原始日期、语言、作者、译者和许可。
 
 - 最多 **500 条**收藏；JSON 导入／导出均受 **1 MiB（UTF-8 字节数）**上限约束。
 - 导入先校验再合并，按稳定 ID 去重；同 ID 保留已有收藏，不覆盖原数据。无效或超限文件不会清空当前收藏。
-- 导入只接受合法 HTTP(S) 链接与规定的数据结构，不执行导入文件中的 HTML 或脚本。作者、许可和档案来源字段仍按内容规则保留。
+- 导入只接受合法 HTTP(S) 链接与规定的数据结构，不执行导入文件中的 HTML 或脚本。作者、译者、许可和档案来源字段仍按内容规则保留。
 - 浏览器存储不可用时仅暂存本次页面，并提示及时导出；检测到已损坏的旧收藏数据时不会自动覆写它。
 - 收藏存在当前浏览器，没有云端同步。迁移浏览器、清理站点数据或更换设备前，可先导出备份。
 
@@ -94,7 +98,8 @@ Demo 使用同样的时效规则，只把漫游与恢复的参考时间固定在
 | `npm run preview` | 在本机预览已构建页面 |
 | `npm run test:browser` | 对已构建页面运行 Playwright 浏览器测试 |
 | `npm run test:launcher` | Windows 双击入口、重复启动和依赖变化重启检查；测试前先关闭项目启动窗口 |
-| `npm run data:refresh` | 保留的 RSS 维护脚本；需要联网，运行 Demo 不需要 |
+| `npm run data:refresh` | 从官方接口更新并积累本地新闻库；需要联网，打开应用不需要 |
+| `npm run data:backfill -- --from=2004 --to=2026 --pages=2` | 按年有界补采历史新闻，每年最多 2 页；扩充已有库，不承诺全量 |
 
 浏览器测试准备步骤：
 
@@ -110,7 +115,9 @@ npm run test:browser
 PLAYWRIGHT_CHROMIUM_EXECUTABLE=/path/to/chromium npm run test:browser
 ```
 
-本轮构建通过，**55 项逻辑测试与 30 项浏览器测试全部通过**。验证范围包括连续漫游、刷新恢复、直接 hash 导航、浏览器前进／后退、整组年份包恢复、年份切换、足迹、收藏备份与异常输入、新闻署名、内容时钟和响应式界面。外站的音频、完整交互、Wayback 的所有图片／子链接，以及尚未部署的公开网址不属于离线验证范围。实际结果与截图见 [UI_DEMO_REVIEW.md](docs/UI_DEMO_REVIEW.md)。
+每轮交付须重新运行构建、离线逻辑测试、浏览器回归与一键启动生命周期验证。验证范围包括连续漫游、刷新恢复、历史新闻入池与未来日期排除、多语言署名和收藏备份、来源采集状态、内容时钟及响应式界面。外站的音频、完整交互、Wayback 的所有图片／子链接，以及尚未部署的公开网址不属于离线验证范围。早期 UI 验收结果与截图见 [UI_DEMO_REVIEW.md](docs/UI_DEMO_REVIEW.md)，不能代替当前版本的回归。
+
+0.4.0 本轮已通过数据校验、TypeScript 与生产构建、77 项逻辑测试、43 项浏览器测试及一键启动回归；启动器重复调用和依赖变化重启正常，测试结束后固定端口已释放。完整导入范围及验证边界见 [验收记录](docs/MULTILINGUAL_NEWS_ARCHIVES.md)。
 
 ## 项目结构与修改入口
 
@@ -129,32 +136,48 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE=/path/to/chromium npm run test:browser
 | `src/styles/motion.css` | 入场、换站与按钮反馈，支持减少动画偏好 |
 | `src/styles/home.css`、`wander.css`、`dialogs.css`、`about.css`、`bookmarks.css` | 按页面／组件拆分的局部样式；公共基础在 `base.css` |
 | `data/`、`config/` | 静态内容、来源、年份配置 |
-| `scripts/adapters/` | 保留的采集适配器；与当前视觉组件分离 |
+| `scripts/adapters/` | Node.js 新闻采集、规范化与历史库合并；与浏览器及视觉组件分离 |
 
 视觉修改先查看 [UI_DIRECTION.md](UI_DIRECTION.md)，增加年代或替换数据提供层，请阅读 [EXTENDING_THE_DEMO.md](docs/EXTENDING_THE_DEMO.md)。将来的 API 或数据提供层应继续输出统一条目，不把第三方原始响应、网络请求或采集规则塞进窗口和卡片组件。
 
 ## 内容、出处与真实边界
 
-`data/sites.json` 保存网站及原创中文介绍；`data/history.json` 保存事件、代表性去处和具体快照；`data/news.snapshot.json` 保存之前采集的真实新闻记录及来源状态。人工来源配置位于 `config/curated-sources.json`，RSS 配置位于 `config/rss-sources.json`，年份位于 `config/years.json`。
+`data/sites.json` 保存网站及原创中文介绍；`data/history.json` 保存事件、代表性去处和具体快照；`data/news.snapshot.json` 是积累近期及历史新闻记录的本地库，包含来源采集状态。人工来源配置位于 `config/curated-sources.json`，新闻接口配置位于 `config/rss-sources.json`，年份位于 `config/years.json`。
 
-三个新闻样本来源是 **Global Voices、NASA、European Central Bank**。Global Voices 是注册在荷兰的全球作者网络，NASA 和 ECB 属于机构资讯。样本主要为英语，来源所在地不等于报道发生地，也不代表全球新闻全貌。
+新闻发布主体为 **Global Voices、NASA、European Central Bank**。Global Voices 是注册在荷兰的全球作者网络，覆盖英语、中文、日语、法语和西班牙语；NASA 和 ECB 属于英语机构资讯。来源所在地不等于报道发生地，也不代表全球新闻全貌。
 
-只展示标题、原文链接、发表时间与必要署名，不转载全文、摘要或新闻图片。Global Voices 条目保留作者及 CC BY 3.0 链接。详见 [NEWS_SOURCES.md](docs/NEWS_SOURCES.md)和[CONTENT_AUDIT.md](docs/CONTENT_AUDIT.md)。记录中的核验日期不保证网站持续可用，也不构成对全部第三方素材的授权。
+只展示标题、原文链接、发表时间与必要署名，不转载全文、摘要或新闻图片。Global Voices 条目保留作者、明确标注的译者及 CC BY 3.0 链接；有已核实的原版链接时一并记录。未来日期、缺失可靠发表时间或必需署名的条目不会进入新闻库。详见 [NEWS_SOURCES.md](docs/NEWS_SOURCES.md)和[CONTENT_AUDIT.md](docs/CONTENT_AUDIT.md)。记录中的核验日期不保证网站持续可用，也不构成对全部第三方素材的授权。
 
-增加人工内容时保留稳定 `id` 和合法 `sourceId`，运行 `npm run data:validate`。历史事件必须有 `history` 与 `evidenceUrls`；档案必须有经过核实的原网址及真实捕获时间。不能猜测 Wayback 时间戳，也不能把当前网页的年份关联冒充当年的页面快照。可选 `author`／`licenseUrl` 承载署名；Global Voices 必须保留这两个字段。来源的 `publisherType` 区分新闻媒体和机构资讯。
+增加人工内容时保留稳定 `id` 和合法 `sourceId`，运行 `npm run data:validate`。Time Machine 的事件必须有 `history` 与 `evidenceUrls`；档案必须有经过核实的原网址及真实捕获时间。历史新闻保持 `kind=news` 和真实 `publishedAt`，不因年份较早就附加 `history`。不能猜测 Wayback 时间戳，也不能把当前网页的年份关联冒充当年的页面快照。`author`／`translator`／`licenseUrl` 承载署名；Global Voices 必须保留作者、必要译者与许可。来源的 `publisherType` 区分新闻媒体和机构资讯。
 
-## 保留的采集与部署能力
+## 新闻库维护与部署
 
-本轮优先完成可持续运行的 UI Demo。真实 API、数据库、RSS 联调和 Archive 自动接入留待后续，现有脚本及工作流保留，不是本地运行的前置条件。
+官方新闻接口已通过维护脚本接入本地快照；日常浏览和一键启动不依赖实时接口。浏览器运行时抓取、账号与数据库服务、Wayback 自动接入仍留待后续。公开部署也不是本地运行的前置条件。
 
-以后需要更新静态新闻样本时，可手动执行：
+需要更新近期内容时，可手动执行：
 
 ```sh
 npm run data:refresh
 npm run build
 ```
 
-采集按来源处理，最多每来源 15 条近 7 天新闻；单源失败保留上次成功批次与时间，有效空 feed 清空该源旧批次。浏览器从不直接请求 RSS。Node.js 24 环境确实使用系统代理时，才使用 `NODE_USE_ENV_PROXY=1 npm run data:refresh`；不使用代理的本机直接运行普通命令，并保留正常 TLS 校验。
+采集按来源处理，合并新条目与旧库，按稳定 ID 和规范化 URL 去重；刷新不会因旧新闻年代较早而删除它。合法空源保留已有内容，单源失败也保留已有记录与上次成功时间，同时记录本次采集状态。浏览器从不直接请求 RSS。
+
+需要扩充历史报道时，可执行按年有界补采：
+
+```sh
+npm run data:backfill -- --from=2004 --to=2026 --pages=2
+npm run data:validate
+npm run build
+```
+
+`--pages=2` 表示每个请求年份最多采集 2 页，不承诺覆盖该年份的全部报道。可用 `--source=global-voices-fr` 只重采一个来源，例如：
+
+```sh
+npm run data:backfill -- --from=2004 --to=2026 --pages=2 --source=global-voices-fr
+```
+
+补采继续合并到同一新闻库，不清空现有数据；只保留可靠且不在未来的发表日期和必需署名。原始发表时间、库生成时间、来源成功采集时间各有独立含义。Node.js 24 使用环境代理时，须先配置现有的 `HTTPS_PROXY`／`HTTP_PROXY`，再启用 `NODE_USE_ENV_PROXY=1`；具体示例见 [来源说明](docs/NEWS_SOURCES.md)。不使用代理的本机直接运行普通命令，并保留正常 TLS 校验。
 
 应用使用 HashRouter，路由类似 `/#/wander?mode=time&year=2007`。一般静态托管可发布整个 `dist/`。仓库子路径构建示例（Bash）：
 

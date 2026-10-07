@@ -1,7 +1,7 @@
 {
   "name": "internet-wanderer",
   "private": true,
-  "version": "0.3.1",
+  "version": "0.4.0",
   "type": "module",
   "engines": {
     "node": ">=22.12"
@@ -14,7 +14,8 @@
     "test:browser": "playwright test",
     "test:launcher": "node scripts/test-launcher.mjs",
     "data:validate": "node --import tsx scripts/validate-data.ts",
-    "data:refresh": "node --import tsx scripts/refresh-news.ts"
+    "data:refresh": "node --import tsx scripts/refresh-news.ts",
+    "data:backfill": "node --import tsx scripts/backfill-news.ts"
   },
   "dependencies": {
     "entities": "2.2.0",

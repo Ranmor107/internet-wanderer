@@ -16,12 +16,13 @@ const envelope = (bookmarks: unknown[]) => ({ app: 'internet-wanderer', schemaVe
 test('round-trip preserves websites, events, archives, news and attribution exactly', () => {
   const event: WanderItem = { ...site('event'), kind: 'event', history: { year: 2007, occurredOn: '2007-01-09', role: 'event' }, evidenceUrls: ['https://example.org/evidence'] };
   const archive: WanderItem = { ...site('archive'), kind: 'archive', history: { year: 1999, role: 'archive' }, archive: { originalUrl: 'http://original.example.org/', capturedAt: '1999-12-31T23:59:59+00:00' } };
-  const news: WanderItem = { ...site('news'), kind: 'news', sourceId: 'global-voices', url: 'https://globalvoices.org/2020/story/', publishedAt: '2020-01-01T10:00:00+02:00', author: '  Original Author  ', licenseUrl: 'https://creativecommons.org/licenses/by/3.0/', language: 'en' };
-  const publisher = { id: 'global-voices', name: 'Global Voices', url: 'https://globalvoices.org/', publisherCountry: '荷兰 · 全球作者网络', publisherType: 'media' as const, termsUrl: 'https://globalvoices.org/terms/' };
+  const news: WanderItem = { ...site('news'), kind: 'news', sourceId: 'global-voices-zh', url: 'https://zhs.globalvoices.org/2020/story/', publishedAt: '2020-01-01T10:00:00+02:00', author: '  Original Author  ', translator: '原文译者、简中译者', licenseUrl: 'https://creativecommons.org/licenses/by/3.0/', language: 'zh-CN' };
+  const publisher = { id: 'global-voices-zh', name: 'Global Voices · 简体中文', url: 'https://zhs.globalvoices.org/', publisherCountry: '荷兰 · 全球作者网络', publisherType: 'media' as const, termsUrl: 'https://globalvoices.org/terms/' };
   const bookmarks = [saved(), makeBookmark(event, source, NOW), makeBookmark(archive, source, NOW), makeBookmark(news, publisher, NOW)];
   assert.deepEqual(parseBookmarkFile(serializeBookmarks(bookmarks, NOW)), bookmarks);
   assert.equal(bookmarks[0].item.title, site().title);
   assert.equal(bookmarks[3].item.author, news.author);
+  assert.equal(bookmarks[3].item.translator, news.translator);
   assert.equal(bookmarks[3].item.publishedAt, '2020-01-01T10:00:00+02:00');
   assert.deepEqual(bookmarks[3].source, publisher);
   const exactUrls = makeBookmark({ ...site('exact'), url: 'HTTPS://EXAMPLE.ORG', licenseUrl: 'https://license.example', evidenceUrls: ['https://evidence.example'] }, source, NOW);
@@ -94,6 +95,7 @@ test('Global Voices attribution is mandatory even with another source ID', () =>
   assert.throws(() => makeBookmark(item, undefined, NOW), /作者和许可/);
   assert.throws(() => makeBookmark({ ...item, author: '   ', licenseUrl: 'https://creativecommons.org/licenses/by/3.0/' }, undefined, NOW), /作者和许可/);
   assert.throws(() => makeBookmark({ ...item, sourceId: 'other', url: 'https://zh.globalvoices.org/story/' }, undefined, NOW), /作者和许可/);
+  assert.throws(() => makeBookmark({ ...item, sourceId: 'global-voices-fr', url: 'https://fr.globalvoices.org/story/', author: 'Someone', licenseUrl: 'https://example.org/license' }, undefined, NOW), /作者和许可/);
   assert.doesNotThrow(() => makeBookmark({ ...item, author: 'Someone', licenseUrl: 'https://creativecommons.org/licenses/by/3.0/' }, undefined, NOW));
 });
 

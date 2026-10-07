@@ -41,7 +41,7 @@ test('replacing the provider applies its own sources, clock and enabled flags', 
   assert.equal(demo.canRestore(demo.itemById.get('news'), 'news'), true);
   assert.equal(demo.canRestore(demo.itemById.get('news'), 'elsewhere'), false);
   const live = createContentRepository(loaded, createContentRuntime('live', now, () => Date.parse(now) + 8 * 86400000));
-  assert.equal(live.canRestore(live.itemById.get('news'), 'news'), false);
+  assert.equal(live.canRestore(live.itemById.get('news'), 'news'), true);
   const disabled = createContentRepository({ ...loaded, sources: [{ ...loaded.sources[0]!, enabled: false }] }, createContentRuntime('demo', now));
   assert.equal(disabled.allItems.length, 0);
 });

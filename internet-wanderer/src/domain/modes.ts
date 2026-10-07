@@ -11,7 +11,7 @@ export const MODE_LABELS: Record<Mode, string> = {
 
 export const SELECTION_RULES = {
   recentWindow: 20,
-  newsMaxAgeMs: 7 * 24 * 60 * 60 * 1000,
+  newsRecentAgeMs: 7 * 24 * 60 * 60 * 1000,
   sourceFreshnessMs: 48 * 60 * 60 * 1000,
   yearPackSize: 3,
 } as const;

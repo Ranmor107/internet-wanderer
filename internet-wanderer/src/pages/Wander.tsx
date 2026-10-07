@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight, Asterisk, Clock3, History, Shuffle, Sparkles } from 'lucide-react';
 import { useWander } from '../app/use-wander';
 import ItemCard from '../components/ItemCard';
-import { formatDate, domainName } from '../content/format';
+import { formatDate, domainName, languageName } from '../content/format';
 import { useContent } from '../app/content-context';
 import { getExperienceTheme, themeStyle } from '../ui/themes';
 import JourneyControls from '../components/JourneyControls';
@@ -19,7 +19,8 @@ const titles: Record<Mode, string> = { elsewhere: 'Hello, somewhere else.', news
 
 export default function Wander({ openRecent }: { openRecent: () => void }) {
   const { mode, year, yearInfo, journey, presentation, previous, previousDisabled, visibleItems, primary, next, changeYear } = useWander();
-  const { repository: { years }, runtime: contentRuntime } = useContent();
+  const { repository: { years, sources, newsSnapshot }, runtime: contentRuntime } = useContent();
+  const newsSources = sources.filter((source) => source.enabled && Object.hasOwn(newsSnapshot.sourceStates, source.id));
   const result = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!presentation.sequence || !result.current) return;
@@ -36,7 +37,7 @@ export default function Wander({ openRecent }: { openRecent: () => void }) {
     <header className="wander-heading"><div><span className="eyebrow"><i /> {MODE_LABELS[mode].toUpperCase()} / KEEP WANDERING</span><h1>{titles[mode]}</h1><p>{descriptions[mode]}</p></div><button className="text-button recent-toggle" onClick={openRecent}><History size={16} />最近遇见<span>{journey.entries.length}</span></button></header>
     {mode === 'time' && <section className="year-control" aria-label="选择年份"><span className="timeline-label">SET YOUR COORDINATES</span><div className="year-buttons">{years.map((option) => <Link key={option.year} to={`/wander?mode=time&year=${option.year}`} className={option.year === year ? 'selected' : ''} aria-current={option.year === year ? 'date' : undefined}>{option.year}</Link>)}</div><button className="text-button" onClick={changeYear}><Shuffle size={15} />随机年份</button></section>}
     {mode === 'time' && yearInfo && <div className="year-intro"><div className="giant-year">{year}</div><div><span className="eyebrow">{theme.caption ?? 'YOU ARE VISITING THE PAST'}</span><h2>{yearInfo.title.replace(/^\d+ · /, '')}</h2><p>{yearInfo.description}</p><div className="era-memento"><span>{theme.connection}</span><i>{theme.note}</i></div></div><span className="year-sticker" aria-hidden="true">wish you<br />were here <ArrowUpRight size={20} /></span></div>}
-    {contentRuntime.isDemo && (mode === 'news' || primary?.kind === 'news') && <p className="demo-note" data-testid="news-sample-note"><span>SAMPLE EDITION</span> 静态新闻样本 · {contentRuntime.snapshotDate ? formatDate(contentRuntime.snapshotDate) : '日期未记录'}，保留原始发表时间。</p>}
+    {contentRuntime.isDemo && (mode === 'news' || primary?.kind === 'news') && <p className="demo-note" data-testid="news-sample-note"><span>SAVED EDITION</span> 已保存的多语言新闻库 · {contentRuntime.snapshotDate ? `整理于 ${formatDate(contentRuntime.snapshotDate)}` : '整理日期未记录'}。涵盖近期与历史新闻，保留原始发表时间，不实时更新。</p>}
     {primary ? <>
       <p className="arrival-note" role="status" aria-live="polite" data-testid="arrival-note"><span>{presentation.isNew ? '↳ JUST LANDED' : '↶ BACK TO THIS WINDOW'}</span><b>{domainName(primary.url)}</b>{primary.history && <i>{primary.history.year}</i>}</p>
       <div ref={result} className="result-anchor" />
@@ -46,7 +47,7 @@ export default function Wander({ openRecent }: { openRecent: () => void }) {
       </div>
       {mode === 'time' && <div className="time-actions"><JourneyControls item={primary} next={next} previous={previous} previousDisabled={previousDisabled} time /><button className="secondary-button" onClick={changeYear}><Shuffle size={17} />换个年份</button></div>}
       <div className="journey-bottom"><span>{presentation.note ?? (mode === 'time' ? '事件日期与网页保存日期，分别记录。' : 'YOU DON’T HAVE TO KNOW WHERE YOU’RE GOING.')}</span></div>
-    </> : <section className="empty-state" aria-live="polite"><Sparkles size={38} strokeWidth={1} /><h2>{mode === 'news' ? '新闻正在下一班途中。' : mode === 'time' ? '这个年份，还没有留下足够的线索。' : '这个角落暂时安静。'}</h2><p>{mode === 'news' ? '暂时没有近七天内可用的消息。先去别处转转，或稍后再来。' : '换一个方向，继续你的旅程。'}</p><div><Link className="next-button" to="/wander?mode=elsewhere">去 Elsewhere</Link><button className="secondary-button" onClick={mode === 'time' ? changeYear : next}>再试一次</button></div></section>}
-    {mode === 'news' && <p className="coverage-note">Global Voices · NASA · 欧洲央行 / 英语报道与机构资讯。一次偶遇，不代表世界的全貌。</p>}
+    </> : <section className="empty-state" aria-live="polite"><Sparkles size={38} strokeWidth={1} /><h2>{mode === 'news' ? '新闻正在下一班途中。' : mode === 'time' ? '这个年份，还没有留下足够的线索。' : '这个角落暂时安静。'}</h2><p>{mode === 'news' ? '新闻库暂时没有可用条目。先去别处转转，或稍后再来。' : '换一个方向，继续你的旅程。'}</p><div><Link className="next-button" to="/wander?mode=elsewhere">去 Elsewhere</Link><button className="secondary-button" onClick={mode === 'time' ? changeYear : next}>再试一次</button></div></section>}
+    {mode === 'news' && <p className="coverage-note">{newsSources.map((source) => `${source.name}（${languageName(source.language)}）`).join(' · ') || '来源尚未完成采集'} / 近期与历史新闻。一次偶遇，不代表世界的全貌。</p>}
   </main>;
 }

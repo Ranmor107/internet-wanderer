@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { isoDateTimeSchema, wanderItemSchema, type WanderItem } from './item-schema';
+import { GLOBAL_VOICES_LICENSE, isGlobalVoices } from './news-attribution';
 
 export const MAX_BOOKMARKS = 500;
 export const MAX_IMPORT_BYTES = 1024 * 1024;
@@ -55,7 +56,7 @@ const bookmarkItemSchema = z.unknown().transform((input, ctx): WanderItem => {
 }).superRefine((item, ctx) => {
   const boundedStrings: Array<[string, string | undefined, number]> = [
     ['id', item.id, 512], ['sourceId', item.sourceId, 512], ['title', item.title, 2000],
-    ['author', item.author, 1000], ['blurb', item.blurb, 8000], ['language', item.language, 64],
+    ['author', item.author, 1000], ['translator', item.translator, 1000], ['blurb', item.blurb, 8000], ['language', item.language, 64],
     ['publishedAt', item.publishedAt, 64],
   ];
   for (const [field, value, max] of boundedStrings) {
@@ -77,9 +78,7 @@ const bookmarkItemSchema = z.unknown().transform((input, ctx): WanderItem => {
     ctx.addIssue({ code: 'custom', path: ['evidenceUrls'], message: '最多允许 30 个参考链接' });
   }
   if (item.archive && item.archive.capturedAt.length > 64) ctx.addIssue({ code: 'custom', path: ['archive', 'capturedAt'], message: '时间字段最长允许 64 个字符' });
-  const host = new URL(item.url).hostname.toLowerCase();
-  const isGlobalVoices = item.sourceId === 'global-voices' || host === 'globalvoices.org' || host.endsWith('.globalvoices.org');
-  if (isGlobalVoices && (!item.author?.trim() || !item.licenseUrl)) {
+  if (isGlobalVoices(item.sourceId, item.url) && (!item.author?.trim() || item.licenseUrl !== GLOBAL_VOICES_LICENSE)) {
     ctx.addIssue({ code: 'custom', message: 'Global Voices 收藏必须保留作者和许可链接' });
   }
 });

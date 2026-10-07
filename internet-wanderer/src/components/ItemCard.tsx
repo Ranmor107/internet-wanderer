@@ -2,6 +2,7 @@ import { Bookmark, BookmarkCheck, ExternalLink, Globe2, Newspaper, Clock3, ScanL
 import { useBookmarks } from '../app/bookmarks-context';
 import BrowserFrame from './BrowserFrame';
 import type { WanderItem } from '../domain/item-schema';
+import { SELECTION_RULES } from '../domain/modes';
 import { domainName, formatDate, languageName } from '../content/format';
 import { useContent } from '../app/content-context';
 import ElsewherePostcard from './experiences/ElsewherePostcard';
@@ -19,6 +20,7 @@ export default function ItemCard({ item, compact = false, index = 0 }: { item: W
   const Icon = kindIcons[item.kind];
   const mode = item.history ? 'time' : item.kind === 'news' ? 'news' : 'elsewhere';
   const stale = item.kind === 'news' && !isSourceFresh(item.sourceId);
+  const historical = item.kind === 'news' && Date.now() - Date.parse(item.publishedAt) > SELECTION_RULES.newsRecentAgeMs;
   const lastUpdated = newsSnapshot.sourceStates[item.sourceId]?.lastSuccessAt;
   return <article className={`item-card ${compact ? 'item-card--compact' : ''} kind-${item.kind}`} data-testid="wander-card">
     <BrowserFrame theme={getExperienceTheme(mode, item.history?.year, years)} mode={mode} year={item.history?.year} address={domainName(item.url)} label={item.history ? `${item.history.year} / fragment ${String(index + 1).padStart(2, '0')}` : item.kind === 'news' ? 'the other side of the story' : 'a small corner of a very big web'}>
@@ -26,14 +28,15 @@ export default function ItemCard({ item, compact = false, index = 0 }: { item: W
       {item.kind === 'news' && <NewsMasthead source={source} language={item.language} />}
       {item.history && <div className="fragment-ribbon"><span>FRAGMENT {String(index + 1).padStart(2, '0')}</span><b>{({ event: '当年发生', place: '当年去处', archive: '网页存档' } as const)[item.history.role ?? (item.kind === 'archive' ? 'archive' : item.kind === 'event' ? 'event' : 'place')]}</b></div>}
       <div className="item-body">
-        <div className="item-eyebrow"><Icon size={15} strokeWidth={1.6} /><span>{kindNames[item.kind]}</span>{item.history && <span className="year-tag">{item.history.year}</span>}{item.kind === 'news' && <span className="news-edition">{contentRuntime.isDemo ? 'SAMPLE EDITION' : 'NEWS DRIFT'}</span>}</div>
+        <div className="item-eyebrow"><Icon size={15} strokeWidth={1.6} /><span>{kindNames[item.kind]}</span>{item.history && <span className="year-tag">{item.history.year}</span>}{item.kind === 'news' && <span className="news-edition">{historical ? '历史新闻' : contentRuntime.isDemo ? 'SAMPLE EDITION' : 'NEWS DRIFT'}</span>}</div>
         <h2 className={item.kind === 'news' && item.title.length > 95 ? 'headline-long' : undefined} lang={item.language}>{item.title}</h2>
         {item.blurb && <p className="item-description">{item.blurb}</p>}
         {item.kind === 'news' && <div className="news-context">
           <p>{source?.publisherType === 'institution' ? '机构资讯' : '新闻报道'} · {source?.publisherCountry ?? '地区未标注'} · {languageName(item.language)}</p>
           <p>发表于 {formatDate(item.publishedAt, true)}</p>
           {item.author && <p>作者：{item.author}</p>}
-          {stale && <p className="snapshot-note">旧快照 · {lastUpdated ? `上次更新 ${formatDate(lastUpdated, true)}` : '更新时间未知'}</p>}
+          {item.translator && <p>译者：{item.translator}</p>}
+          {stale && <p className="snapshot-note">保存版本 · {lastUpdated ? `上次采集 ${formatDate(lastUpdated, true)}` : '采集时间未记录'}</p>}
         </div>}
         {item.history?.occurredOn && <p className="date-note">事件日期 · {item.history.occurredOn}</p>}
         {item.archive && <div className="archive-context"><p>保存于 {formatDate(item.archive.capturedAt, true)}</p><p>网页可能缺少图片或部分链接。<a href={item.archive.originalUrl} target="_blank" rel="noopener noreferrer">查看原网址</a></p></div>}

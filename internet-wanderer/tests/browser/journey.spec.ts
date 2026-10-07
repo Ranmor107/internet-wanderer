@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
 import newsSnapshot from '../../data/news.snapshot.json' with { type: 'json' };
 import sites from '../../data/sites.json' with { type: 'json' };
+import { newsSnapshotSchema, type WanderItem } from '../../src/domain/item-schema';
 
 const nonEnglishSites = sites.items.filter((item) => item.enabled !== false && item.language !== 'en' && item.language !== 'und');
 const languageLabels: Record<string, string> = { zh: '中文', 'zh-Hant': '中文（繁体）', ja: '日语', es: '西班牙语' };
@@ -149,14 +150,14 @@ test('news keeps author, publication date and licensing attribution', async ({ p
   await expect(card.getByText(/^发表于/)).toBeVisible();
 });
 
-test('Demo news remains browsable in the future and clearly identifies its dated sample', async ({ page }) => {
+test('saved news remains browsable in the future and identifies its collection date', async ({ page }) => {
   await page.clock.setFixedTime(new Date('2099-01-01T00:00:00.000Z'));
   await page.goto('/#/wander?mode=news');
   await expect(page.getByTestId('wander-card')).toHaveCount(1);
   await expect(page.getByTestId('wander-card')).toHaveClass(/kind-news/);
   const note = page.getByTestId('news-sample-note');
   await expect(note).toHaveCount(1);
-  await expect(note).toContainText('样本');
+  await expect(note).toContainText('新闻库');
   const [year, month, day] = newsSnapshot.generatedAt!.slice(0, 10).split('-').map(Number);
   await expect(note).toContainText(new RegExp(`${year}\\D+0?${month}\\D+0?${day}`));
   const first = await page.getByTestId('wander-card').getByRole('heading').innerText();
@@ -164,7 +165,61 @@ test('Demo news remains browsable in the future and clearly identifies its dated
   await expect(page.getByTestId('wander-card').getByRole('heading')).not.toHaveText(first);
   await page.reload();
   await expect(page.getByTestId('wander-card')).toHaveCount(1);
-  await expect(page.getByTestId('news-sample-note')).toContainText('样本');
+  await expect(page.getByTestId('news-sample-note')).toContainText('新闻库');
+  await page.goto('/#/about');
+  await expect(page.getByText(`本地新闻库已保存 ${newsSnapshot.items.length} 条记录。`, { exact: false })).toBeVisible();
+  await expect(page.locator('.about-sources > div')).toHaveCount(Object.keys(newsSnapshot.sourceStates).length);
+});
+
+for (const [language, label] of [['en', '英语'], ['zh-CN', '中文'], ['ja', '日语'], ['fr', '法语'], ['es', '西班牙语']] as const) {
+  test(`historical ${language} news preserves its publication date and attribution after saving`, async ({ page }, testInfo) => {
+    const item = newsSnapshotSchema.parse(newsSnapshot).items
+      .filter((entry): entry is Extract<WanderItem, { kind: 'news' }> => entry.kind === 'news' && entry.language === language && Date.parse(entry.publishedAt) < Date.parse('2016-01-01T00:00:00Z'))
+      .sort((a, b) => Date.parse(a.publishedAt) - Date.parse(b.publishedAt))[0]!;
+    expect(item, `The saved news library needs a historical ${language} report`).toBeDefined();
+    await page.addInitScript((id) => localStorage.setItem('internet-wanderer:journey:v1', JSON.stringify({ version: 1, entries: [], currentId: id, currentMode: 'news' })), item.id);
+    await page.goto('/#/wander?mode=news');
+    const card = page.getByTestId('wander-card');
+    await expect(card.getByRole('heading')).toHaveText(item.title);
+    await expect(card.getByRole('heading')).toHaveAttribute('lang', language);
+    await expect(card.getByText('历史新闻', { exact: true })).toBeVisible();
+    await expect(card.locator('.news-context')).toContainText(label);
+    const publishedDate = await page.evaluate((value) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(value)), item.publishedAt);
+    await expect(card.getByText(/^发表于/)).toContainText(publishedDate);
+    if (item.author) await expect(card.getByText(`作者：${item.author}`, { exact: true })).toBeVisible();
+    if (item.translator) await expect(card.getByText(`译者：${item.translator}`, { exact: true })).toBeVisible();
+    if (item.licenseUrl) await expect(card.getByRole('link', { name: 'CC BY 3.0', exact: true })).toHaveAttribute('href', item.licenseUrl);
+    await expect(card.getByRole('link', { name: `打开这一站：${item.title}`, exact: true })).toHaveAttribute('href', item.url);
+    await expect(page.locator('main')).toHaveAttribute('data-experience', 'news');
+    await expect(page.locator('main')).toHaveAttribute('data-era', 'modern');
+    await page.screenshot({ path: testInfo.outputPath(`historical-news-${language}.png`), fullPage: true, animations: 'disabled' });
+    await card.getByRole('button', { name: `收藏：${item.title}`, exact: true }).click();
+    await page.reload();
+    await expect(card.getByRole('button', { name: `取消收藏：${item.title}`, exact: true })).toHaveAttribute('aria-pressed', 'true');
+    await page.getByRole('button', { name: '打开收藏', exact: true }).click();
+    const entry = page.getByRole('dialog', { name: '我的收藏', exact: true }).getByTestId('bookmark-entry');
+    await expect(entry).toHaveCount(1);
+    await expect(entry.getByRole('heading')).toHaveText(item.title);
+    await expect(entry).toContainText('已收藏的旧闻');
+    await expect(entry.getByText(/^发表于/)).toContainText(publishedDate);
+    if (item.author) await expect(entry.getByText(`作者：${item.author}`, { exact: true })).toBeVisible();
+    if (item.translator) await expect(entry.getByText(`译者：${item.translator}`, { exact: true })).toBeVisible();
+    const saved = await page.evaluate((id) => JSON.parse(localStorage.getItem('internet-wanderer:bookmarks:v1')!).bookmarks.find((bookmark: { id: string }) => bookmark.id === id), item.id);
+    expect(saved.item).toMatchObject({ id: item.id, title: item.title, publishedAt: item.publishedAt, language, url: item.url, ...(item.author ? { author: item.author } : {}), ...(item.translator ? { translator: item.translator } : {}), ...(item.licenseUrl ? { licenseUrl: item.licenseUrl } : {}) });
+  });
+}
+
+test('Surprise restores a historical report as news rather than a Time Machine fragment', async ({ page }) => {
+  const item = newsSnapshot.items.find((entry) => Date.parse(entry.publishedAt) < Date.parse('2016-01-01T00:00:00Z'))!;
+  expect(item).toBeDefined();
+  await page.addInitScript((id) => localStorage.setItem('internet-wanderer:journey:v1', JSON.stringify({ version: 1, entries: [], currentId: id, currentMode: 'surprise' })), item.id);
+  await page.goto('/#/wander?mode=surprise');
+  await expect(page.getByTestId('wander-card').getByRole('heading')).toHaveText(item.title);
+  await expect(page.getByTestId('wander-card').getByText('历史新闻', { exact: true })).toBeVisible();
+  await expect(page.locator('main')).toHaveAttribute('data-mode', 'surprise');
+  await expect(page.locator('main')).toHaveAttribute('data-experience', 'news');
+  await expect(page.locator('main')).toHaveAttribute('data-era', 'modern');
+  await expect(page.locator('.fragment-ribbon')).toHaveCount(0);
 });
 
 test('all four modes stay reachable and the three year tabs apply their era to the page and windows', async ({ page }) => {

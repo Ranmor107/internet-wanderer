@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { contentSourceSchema, datasetSchema, isoDateTimeSchema, newsSourceStateSchema } from '../domain/item-schema';
 import { yearsSchema } from '../domain/year-schema';
+import { GLOBAL_VOICES_LICENSE, isGlobalVoices } from '../domain/news-attribution';
 
 export const contentBundleSchema = z.object({
   schemaVersion: z.literal(1),
@@ -21,7 +22,7 @@ export const contentBundleSchema = z.object({
     if (!sources.has(item.sourceId)) ctx.addIssue({ code: 'custom', message: `${item.id}: unknown source` });
     if (item.history && !years.has(item.history.year)) ctx.addIssue({ code: 'custom', message: `${item.id}: unknown year` });
     if (item.kind === 'archive' && item.history && new Date(item.archive.capturedAt).getUTCFullYear() !== item.history.year) ctx.addIssue({ code: 'custom', message: `${item.id}: capture year mismatch` });
-    if (item.sourceId === 'global-voices' && (!item.author || item.licenseUrl !== 'https://creativecommons.org/licenses/by/3.0/')) ctx.addIssue({ code: 'custom', message: `${item.id}: attribution required` });
+    if (isGlobalVoices(item.sourceId, item.url) && (!item.author?.trim() || item.licenseUrl !== GLOBAL_VOICES_LICENSE)) ctx.addIssue({ code: 'custom', message: `${item.id}: attribution required` });
   }
   for (const id of Object.keys(bundle.sourceStates)) if (!sources.has(id)) ctx.addIssue({ code: 'custom', message: `${id}: unknown source state` });
 });

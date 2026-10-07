@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { yearsSchema } from '../src/domain/year-schema';
 import { createEraRegistry } from '../src/ui/era-registry';
 import { contentSourceSchema, datasetSchema, newsSnapshotSchema } from '../src/domain/item-schema';
+import { GLOBAL_VOICES_LICENSE, isGlobalVoices } from '../src/domain/news-attribution';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const json = async (path: string) => JSON.parse(await readFile(resolve(root, path), 'utf8'));
@@ -25,7 +26,7 @@ for (const item of combined.items) {
   if (!sourceIds.has(item.sourceId)) throw new Error(`${item.id}: unknown source ${item.sourceId}`);
   if (item.history && !years.some((year) => year.year === item.history?.year)) throw new Error(`${item.id}: unsupported historical year`);
   if (item.kind === 'archive' && item.history && new Date(item.archive.capturedAt).getUTCFullYear() !== item.history.year) throw new Error(`${item.id}: capture year does not match its year pack`);
-  if (item.sourceId === 'global-voices' && (!item.author || !item.licenseUrl)) throw new Error(`${item.id}: required author/license attribution missing`);
+  if (isGlobalVoices(item.sourceId, item.url) && (!item.author?.trim() || item.licenseUrl !== GLOBAL_VOICES_LICENSE)) throw new Error(`${item.id}: required author/license attribution missing`);
 }
 for (const sourceId of Object.keys(news.sourceStates)) {
   if (!sourceIds.has(sourceId)) throw new Error(`Unknown news source state: ${sourceId}`);

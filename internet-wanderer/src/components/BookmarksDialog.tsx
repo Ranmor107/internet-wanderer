@@ -143,6 +143,7 @@ export default function BookmarksDialog({ open, close }: { open: boolean; close:
           {item.history?.occurredOn && <p className="bookmark-meta">事件日期 · {item.history.occurredOn}</p>}
           {item.archive && <p className="bookmark-meta">网页保存于 {formatDate(item.archive.capturedAt, true)}</p>}
           {item.author && <p className="bookmark-meta">作者：{item.author}</p>}
+          {item.translator && <p className="bookmark-meta">译者：{item.translator}</p>}
           <div className="bookmark-source">{source && (status === 'withdrawn' ? <span>{source.name}</span> : <a href={source.url} target="_blank" rel="noopener noreferrer">{source.name}</a>)}{item.licenseUrl && <a href={item.licenseUrl} target="_blank" rel="noopener noreferrer">{item.licenseUrl === 'https://creativecommons.org/licenses/by/3.0/' ? 'CC BY 3.0' : '内容许可'}</a>}</div>
           {status === 'snapshot' && <p className="bookmark-snapshot">保存时的信息 · 当前内容库未收录</p>}
           {status === 'withdrawn' ? <p className="bookmark-warning">这条内容或来源已停用，暂不提供跳转。</p> : <a className="bookmark-open" href={item.url} target="_blank" rel="noopener noreferrer" aria-label={`打开收藏：${item.title}`}>再去看看 <ExternalLink size={14} /></a>}

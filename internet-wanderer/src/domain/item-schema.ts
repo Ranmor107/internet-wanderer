@@ -35,6 +35,7 @@ const baseItemSchema = z.object({
   url: httpUrlSchema,
   sourceId: z.string().trim().min(1),
   author: z.string().optional(),
+  translator: z.string().optional(),
   licenseUrl: httpUrlSchema.optional(),
   blurb: z.string().optional(),
   language: z.string().optional(),

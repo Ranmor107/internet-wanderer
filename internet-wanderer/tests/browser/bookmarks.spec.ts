@@ -179,13 +179,13 @@ test('a file containing an executable URL is rejected atomically', async ({ page
   expect(await page.evaluate(() => '__unsafeBookmarkExecuted' in window)).toBe(false);
 });
 
-test('expired saved news retains attribution and stays separate from Demo news and Surprise Me', async ({ page }) => {
+test('a saved report absent from the news library retains attribution without joining News or Surprise', async ({ page }) => {
   const original = newsSnapshot.items.find((entry) => entry.sourceId === 'global-voices')!;
   const currentTime = new Date(Date.parse(newsSnapshot.generatedAt!) + 8 * 24 * 60 * 60 * 1000);
   await page.clock.setFixedTime(currentTime);
   await page.goto('/#/wander?mode=news');
   await expect(page.getByTestId('wander-card')).toHaveCount(1);
-  await expect(page.getByTestId('news-sample-note')).toContainText('样本');
+  await expect(page.getByTestId('news-sample-note')).toContainText('新闻库');
   await openDrawer(page);
   const item = {
     ...original,

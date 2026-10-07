@@ -52,24 +52,31 @@ test('disabled, malformed, and wrong-year entries never enter the selected pool'
   assert.deepEqual(selectYearPack({ items, mode: 'time', year: 2007 }), []);
 });
 
-test('news uses publication time and enforces the exact seven-day boundary', () => {
-  const items = [news('old', 'a', ago(7 * DAY + 1)), news('future', 'a', ago(-1)), news('edge', 'a', ago(7 * DAY))];
+test('reliable historical news remains selectable while future and invalid dates are excluded', () => {
+  const items = [news('old', 'a', '2000-01-01T00:00:00Z'), news('future', 'a', ago(-1)), news('recent', 'a', ago(DAY))];
   const selected = selectNext({ items, mode: 'news', now: NOW, rng: () => 0 });
-  assert.equal(selected.item?.id, 'edge');
+  assert.equal(selected.item?.id, 'old');
+  assert.equal(selected.item?.kind, 'news');
+  assert.equal(selected.item?.publishedAt, '2000-01-01T00:00:00Z');
+  assert.equal(selectNext({ items: [items[0]!], mode: 'surprise', now: NOW }).item?.id, 'old');
+  assert.equal(selectNext({ items: [items[0]!], mode: 'time', now: NOW }).item, null);
+  assert.equal(selectNext({ items: [{ ...items[0]!, history: { year: 2000 } }], mode: 'time', year: 2000, now: NOW }).item, null);
+  assert.equal(selectNext({ items: [items[1]!], mode: 'news', now: NOW }).item, null);
+  assert.equal(selectNext({ items: [items[1]!], mode: 'surprise', now: NOW }).item, null);
   assert.equal(selectNext({ items: [news('unknown', 'a', '')], mode: 'news', now: NOW }).item, null);
   assert.equal(selectNext({ items, mode: 'news', now: Number.NaN }).item, null);
 });
 
-test('stale source snapshots remain in direct News but leave Surprise after 48 hours', () => {
-  const items = [news('a', 'publisher')];
+test('source refresh age is informational and never expires saved news in Surprise', () => {
+  const items = [{ ...news('a', 'publisher', '2000-01-01T00:00:00Z'), language: 'ja' }];
   const sourceStates = { publisher: { status: 'error' as const, lastSuccessAt: ago(2 * DAY + 1) } };
   assert.equal(selectNext({ items, mode: 'news', sourceStates, now: NOW }).item?.id, 'a');
-  assert.equal(selectNext({ items, mode: 'surprise', sourceStates, now: NOW }).item, null);
-  assert.equal(selectNext({ items, mode: 'surprise', now: NOW }).item, null);
+  assert.equal(selectNext({ items, mode: 'surprise', sourceStates, now: NOW }).item?.id, 'a');
+  assert.equal(selectNext({ items, mode: 'surprise', now: NOW }).item?.language, 'ja');
   sourceStates.publisher.lastSuccessAt = ago(2 * DAY);
   assert.equal(selectNext({ items, mode: 'surprise', sourceStates, now: NOW }).item?.id, 'a');
   sourceStates.publisher.lastSuccessAt = ago(-1);
-  assert.equal(selectNext({ items, mode: 'surprise', sourceStates, now: NOW }).item, null);
+  assert.equal(selectNext({ items, mode: 'surprise', sourceStates, now: NOW }).item?.id, 'a');
 });
 
 test('Surprise selects equally sized mode intervals regardless of item counts', () => {
@@ -80,7 +87,7 @@ test('Surprise selects equally sized mode intervals regardless of item counts', 
   assert.equal(select(0.33334).resolvedMode, 'news');
   assert.equal(select(0.66667).resolvedMode, 'time');
   assert.equal(select(0.99999).resolvedMode, 'time');
-  assert.equal(selectNext({ items, mode: 'surprise', now: NOW, rng: sequence(0.5) }).resolvedMode, 'time');
+  assert.equal(selectNext({ items, mode: 'surprise', now: NOW, rng: sequence(0.5) }).resolvedMode, 'news');
 });
 
 test('news sources and random historical years are sampled before their items', () => {

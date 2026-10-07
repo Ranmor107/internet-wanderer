@@ -53,12 +53,7 @@ function validItems(options: SelectNextOptions, now: number): WanderItem[] {
     if (!wanderItemSchema.safeParse(item).success || item.enabled === false || seen.has(item.id)) return false;
     if (item.kind === 'news') {
       const age = now - Date.parse(item.publishedAt);
-      if (!Number.isFinite(age) || age < 0 || age > SELECTION_RULES.newsMaxAgeMs) return false;
-      if (options.mode === 'surprise') {
-        const successAt = options.sourceStates?.[item.sourceId]?.lastSuccessAt;
-        const sourceAge = successAt ? now - Date.parse(successAt) : Number.NaN;
-        if (!Number.isFinite(sourceAge) || sourceAge < 0 || sourceAge > SELECTION_RULES.sourceFreshnessMs) return false;
-      }
+      if (!Number.isFinite(age) || age < 0) return false;
     }
     seen.add(item.id);
     return true;
@@ -67,7 +62,7 @@ function validItems(options: SelectNextOptions, now: number): WanderItem[] {
 
 function belongsToMode(item: WanderItem, mode: ResolvedMode, options: SelectNextOptions): boolean {
   if (mode === 'elsewhere') return item.kind === 'website' && !item.history;
-  if (mode === 'time') return item.history !== undefined && (options.year === undefined || item.history.year === options.year);
+  if (mode === 'time') return item.kind !== 'news' && item.history !== undefined && (options.year === undefined || item.history.year === options.year);
   return item.kind === 'news';
 }
 

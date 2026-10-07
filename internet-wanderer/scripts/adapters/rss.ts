@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import Parser from 'rss-parser';
 import { decodeHTML } from 'entities';
+import { GLOBAL_VOICES_LICENSE, isGlobalVoices } from '../../src/domain/news-attribution.ts';
 import {
   newsSnapshotSchema,
   wanderItemSchema,
@@ -10,9 +11,7 @@ import {
 } from '../../src/domain/item-schema.ts';
 
 const MAX_FEED_BYTES = 2 * 1024 * 1024;
-const MAX_ITEMS_PER_SOURCE = 15;
-const MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
-const GLOBAL_VOICES_LICENSE = 'https://creativecommons.org/licenses/by/3.0/';
+const MAX_ITEMS_PER_FEED = 15;
 
 type RawItem = {
   id?: string;
@@ -20,8 +19,9 @@ type RawItem = {
   rawPublished?: string;
   rawPubDate?: string;
   rawDcDate?: string;
+  rawContent?: string;
 };
-type NewsItem = Extract<WanderItem, { kind: 'news' }>;
+export type NewsItem = Extract<WanderItem, { kind: 'news' }>;
 
 /** A display string only: never render feed material through innerHTML. */
 export function plainText(value: unknown, maxLength = 1000): string {
@@ -71,8 +71,24 @@ function reliablePublishedAt(raw: unknown, now: number): string | undefined {
     return undefined;
   }
   const parsed = Date.parse(value);
-  if (!Number.isFinite(parsed) || parsed > now || now - parsed > MAX_AGE_MS) return undefined;
+  if (!Number.isFinite(parsed) || parsed > now) return undefined;
   return new Date(parsed).toISOString();
+}
+
+function globalVoicesCredits(html = '') {
+  const marker = html.match(/<div\b[^>]*class=['"][^'"]*\bgv-rss-footer\b[^'"]*['"][^>]*>/i);
+  const footer = marker ? html.slice(marker.index) : '';
+  const authors: string[] = [];
+  const translators: string[] = [];
+  for (const section of footer.matchAll(/<div\b[^>]*class=['"][^'"]*\btext-credits-section\b[^'"]*['"][^>]*>([\s\S]*?)<\/div>/gi)) {
+    const label = plainText(section[1].match(/<span\b[^>]*class=['"][^'"]*\bcredit-label\b[^'"]*['"][^>]*>([\s\S]*?)<\/span>/i)?.[1]);
+    const names = [...section[1].matchAll(/<a\b[^>]*class=['"][^'"]*\buser-link\b[^'"]*['"][^>]*>([\s\S]*?)<\/a>/gi)]
+      .map(match => plainText(match[1], 250)).filter(Boolean);
+    if (/^(Written|Ecrit|Écrit|Escrito|記者)(?:\s|\(|$)/i.test(label)) authors.push(...names);
+    if (/^(Translated|Traduit|Traducido|翻訳)(?:\s|\(|$)/i.test(label)) translators.push(...names);
+  }
+  const originalUrl = canonicalHttpUrl(footer.match(/<span\b[^>]*class=['"][^'"]*\bsource-link\b[^'"]*['"][^>]*>[\s\S]*?<a\b[^>]*href=['"]([^'"]+)['"]/i)?.[1]);
+  return { author: [...new Set(authors)].join('、'), translator: [...new Set(translators)].join('、'), originalUrl };
 }
 
 export async function parseRss(xml: string, source: ContentSource, now = new Date()): Promise<NewsItem[]> {
@@ -81,10 +97,10 @@ export async function parseRss(xml: string, source: ContentSource, now = new Dat
   if (/<!DOCTYPE|<!ENTITY/i.test(documentMarkup)) throw new Error('XML document declarations are not supported');
   const parser = new Parser<Record<string, never>, RawItem>({
     customFields: {
-      item: [['published', 'rawPublished'], ['pubDate', 'rawPubDate'], ['dc:date', 'rawDcDate']],
+      item: [['published', 'rawPublished'], ['pubDate', 'rawPubDate'], ['dc:date', 'rawDcDate'], ['content:encoded', 'rawContent']],
     },
   });
-  const feed = await parser.parseString(xml);
+  const feed = await parser.parseString(xml.replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g, ''));
   if (!plainText(feed.title) || !Array.isArray(feed.items)) throw new Error('Feed is missing its title or item list');
   const items: NewsItem[] = [];
   const seenUrls = new Set<string>();
@@ -94,9 +110,11 @@ export async function parseRss(xml: string, source: ContentSource, now = new Dat
     const title = plainText(raw.title);
     const publishedAt = reliablePublishedAt(raw.rawPublished ?? raw.rawPubDate ?? raw.rawDcDate, now.getTime());
     if (!url || !title || !publishedAt) continue;
-    const author = plainText(raw.creator ?? raw.author, 250);
-    // Global Voices' verified republication policy requires a named author.
-    if (source.id === 'global-voices' && !author) continue;
+    const globalVoices = isGlobalVoices(source.id, source.url) || isGlobalVoices(source.id, url);
+    const credits = globalVoices ? globalVoicesCredits(raw.rawContent) : undefined;
+    const author = globalVoices ? credits!.author : plainText(raw.creator ?? raw.author, 250);
+    // Translated feeds name the translator in dc:creator; the footer identifies the original author.
+    if (globalVoices && !author) continue;
     const identity = raw.guid?.trim() || raw.id?.trim() || url;
     const id = `news-${source.id}-${createHash('sha256').update(identity).digest('hex').slice(0, 20)}`;
     if (seenUrls.has(url) || seenIds.has(id)) continue;
@@ -110,7 +128,9 @@ export async function parseRss(xml: string, source: ContentSource, now = new Dat
       enabled: true,
       ...(source.language ? { language: source.language } : {}),
       ...(author ? { author } : {}),
-      ...(source.id === 'global-voices' ? { licenseUrl: GLOBAL_VOICES_LICENSE } : {}),
+      ...(globalVoices ? { licenseUrl: GLOBAL_VOICES_LICENSE } : {}),
+      ...(credits?.translator ? { translator: credits.translator } : {}),
+      ...(credits?.originalUrl && credits.originalUrl !== url ? { evidenceUrls: [credits.originalUrl] } : {}),
       ...(source.displayPolicy === 'summary-allowed'
         ? { blurb: plainText(raw.contentSnippet ?? raw.summary ?? raw.content, 280) }
         : {}),
@@ -120,7 +140,31 @@ export async function parseRss(xml: string, source: ContentSource, now = new Dat
     seenUrls.add(url);
     seenIds.add(id);
   }
-  return items.sort((a, b) => Date.parse(b.publishedAt!) - Date.parse(a.publishedAt!)).slice(0, MAX_ITEMS_PER_SOURCE);
+  return items.sort((a, b) => Date.parse(b.publishedAt!) - Date.parse(a.publishedAt!)).slice(0, MAX_ITEMS_PER_FEED);
+}
+
+/** Accumulate metadata while preserving saved IDs when a publisher changes its GUID. */
+export function mergeNewsItems(previous: readonly WanderItem[], incoming: readonly WanderItem[]): NewsItem[] {
+  const byId = new Map<string, NewsItem>();
+  const byUrl = new Map<string, string>();
+  for (const item of [...previous, ...incoming]) {
+    if (item.kind !== 'news') continue;
+    const url = canonicalHttpUrl(item.url);
+    if (!url) continue;
+    const existingId = byId.has(item.id) ? item.id : byUrl.get(url);
+    const id = existingId ?? item.id;
+    const oldUrl = byId.get(id)?.url;
+    if (oldUrl) byUrl.delete(canonicalHttpUrl(oldUrl)!);
+    const duplicateId = byUrl.get(url);
+    if (duplicateId && duplicateId !== id) byId.delete(duplicateId);
+    byId.set(id, { ...item, id, url });
+    byUrl.set(url, id);
+  }
+  return [...byId.values()].sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
+}
+
+export class FeedHttpError extends Error {
+  constructor(readonly status: number) { super('Feed returned HTTP ' + status); }
 }
 
 async function fetchOnce(feedUrl: string): Promise<string> {
@@ -144,7 +188,7 @@ async function fetchOnce(feedUrl: string): Promise<string> {
     }
     if (!response.ok) {
       await response.body?.cancel();
-      throw new Error(`Feed returned HTTP ${response.status}`);
+      throw new FeedHttpError(response.status);
     }
     if (!response.body) throw new Error('Feed has no response body');
     if (Number(response.headers.get('content-length')) > MAX_FEED_BYTES) {
@@ -175,7 +219,8 @@ export async function fetchRssFeed(feedUrl: string): Promise<string> {
   if (!safeUrl) throw new Error('Feed URL must use HTTP(S)');
   try {
     return await fetchOnce(safeUrl);
-  } catch {
+  } catch (error) {
+    if (error instanceof FeedHttpError && error.status >= 400 && error.status < 500) throw error;
     await new Promise((resolve) => setTimeout(resolve, 500));
     return fetchOnce(safeUrl);
   }
@@ -201,7 +246,7 @@ export async function refreshNewsSnapshot(
           lastAttemptAt: timestamp,
           lastSuccessAt: timestamp,
           status: items.length ? 'ok' as const : 'empty' as const,
-          ...(items.length ? {} : { message: '采集成功，暂无带可靠发表时间的近 7 天内容。' }),
+          ...(items.length ? {} : { message: '采集成功，此次未返回可收录条目，保留已有新闻库。' }),
         },
       };
     } catch (error) {
@@ -219,17 +264,11 @@ export async function refreshNewsSnapshot(
       };
     }
   }));
-  const seenUrls = new Set<string>();
-  const items = batches.flatMap((batch) => batch.items).filter((item) => {
-    const key = canonicalHttpUrl(item.url);
-    if (!key || seenUrls.has(key)) return false;
-    seenUrls.add(key);
-    return true;
-  });
+  const items = mergeNewsItems(previous.items, batches.flatMap((batch) => batch.items));
   return newsSnapshotSchema.parse({
     schemaVersion: 1,
     items,
     generatedAt: timestamp,
-    sourceStates: Object.fromEntries(batches.map((batch) => [batch.sourceId, batch.state])),
+    sourceStates: { ...previous.sourceStates, ...Object.fromEntries(batches.map((batch) => [batch.sourceId, batch.state])) },
   });
 }
