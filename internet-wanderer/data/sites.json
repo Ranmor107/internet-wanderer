@@ -504,6 +504,186 @@
         "博物馆"
       ],
       "enabled": true
+    },
+    {
+      "id": "site-cat-bounce",
+      "kind": "website",
+      "title": "Cat Bounce",
+      "url": "https://cat-bounce.com/",
+      "language": "en",
+      "tags": [
+        "趣味",
+        "物理",
+        "猫"
+      ],
+      "blurb": "拖起一只猫，再轻轻松手，看它在屏幕里弹来弹去。还不够热闹？试试 Make It Rain，让猫从天而降。",
+      "sourceId": "cat-bounce",
+      "enabled": true
+    },
+    {
+      "id": "site-koalas-to-the-max",
+      "kind": "website",
+      "title": "Koalas to the Max",
+      "url": "https://www.koalastothemax.com/",
+      "language": "en",
+      "tags": [
+        "趣味",
+        "探索",
+        "图像"
+      ],
+      "blurb": "把鼠标移过圆点，它会分裂成更小的圆。慢慢揭开一张藏在颜色里的图片，像用好奇心擦亮一块玻璃。",
+      "sourceId": "koalas-to-the-max",
+      "enabled": true
+    },
+    {
+      "id": "site-mondrian-and-me",
+      "kind": "website",
+      "title": "Mondrian And Me",
+      "url": "https://mondrianandme.com/",
+      "language": "en",
+      "tags": [
+        "趣味",
+        "绘画",
+        "生成艺术"
+      ],
+      "blurb": "点一下画面，让红、黄、蓝色块与黑线重新组合。不需要画笔，也能遇见一幅属于这次点击的几何画。",
+      "sourceId": "mondrian-and-me",
+      "enabled": true
+    },
+    {
+      "id": "site-long-doge",
+      "kind": "website",
+      "title": "The Long Doge Challenge",
+      "url": "https://longdogechallenge.com/",
+      "language": "en",
+      "tags": [
+        "趣味",
+        "滚动",
+        "字符画"
+      ],
+      "blurb": "向下滚动，看看这只字符画柴犬到底能有多长。沿途收集 wow，给没有终点的网页一点无厘头的意义。",
+      "sourceId": "long-doge",
+      "enabled": true
+    },
+    {
+      "id": "site-binary-piano",
+      "kind": "website",
+      "title": "Binary Piano",
+      "url": "https://binarypiano.com/",
+      "language": "en",
+      "tags": [
+        "趣味",
+        "声音",
+        "数学"
+      ],
+      "blurb": "按下播放，让不断递增的二进制数字变成旋律。再打开 Customize Notes，给数字换一套音符；需要允许浏览器播放声音。",
+      "sourceId": "binary-piano",
+      "enabled": true
+    },
+    {
+      "id": "site-drawing-garden",
+      "kind": "website",
+      "title": "drawing.garden",
+      "url": "https://drawing.garden/",
+      "language": "en",
+      "tags": [
+        "趣味",
+        "绘画",
+        "声音"
+      ],
+      "blurb": "移动鼠标，在屏幕上种出一片表情符号花园。点击可开启声音，让散步的轨迹同时长出一点音乐。",
+      "sourceId": "drawing-garden",
+      "enabled": true
+    },
+    {
+      "id": "site-one-square-minesweeper",
+      "kind": "website",
+      "title": "One Square Minesweeper",
+      "url": "https://onesquareminesweeper.com/",
+      "language": "en",
+      "tags": [
+        "趣味",
+        "小游戏",
+        "怀旧"
+      ],
+      "blurb": "熟悉的灰色窗口、笑脸和数字计时器，扫雷却只剩一个格子。点一下就知道：游戏究竟还能简化到什么程度。",
+      "sourceId": "one-square-minesweeper",
+      "enabled": true
+    },
+    {
+      "id": "site-checkbox-race",
+      "kind": "website",
+      "title": "Checkbox Race",
+      "url": "https://checkboxrace.com/",
+      "language": "en",
+      "tags": [
+        "趣味",
+        "小游戏",
+        "手速"
+      ],
+      "blurb": "没有赛车，只有一百个复选框。勾下第一个，计时就开始了；沿着这条小赛道，试试自己能跑多快。",
+      "sourceId": "checkbox-race",
+      "enabled": true
+    },
+    {
+      "id": "site-paper-toilet",
+      "kind": "website",
+      "title": "Paper Toilet",
+      "url": "https://papertoilet.com/",
+      "language": "und",
+      "tags": [
+        "趣味",
+        "互动艺术",
+        "极简"
+      ],
+      "blurb": "屏幕上只有一卷纸。按住纸的末端往下拖，看看一件再普通不过的小事，放进网页里会变得多让人停不下来。",
+      "sourceId": "paper-toilet",
+      "enabled": true
+    },
+    {
+      "id": "site-sliding-puzzle",
+      "kind": "website",
+      "title": "Sliding Toys · 8 Puzzle",
+      "url": "https://sliding.toys/mystic-square/8-puzzle/daily/",
+      "language": "en",
+      "tags": [
+        "趣味",
+        "益智",
+        "数字"
+      ],
+      "blurb": "八块数字、一个空位，把它们滑回正确顺序。每日一局的小拼图，只需要点击与空位相邻的方块。",
+      "sourceId": "sliding-puzzle",
+      "enabled": true
+    },
+    {
+      "id": "site-monkey-memory",
+      "kind": "website",
+      "title": "Memory Toys · Monkey Challenge",
+      "url": "https://memory.toys/monkey-challenge/easy/",
+      "language": "en",
+      "tags": [
+        "趣味",
+        "记忆",
+        "小游戏"
+      ],
+      "blurb": "先记住数字的位置，再按从小到大的顺序点出它们。第一次点击后数字会藏起来，留给你一小块空白和自己的记忆。",
+      "sourceId": "monkey-memory",
+      "enabled": true
+    },
+    {
+      "id": "site-potato-or-tomato",
+      "kind": "website",
+      "title": "Potato or Tomato",
+      "url": "https://potatoortomato.com/",
+      "language": "en",
+      "tags": [
+        "趣味",
+        "小游戏",
+        "荒诞"
+      ],
+      "blurb": "土豆，还是番茄？看一眼画面，按下你的答案。一个认真得有点好笑的小测验，把最简单的判断也做成了游戏。",
+      "sourceId": "potato-or-tomato",
+      "enabled": true
     }
   ]
 }

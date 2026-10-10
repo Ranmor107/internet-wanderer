@@ -3,10 +3,13 @@ import { readFile } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
 import newsSnapshot from '../../data/news.snapshot.json' with { type: 'json' };
 import sites from '../../data/sites.json' with { type: 'json' };
+import years from '../../config/years.json' with { type: 'json' };
 import { newsSnapshotSchema, type WanderItem } from '../../src/domain/item-schema';
 
 const nonEnglishSites = sites.items.filter((item) => item.enabled !== false && item.language !== 'en' && item.language !== 'und');
 const languageLabels: Record<string, string> = { zh: '中文', 'zh-Hant': '中文（繁体）', ja: '日语', es: '西班牙语' };
+const yearValues = years.map(({ year }) => String(year));
+const timeRoutes = yearValues.map((year) => `/#/wander?mode=time&year=${year}`);
 
 // Serve the actual production build through intercepted requests: deterministic,
 // offline browser checks, without external sites or a separate local server.
@@ -222,7 +225,7 @@ test('Surprise restores a historical report as news rather than a Time Machine f
   await expect(page.locator('.fragment-ribbon')).toHaveCount(0);
 });
 
-test('all four modes stay reachable and the three year tabs apply their era to the page and windows', async ({ page }) => {
+test('all four modes stay reachable and every configured year applies its era to the page and windows', async ({ page }) => {
   await page.goto('/');
   await page.getByTestId('home-surprise-cta').click();
   const main = page.locator('main');
@@ -247,7 +250,7 @@ test('all four modes stay reachable and the three year tabs apply their era to t
     }
   }
   await modes.getByRole('link', { name: 'Time Machine', exact: true }).click();
-  for (const year of ['1999', '2007', '2012']) {
+  for (const year of yearValues) {
     const tab = page.getByRole('link', { name: year, exact: true });
     await tab.click();
     await expect(main).toHaveAttribute('data-era', year);
@@ -269,9 +272,7 @@ test('direct same-document hash navigation replaces the previous mode and year p
   await page.evaluate(() => Object.defineProperty(window, '__sameDocumentMarker', { value: 'unchanged' }));
   for (const [mode, year] of [
     ['news', undefined],
-    ['time', '1999'],
-    ['time', '2007'],
-    ['time', '2012'],
+    ...yearValues.map((year) => ['time', year] as const),
     ['elsewhere', undefined],
   ] as const) {
     await page.goto(`/#/wander?mode=${mode}${year ? `&year=${year}` : ''}`);
@@ -311,7 +312,7 @@ test('blocked localStorage still permits continuous wandering', async ({ page })
 test('320px and 390px layouts keep every mode inside the viewport and the home CTA above the fold', async ({ page }) => {
   for (const viewport of [{ width: 320, height: 640 }, { width: 390, height: 844 }]) {
     await page.setViewportSize(viewport);
-    for (const path of ['/', '/#/wander?mode=surprise', '/#/wander?mode=elsewhere', '/#/wander?mode=news', '/#/wander?mode=time&year=1999', '/#/wander?mode=time&year=2007', '/#/wander?mode=time&year=2012', '/#/about']) {
+    for (const path of ['/', '/#/wander?mode=surprise', '/#/wander?mode=elsewhere', '/#/wander?mode=news', ...timeRoutes, '/#/about']) {
       await page.goto(path);
       await expect(page.locator('main')).toBeVisible();
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), `${viewport.width}px ${path}`).toBe(true);
@@ -330,14 +331,54 @@ test('320px and 390px layouts keep every mode inside the viewport and the home C
   }
 });
 
+test('all year links and the random year action fit narrow and wide viewports', async ({ page }) => {
+  for (const width of [320, 390, 768, 1100, 1440]) {
+    await page.setViewportSize({ width, height: 1050 });
+    await page.goto(timeRoutes[0]);
+    const controls = page.getByRole('region', { name: '选择年份', exact: true });
+    await expect(controls.getByRole('link')).toHaveCount(yearValues.length);
+    for (const control of await controls.locator('a, button').all()) {
+      await expect(control).toBeVisible();
+      const box = await control.boundingBox();
+      expect(box!.x).toBeGreaterThanOrEqual(0);
+      expect(box!.x + box!.width, `${width}px ${await control.innerText()}`).toBeLessThanOrEqual(width);
+      expect(box!.height).toBeGreaterThanOrEqual(44);
+    }
+  }
+});
+
+for (const year of [1996, 2001, 2004, 2016]) {
+  test(`${year} rotates all three roles, restores the whole pack and keeps its archive favorite`, async ({ page }, testInfo) => {
+    await page.goto(`/#/wander?mode=time&year=${year}`);
+    await expectExperience(page, 'time', String(year));
+    const headings = page.getByTestId('wander-card').getByRole('heading');
+    const first = await headings.allTextContents();
+    await expect(page.locator('.fragment-ribbon b')).toHaveText(['当年发生', '当年去处', '网页存档']);
+    const archive = page.locator('.kind-archive');
+    const title = await archive.getByRole('heading').innerText();
+    await expect(archive.getByRole('link', { name: `打开这一站：${title}`, exact: true })).toHaveAttribute('href', new RegExp(`/web/${year}\\d{10}/`));
+    await expect(archive.getByRole('link', { name: '查看原网址', exact: true })).toHaveAttribute('href', /^https?:\/\//);
+    await archive.getByRole('button', { name: `收藏：${title}`, exact: true }).click();
+    await page.getByRole('button', { name: '再逛这个年份', exact: true }).click();
+    const second = await headings.allTextContents();
+    expect(new Set([...first, ...second]).size).toBe(6);
+    await expect(page.locator('.fragment-ribbon b')).toHaveText(['当年发生', '当年去处', '网页存档']);
+    await page.getByRole('button', { name: '上一站', exact: true }).click();
+    await expect(headings).toHaveText(first);
+    await page.reload();
+    await expect(headings).toHaveText(first);
+    await expect(archive.getByRole('button', { name: `取消收藏：${title}`, exact: true })).toHaveAttribute('aria-pressed', 'true');
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.screenshot({ path: testInfo.outputPath(`time-${year}-mobile.png`), fullPage: true, animations: 'disabled' });
+  });
+}
+
 test('capture desktop and mobile product views', async ({ page }, testInfo) => {
   for (const [name, route] of [
     ['home', '/'],
     ['elsewhere', '/#/wander?mode=elsewhere'],
     ['news', '/#/wander?mode=news'],
-    ['time-1999', '/#/wander?mode=time&year=1999'],
-    ['time-2007', '/#/wander?mode=time&year=2007'],
-    ['time-2012', '/#/wander?mode=time&year=2012'],
+    ...yearValues.map((year) => [`time-${year}`, `/#/wander?mode=time&year=${year}`]),
   ]) {
     await page.goto(route);
     if (name === 'home') await expect(page.getByTestId('home-surprise-cta')).toBeVisible();

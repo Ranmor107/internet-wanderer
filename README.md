@@ -2,7 +2,9 @@
 
 一个可以随手出发的互联网漫游器：探索陌生网站、不同语言的新闻，以及过去留下的网页。
 
-当前版本为 **0.4.0**，包含 36 个精选网站、18 条历史切片，以及 2,243 条涵盖五种语言、2004～2026 年的新闻记录。默认读取已保存的本地内容，无需账号或 API key。
+当前版本为 **0.5.0**，包含 48 个精选网站、42 条历史切片（七个年份），以及 2,243 条涵盖五种语言、2004～2026 年的新闻记录。默认读取已保存的本地内容，无需账号或 API key。
+
+本轮增加 12 个经浏览器检查的趣味网站，并补充 1996、2001、2004、2016；新增年份各有事件、去处及两份精确网页快照。
 
 ## Windows 一键启动
 
@@ -14,6 +16,7 @@
 
 - [完整运行、开发与维护说明](internet-wanderer/README.md)
 - [多语言新闻档案与导入验收](internet-wanderer/docs/MULTILINGUAL_NEWS_ARCHIVES.md)
+- [趣味网站、历史依据与精确快照](internet-wanderer/docs/PLAYFUL_SITES_AND_YEARS_REVIEW.md)
 - [路线图](internet-wanderer/ROADMAP.md)
 - [版本记录](internet-wanderer/CHANGELOG.md)
 - [开发范围与永久启动约定](AGENTS.md)

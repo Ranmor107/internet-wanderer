@@ -503,5 +503,205 @@
     "termsUrl": "https://www.museoreinasofia.es/aviso-legal/",
     "enabled": true,
     "checkedAt": "2026-10-06"
+  },
+  {
+    "id": "cat-bounce",
+    "name": "Cat Bounce",
+    "kind": "curated",
+    "url": "https://cat-bounce.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "koalas-to-the-max",
+    "name": "Koalas to the Max",
+    "kind": "curated",
+    "url": "https://www.koalastothemax.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "mondrian-and-me",
+    "name": "Mondrian And Me",
+    "kind": "curated",
+    "url": "https://mondrianandme.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "long-doge",
+    "name": "The Long Doge Challenge",
+    "kind": "curated",
+    "url": "https://longdogechallenge.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "binary-piano",
+    "name": "Binary Piano",
+    "kind": "curated",
+    "url": "https://binarypiano.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "drawing-garden",
+    "name": "drawing.garden",
+    "kind": "curated",
+    "url": "https://drawing.garden/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "one-square-minesweeper",
+    "name": "One Square Minesweeper",
+    "kind": "curated",
+    "url": "https://onesquareminesweeper.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "checkbox-race",
+    "name": "Checkbox Race",
+    "kind": "curated",
+    "url": "https://checkboxrace.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "paper-toilet",
+    "name": "Paper Toilet",
+    "kind": "curated",
+    "url": "https://papertoilet.com/",
+    "language": "und",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "sliding-puzzle",
+    "name": "Sliding Toys · 8 Puzzle",
+    "kind": "curated",
+    "url": "https://sliding.toys/mystic-square/8-puzzle/daily/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "monkey-memory",
+    "name": "Memory Toys · Monkey Challenge",
+    "kind": "curated",
+    "url": "https://memory.toys/monkey-challenge/easy/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "potato-or-tomato",
+    "name": "Potato or Tomato",
+    "kind": "curated",
+    "url": "https://potatoortomato.com/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "roslin",
+    "name": "The Roslin Institute",
+    "kind": "reference",
+    "url": "https://vet.ed.ac.uk/roslin/about/history/dolly/facts/life-of-dolly",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "warner-space-jam",
+    "name": "Warner Bros. · Space Jam 1996",
+    "kind": "reference",
+    "url": "https://www.spacejam.com/1996/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "wikimedia",
+    "name": "Wikimedia Foundation",
+    "kind": "reference",
+    "url": "https://wikimediafoundation.org/wikipedia25/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "studio-ghibli",
+    "name": "スタジオジブリ · Studio Ghibli",
+    "kind": "reference",
+    "url": "https://www.ghibli.jp/works/chihiro/",
+    "language": "ja",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "mozilla",
+    "name": "Mozilla Press Center",
+    "kind": "reference",
+    "url": "https://blog.mozilla.org/press/2004/11/mozilla-foundation-releases-the-highly-anticipated-mozilla-firefox-1-0-web-browser/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "esa",
+    "name": "European Space Agency",
+    "kind": "reference",
+    "url": "https://www.esa.int/Science_Exploration/Space_Science/Rosetta_overview",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "google-blog",
+    "name": "Google · 官方博客",
+    "kind": "reference",
+    "url": "https://blog.google/products-and-platforms/products/chrome/introducing-chrome-music-lab/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
+  },
+  {
+    "id": "ligo",
+    "name": "LIGO Scientific Collaboration",
+    "kind": "reference",
+    "url": "https://ligo.org/detections/gw150914/",
+    "language": "en",
+    "displayPolicy": "link-only",
+    "enabled": true,
+    "checkedAt": "2026-10-10"
   }
 ]

@@ -390,6 +390,572 @@
         "originalUrl": "http://www.mozilla.org/",
         "capturedAt": "2012-03-29T11:01:24Z"
       }
+    },
+    {
+      "id": "history-1996-dolly",
+      "kind": "event",
+      "title": "多莉出生，生命科学跨过一道门",
+      "url": "https://vet.ed.ac.uk/roslin/about/history/dolly/facts/life-of-dolly",
+      "sourceId": "roslin",
+      "blurb": "1996 年 7 月 5 日，多莉在罗斯林研究所出生，成为首只由成年体细胞克隆的哺乳动物。这里记录的是出生日期，成果向公众公布则在 1997 年。",
+      "language": "en",
+      "tags": [
+        "生命科学",
+        "科学史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 1996,
+        "role": "event",
+        "occurredOn": "1996-07-05"
+      },
+      "evidenceUrls": [
+        "https://vet.ed.ac.uk/roslin/about/history/dolly/facts/life-of-dolly"
+      ]
+    },
+    {
+      "id": "history-1996-png",
+      "kind": "event",
+      "title": "PNG 1.0 成为 W3C 推荐标准",
+      "url": "https://www.w3.org/TR/REC-png-961001",
+      "sourceId": "w3c",
+      "blurb": "1996 年 10 月 1 日，PNG 1.0 规范成为 W3C 推荐标准。打开这份当年的原始文档，看看无损压缩与透明图像怎样成为网页的日常。",
+      "language": "en",
+      "tags": [
+        "图像",
+        "网页",
+        "技术"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 1996,
+        "role": "event",
+        "occurredOn": "1996-10-01"
+      },
+      "evidenceUrls": [
+        "https://www.w3.org/TR/REC-png-961001"
+      ]
+    },
+    {
+      "id": "history-1996-space-jam",
+      "kind": "website",
+      "title": "走进《空中大灌篮》的星球菜单",
+      "url": "https://www.spacejam.com/1996/",
+      "sourceId": "warner-space-jam",
+      "blurb": "华纳今天仍保留着这份 1996 年电影宣传网站。顺着星球形状的链接走，看看壁纸、演员介绍与网页玩心；这是保留入口，不是抓取快照。",
+      "language": "en",
+      "tags": [
+        "电影",
+        "怀旧",
+        "网页"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 1996,
+        "role": "place"
+      },
+      "evidenceUrls": [
+        "https://www.spacejam.com/1996/"
+      ]
+    },
+    {
+      "id": "history-1996-comet-tails",
+      "kind": "website",
+      "title": "翻到百武彗星掠过的那一天",
+      "url": "https://science.nasa.gov/image-article/apod-1996-march-26-what-are-comet-tails-made-of/",
+      "sourceId": "nasa-apod",
+      "blurb": "NASA 的 1996 年 3 月 26 日天文每日一图，用百武彗星讲解彗尾。如今迁移到新版网站，原始图文日期仍保留在标题中。",
+      "language": "en",
+      "tags": [
+        "天文",
+        "彗星"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 1996,
+        "role": "place"
+      },
+      "evidenceUrls": [
+        "https://science.nasa.gov/image-article/apod-1996-march-26-what-are-comet-tails-made-of/"
+      ]
+    },
+    {
+      "id": "history-1996-yahoo",
+      "kind": "archive",
+      "title": "Yahoo：先选一个目录，再出发",
+      "url": "https://web.archive.org/web/19961128070641/http://www8.yahoo.com/",
+      "sourceId": "wayback",
+      "blurb": "艺术、科学、娱乐、地方新闻，都排在同一张目录上。这份 1996 年首页快照，让你看见搜索框之外的上网方式。",
+      "language": "en",
+      "tags": [
+        "互联网史",
+        "目录"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 1996,
+        "role": "archive"
+      },
+      "evidenceUrls": [
+        "https://web.archive.org/web/19961128070641/http://www8.yahoo.com/"
+      ],
+      "archive": {
+        "originalUrl": "http://www8.yahoo.com:80/",
+        "capturedAt": "1996-11-28T07:06:41Z"
+      }
+    },
+    {
+      "id": "history-1996-nintendo",
+      "kind": "archive",
+      "title": "Nintendo Power Source 的旧门牌",
+      "url": "https://web.archive.org/web/19961222145127/http://www.nintendo.com/",
+      "sourceId": "wayback",
+      "blurb": "1996 年的任天堂网站入口，还会提醒访客准备框架、JavaScript 和 Shockwave。看看游戏网站的早期门面；部分旧插件互动已经无法运行。",
+      "language": "en",
+      "tags": [
+        "游戏",
+        "网页",
+        "怀旧"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 1996,
+        "role": "archive"
+      },
+      "evidenceUrls": [
+        "https://web.archive.org/web/19961222145127/http://www.nintendo.com/"
+      ],
+      "archive": {
+        "originalUrl": "http://www.nintendo.com:80/",
+        "capturedAt": "1996-12-22T14:51:27Z"
+      }
+    },
+    {
+      "id": "history-2001-wikipedia-launch",
+      "kind": "event",
+      "title": "一部任何人都能参与的百科上线",
+      "url": "https://wikimediafoundation.org/wikipedia25/",
+      "sourceId": "wikimedia",
+      "blurb": "2001 年 1 月 15 日，维基百科上线。基金会的周年回顾记录了这个起点：知识开始由陌生人一起写，也一起修订。",
+      "language": "en",
+      "tags": [
+        "知识",
+        "协作",
+        "互联网史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2001,
+        "role": "event",
+        "occurredOn": "2001-01-15"
+      },
+      "evidenceUrls": [
+        "https://wikimediafoundation.org/wikipedia25/"
+      ]
+    },
+    {
+      "id": "history-2001-ipod",
+      "kind": "event",
+      "title": "一千首歌，装进口袋",
+      "url": "https://www.apple.com/newsroom/2001/10/23Apple-Presents-iPod/",
+      "sourceId": "apple",
+      "blurb": "2001 年 10 月 23 日，Apple 发布第一代 iPod。原始公告里的容量、同步方式和那句“一千首歌”，把随身听带到了新的阶段。",
+      "language": "en",
+      "tags": [
+        "音乐",
+        "设计",
+        "设备"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2001,
+        "role": "event",
+        "occurredOn": "2001-10-23"
+      },
+      "evidenceUrls": [
+        "https://www.apple.com/newsroom/2001/10/23Apple-Presents-iPod/"
+      ]
+    },
+    {
+      "id": "history-2001-svg",
+      "kind": "website",
+      "title": "看看 SVG 1.0 怎样描述一幅画",
+      "url": "https://www.w3.org/TR/2001/REC-SVG-20010904/",
+      "sourceId": "w3c",
+      "blurb": "这是 W3C 保留的 2001 年 9 月 4 日 SVG 1.0 正式规范。图形可以由文字描述，也能随着屏幕大小伸缩；沿目录找找路径与动画。",
+      "language": "en",
+      "tags": [
+        "图像",
+        "网页",
+        "技术"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2001,
+        "role": "place"
+      },
+      "evidenceUrls": [
+        "https://www.w3.org/TR/2001/REC-SVG-20010904/"
+      ]
+    },
+    {
+      "id": "history-2001-spirited-away",
+      "kind": "website",
+      "title": "再走进《千与千寻》的世界",
+      "url": "https://www.ghibli.jp/works/chihiro/",
+      "sourceId": "studio-ghibli",
+      "blurb": "吉卜力的官方作品页，保留了 2001 年 7 月 20 日的日本上映日期、主创信息与剧照。这里是今天的作品资料入口，原文为日语。",
+      "language": "ja",
+      "tags": [
+        "动画",
+        "电影",
+        "日本"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2001,
+        "role": "place"
+      },
+      "evidenceUrls": [
+        "https://www.ghibli.jp/works/chihiro/"
+      ]
+    },
+    {
+      "id": "history-2001-google",
+      "kind": "archive",
+      "title": "Google：只留一个搜索框",
+      "url": "https://web.archive.org/web/20010630220606/http://www.google.com/",
+      "sourceId": "wayback",
+      "blurb": "白底、彩色字标、一个输入框。看看 2001 年被保存的 Google 首页，搜索如何用极少的界面，把你送往别处。",
+      "language": "en",
+      "tags": [
+        "搜索",
+        "网页",
+        "互联网史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2001,
+        "role": "archive"
+      },
+      "evidenceUrls": [
+        "https://web.archive.org/web/20010630220606/http://www.google.com/"
+      ],
+      "archive": {
+        "originalUrl": "http://www.google.com:80/",
+        "capturedAt": "2001-06-30T22:06:06Z"
+      }
+    },
+    {
+      "id": "history-2001-wikipedia",
+      "kind": "archive",
+      "title": "Wikipedia：从头写起的一万多篇",
+      "url": "https://web.archive.org/web/20011201040400/http://www.wikipedia.com/",
+      "sourceId": "wayback",
+      "blurb": "这份 2001 年末的首页仍写着“从零开始的百科全书”，邀请所有人编辑。它甚至还在 wikipedia.com；这是当时保存的网页。",
+      "language": "en",
+      "tags": [
+        "知识",
+        "协作",
+        "互联网史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2001,
+        "role": "archive"
+      },
+      "evidenceUrls": [
+        "https://web.archive.org/web/20011201040400/http://www.wikipedia.com/"
+      ],
+      "archive": {
+        "originalUrl": "http://www.wikipedia.com:80/",
+        "capturedAt": "2001-12-01T04:04:00Z"
+      }
+    },
+    {
+      "id": "history-2004-firefox",
+      "kind": "event",
+      "title": "Firefox 1.0 正式发布",
+      "url": "https://blog.mozilla.org/press/2004/11/mozilla-foundation-releases-the-highly-anticipated-mozilla-firefox-1-0-web-browser/",
+      "sourceId": "mozilla",
+      "blurb": "2004 年 11 月 9 日，Firefox 1.0 发布。读原始公告，看看标签页、弹窗拦截与开放源码怎样被介绍给普通上网者。",
+      "language": "en",
+      "tags": [
+        "浏览器",
+        "开源",
+        "互联网史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2004,
+        "role": "event",
+        "occurredOn": "2004-11-09"
+      },
+      "evidenceUrls": [
+        "https://blog.mozilla.org/press/2004/11/mozilla-foundation-releases-the-highly-anticipated-mozilla-firefox-1-0-web-browser/"
+      ]
+    },
+    {
+      "id": "history-2004-rosetta-launch",
+      "kind": "event",
+      "title": "Rosetta 出发，去追一颗彗星",
+      "url": "https://www.esa.int/Science_Exploration/Space_Science/Rosetta_overview",
+      "sourceId": "esa",
+      "blurb": "2004 年 3 月 2 日，Rosetta 从库鲁发射。它要借助行星引力走很长的路，才能追上 67P 彗星；官方任务概览保留了这条时间线。",
+      "language": "en",
+      "tags": [
+        "航天",
+        "彗星",
+        "探索"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2004,
+        "role": "event",
+        "occurredOn": "2004-03-02"
+      },
+      "evidenceUrls": [
+        "https://www.esa.int/Science_Exploration/Space_Science/Rosetta_overview"
+      ]
+    },
+    {
+      "id": "history-2004-css21",
+      "kind": "website",
+      "title": "翻开 2004 年的 CSS 工具箱",
+      "url": "https://www.w3.org/TR/2004/CR-CSS21-20040225/",
+      "sourceId": "w3c",
+      "blurb": "W3C 保留的 CSS 2.1 候选推荐版本，日期为 2004 年 2 月 25 日。看看浮动、盒模型和层叠规则，怎样把文字页面变成有版式的网页。",
+      "language": "en",
+      "tags": [
+        "设计",
+        "网页",
+        "技术"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2004,
+        "role": "place"
+      },
+      "evidenceUrls": [
+        "https://www.w3.org/TR/2004/CR-CSS21-20040225/"
+      ]
+    },
+    {
+      "id": "history-2004-howls-moving-castle",
+      "kind": "website",
+      "title": "在哈尔的移动城堡里停一会儿",
+      "url": "https://www.ghibli.jp/works/howl/",
+      "sourceId": "studio-ghibli",
+      "blurb": "吉卜力的官方作品资料页记录了 2004 年 11 月 20 日的日本上映日期。沿着主创名单和剧照，回到那座会走路的城堡；页面本身是现行资料页。",
+      "language": "ja",
+      "tags": [
+        "动画",
+        "电影",
+        "日本"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2004,
+        "role": "place"
+      },
+      "evidenceUrls": [
+        "https://www.ghibli.jp/works/howl/"
+      ]
+    },
+    {
+      "id": "history-2004-mozilla",
+      "kind": "archive",
+      "title": "Firefox 1.0 那天的 Mozilla 首页",
+      "url": "https://web.archive.org/web/20041109091306/http://www.mozilla.org/",
+      "sourceId": "wayback",
+      "blurb": "这份快照恰好保存在 Firefox 1.0 发布当天。看看 Mozilla 如何在首页介绍浏览器、邮件工具和一个由社区维护的网络。",
+      "language": "en",
+      "tags": [
+        "浏览器",
+        "开源",
+        "网页"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2004,
+        "role": "archive"
+      },
+      "evidenceUrls": [
+        "https://web.archive.org/web/20041109091306/http://www.mozilla.org/"
+      ],
+      "archive": {
+        "originalUrl": "http://www.mozilla.org:80/",
+        "capturedAt": "2004-11-09T09:13:06Z"
+      }
+    },
+    {
+      "id": "history-2004-flickr",
+      "kind": "archive",
+      "title": "Flickr：照片开始有了标签和对话",
+      "url": "https://web.archive.org/web/20040701020748/http://flickr.com/",
+      "sourceId": "wayback",
+      "blurb": "2004 年的 Flickr 首页邀请人们分享照片、添加标签和留下评论。保存的是早期介绍页，旧登录和上传功能不保证还能使用。",
+      "language": "en",
+      "tags": [
+        "摄影",
+        "社交",
+        "互联网史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2004,
+        "role": "archive"
+      },
+      "evidenceUrls": [
+        "https://web.archive.org/web/20040701020748/http://flickr.com/"
+      ],
+      "archive": {
+        "originalUrl": "http://flickr.com:80/",
+        "capturedAt": "2004-07-01T02:07:48Z"
+      }
+    },
+    {
+      "id": "history-2016-gravitational-waves",
+      "kind": "event",
+      "title": "人类宣布听见引力波",
+      "url": "https://ligo.org/detections/gw150914/",
+      "sourceId": "ligo",
+      "blurb": "2016 年 2 月 11 日，LIGO 与 Virgo 宣布首次直接探测到引力波。信号实际记录于 2015 年 9 月 14 日；这里的年份对应公开宣布。",
+      "language": "en",
+      "tags": [
+        "物理",
+        "宇宙",
+        "科学史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2016,
+        "role": "event",
+        "occurredOn": "2016-02-11"
+      },
+      "evidenceUrls": [
+        "https://ligo.org/detections/gw150914/"
+      ]
+    },
+    {
+      "id": "history-2016-alphago",
+      "kind": "event",
+      "title": "AlphaGo 与李世石的五局棋落幕",
+      "url": "https://blog.google/innovation-and-ai/products/alphagos-ultimate-challenge/",
+      "sourceId": "google-blog",
+      "blurb": "2016 年 3 月 15 日，AlphaGo 赢下第五局，以 4 比 1 结束与李世石的比赛。官方逐局记录保留了胜负与那些让人重新思考的落子。",
+      "language": "en",
+      "tags": [
+        "人工智能",
+        "围棋",
+        "科学史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2016,
+        "role": "event",
+        "occurredOn": "2016-03-15"
+      },
+      "evidenceUrls": [
+        "https://blog.google/innovation-and-ai/products/alphagos-ultimate-challenge/"
+      ]
+    },
+    {
+      "id": "history-2016-chrome-music-lab",
+      "kind": "website",
+      "title": "把浏览器变成一间音乐实验室",
+      "url": "https://musiclab.chromeexperiments.com/",
+      "sourceId": "google-blog",
+      "blurb": "Chrome Music Lab 于 2016 年 3 月推出。今天仍能在这里玩节奏、旋律和声音实验；这是持续维护的实验入口，需要点击后播放声音。",
+      "language": "en",
+      "tags": [
+        "音乐",
+        "互动",
+        "实验"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2016,
+        "role": "place"
+      },
+      "evidenceUrls": [
+        "https://blog.google/products-and-platforms/products/chrome/introducing-chrome-music-lab/",
+        "https://musiclab.chromeexperiments.com/"
+      ]
+    },
+    {
+      "id": "history-2016-rosetta-diary",
+      "kind": "website",
+      "title": "一场十二年旅行的任务手记",
+      "url": "https://blogs.esa.int/rosetta/2016/09/27/rosetta-in-numbers/",
+      "sourceId": "esa",
+      "blurb": "翻开 ESA 在 2016 年任务尾声发布的 Rosetta 数字手记：飞行距离、绕行、图像与数据，把追逐彗星的十二年缩成一页。",
+      "language": "en",
+      "tags": [
+        "航天",
+        "档案",
+        "探索"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2016,
+        "role": "place"
+      },
+      "evidenceUrls": [
+        "https://blogs.esa.int/rosetta/2016/09/27/rosetta-in-numbers/"
+      ]
+    },
+    {
+      "id": "history-2016-useless-web",
+      "kind": "archive",
+      "title": "The Useless Web：把无用当成目的地",
+      "url": "https://web.archive.org/web/20160629182844/http://www.theuselessweb.com/",
+      "sourceId": "wayback",
+      "blurb": "2016 年被保存的 The Useless Web 首页，把“带我去一个无用网站”做成一个按钮。看一眼这种网页玩心；存档里的随机跳转不保证可用。",
+      "language": "en",
+      "tags": [
+        "趣味",
+        "网页",
+        "互联网史"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2016,
+        "role": "archive"
+      },
+      "evidenceUrls": [
+        "https://web.archive.org/web/20160629182844/http://www.theuselessweb.com/"
+      ],
+      "archive": {
+        "originalUrl": "http://www.theuselessweb.com/",
+        "capturedAt": "2016-06-29T18:28:44Z"
+      }
+    },
+    {
+      "id": "history-2016-deepmind",
+      "kind": "archive",
+      "title": "DeepMind：AlphaGo 之后的首页",
+      "url": "https://web.archive.org/web/20160707023526/https://www.deepmind.com/",
+      "sourceId": "wayback",
+      "blurb": "看看 2016 年的 DeepMind 如何介绍学习算法、AlphaGo 与自己的研究方向。这份首页快照保留了当时的措辞与导航。",
+      "language": "en",
+      "tags": [
+        "人工智能",
+        "研究",
+        "网页"
+      ],
+      "enabled": true,
+      "history": {
+        "year": 2016,
+        "role": "archive"
+      },
+      "evidenceUrls": [
+        "https://web.archive.org/web/20160707023526/https://www.deepmind.com/"
+      ],
+      "archive": {
+        "originalUrl": "https://www.deepmind.com/",
+        "capturedAt": "2016-07-07T02:35:26Z"
+      }
     }
   ]
 }

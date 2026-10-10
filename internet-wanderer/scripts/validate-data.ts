@@ -14,6 +14,7 @@ const sources = z.array(contentSourceSchema).parse([
   ...await json('config/rss-sources.json'),
 ]);
 const sourceIds = new Set(sources.map((source) => source.id));
+const enabledSourceIds = new Set(sources.filter((source) => source.enabled).map((source) => source.id));
 if (sourceIds.size !== sources.length) throw new Error('Duplicate source IDs');
 const sites = datasetSchema.parse(await json('data/sites.json'));
 const history = datasetSchema.parse(await json('data/history.json'));
@@ -25,15 +26,24 @@ if (new Set(years.map((year) => year.year)).size !== years.length) throw new Err
 for (const item of combined.items) {
   if (!sourceIds.has(item.sourceId)) throw new Error(`${item.id}: unknown source ${item.sourceId}`);
   if (item.history && !years.some((year) => year.year === item.history?.year)) throw new Error(`${item.id}: unsupported historical year`);
+  if (item.history && !item.evidenceUrls?.length) throw new Error(`${item.id}: historical evidence is required`);
   if (item.kind === 'archive' && item.history && new Date(item.archive.capturedAt).getUTCFullYear() !== item.history.year) throw new Error(`${item.id}: capture year does not match its year pack`);
+  if (item.kind === 'archive' && item.sourceId === 'wayback') {
+    const replay = item.url.match(/^https:\/\/web\.archive\.org\/web\/(\d{14})\/(https?:\/\/.+)$/);
+    const timestamp = new Date(item.archive.capturedAt).toISOString().replace(/\D/g, '').slice(0, 14);
+    if (!replay || replay[1] !== timestamp || new URL(replay[2]).href !== new URL(item.archive.originalUrl).href) throw new Error(`${item.id}: Wayback URL must match the exact capture time and original URL`);
+  }
   if (isGlobalVoices(item.sourceId, item.url) && (!item.author?.trim() || item.licenseUrl !== GLOBAL_VOICES_LICENSE)) throw new Error(`${item.id}: required author/license attribution missing`);
 }
 for (const sourceId of Object.keys(news.sourceStates)) {
   if (!sourceIds.has(sourceId)) throw new Error(`Unknown news source state: ${sourceId}`);
 }
 for (const year of years) {
-  const items = history.items.filter((item) => item.enabled !== false && item.history?.year === year.year);
+  const items = history.items.filter((item) => item.enabled !== false && enabledSourceIds.has(item.sourceId) && item.history?.year === year.year);
   if (!items.length) throw new Error(`${year.year}: empty year pack`);
   if (items.length < 6) console.warn(`${year.year}: ${items.length} items; launch target is 6`);
+  for (const role of ['event', 'place', 'archive']) {
+    if (!items.some((item) => item.history?.role === role)) throw new Error(`${year.year}: missing ${role} fragment`);
+  }
 }
 console.log(`Validated ${sites.items.length} websites, ${history.items.length} historical items, ${news.items.length} news items, ${sources.length} sources and ${years.length} years.`);

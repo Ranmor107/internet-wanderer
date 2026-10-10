@@ -54,9 +54,9 @@
 .news-context p { color: var(--muted); font-size: 11px; line-height: 1.85; }
 .snapshot-note { margin-top: 9px; }
 .coverage-note { text-align: center; font-size: 10px; color: #898071; line-height: 1.8; margin-top: 26px; }
-.year-control { display: flex; align-items: center; gap: 30px; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 11px 0; }
+.year-control { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 30px; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 11px 0; }
 .timeline-label { font: 8px var(--mono); letter-spacing: 1px; color: var(--color-muted); }
-.year-buttons { display: flex; gap: 8px; }
+.year-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
 .year-buttons a { font: 14px var(--mono); min-height: 44px; padding: 13px 22px; border: 1px solid transparent; border-radius: 4px; }
 .year-buttons a.selected { background: var(--accent); color: var(--accent-ink); border-color: var(--line); }
 .year-buttons a:not(.selected):hover { background: #e8e4d9; }

@@ -2,13 +2,15 @@
 
 **Get lost on the Internet again.** 一个可以随手出发的互联网漫游器：遇见陌生网站、读一则远处的资讯，或打开过去留下的网页。
 
-当前是 **0.4.0（2026-10-07）**：React + Vite + TypeScript，默认读取项目内快照，可离线浏览已保存的多语言近期与历史新闻，无需账号、数据库服务或 API key。维护脚本在 Node.js 中采集官方接口；浏览器不会直接请求 RSS。四个入口为 Surprise Me、Elsewhere、News Drift、Time Machine；已实现上一站／下一站、最多 20 条最近遇见，以及本机收藏和 JSON 备份导入／导出。
+当前是 **0.5.0（2026-10-10）**：React + Vite + TypeScript，默认读取项目内快照，可离线浏览已保存的多语言近期与历史新闻，无需账号、数据库服务或 API key。维护脚本在 Node.js 中采集官方接口；浏览器不会直接请求 RSS。四个入口为 Surprise Me、Elsewhere、News Drift、Time Machine；已实现上一站／下一站、最多 20 条最近遇见，以及本机收藏和 JSON 备份导入／导出。
 
 0.3.0 增加手机固定漫游操作栏、每页结果恢复和整组年份包返回，强化出发与到达反馈。Elsewhere 使用三种手工明信片，News Drift 使用报刊刊头与自适应长标题；年代配置同时控制字体、控件和入场节奏。
 
-界面采用暖白纸面、橙色出发按钮与可以交互的浏览器窗口。Elsewhere、News Drift 和三个精选年份各有自己的视觉主题，设计依据见 [UI_DIRECTION.md](UI_DIRECTION.md)。
+界面采用暖白纸面、橙色出发按钮与可以交互的浏览器窗口。Elsewhere、News Drift 和年代内容采用不同的视觉主题，七个精选年份复用三种年代皮肤，设计依据见 [UI_DIRECTION.md](UI_DIRECTION.md)。
 
-内容包含 **36 个精选网站、18 条历史切片（1999 / 2007 / 2012 各 6 条）**，以及保存于本地的新闻库。新闻接入 Global Voices 的英语、中文、日语、法语、西班牙语接口，加上 NASA 和 European Central Bank，共 7 个接口、3 个发布主体；保留可靠的原始发表时间、作者、译者及必要许可。历史新闻可以进入 News Drift 与 Surprise Me，不会自动变成 Time Machine 的年份切片。
+内容包含 **48 个精选网站、42 条历史切片（1996 / 1999 / 2001 / 2004 / 2007 / 2012 / 2016 各 6 条）**，以及保存于本地的新闻库。新闻接入 Global Voices 的英语、中文、日语、法语、西班牙语接口，加上 NASA 和 European Central Bank，共 7 个接口、3 个发布主体；保留可靠的原始发表时间、作者、译者及必要许可。历史新闻可以进入 News Drift 与 Surprise Me，不会自动变成 Time Machine 的年份切片。
+
+0.5.0 参考 The Useless Web 的官方入口名单，逐站核验并增加 12 个趣味网站，包括弹跳猫、圆点揭图、二进制钢琴、表情花园和单格扫雷。新增四个年份各有 2 个事件、2 个去处、2 份真实快照，覆盖生命科学、动画、摄影、航天和人工智能；准确日期、原始出处、八份精确档案与操作边界见 [本轮核验记录](docs/PLAYFUL_SITES_AND_YEARS_REVIEW.md)。
 
 本轮实际保存 **2,243 条新闻记录**，发表时间覆盖 **2004～2026 年**：英语 724 条、简体中文 284 条、日语 393 条、法语 400 条、西班牙语 442 条。每年最多取 2 页，这是档案抽样而非全量数据库；各语言的起止日期与缺年情况见 [导入验收记录](docs/MULTILINGUAL_NEWS_ARCHIVES.md)。
 
@@ -46,7 +48,7 @@ npm run preview
 
 在本地 Codex 或 IDE 打开项目根目录，可用这段交接说明：
 
-> 请先阅读 README.md、UI_DIRECTION.md、ROADMAP.md 和 docs 下的来源记录，继续 Internet Wanderer 0.4.0。先验证本地启动、测试和构建，保留默认本地快照、固定一键启动入口、现有收藏及原始日期与署名。新闻维护已有 data:refresh 和有界 data:backfill；新闻不限制发表年代，未来日期仍排除。按路线图完善体验，暂不增加浏览器运行时抓取、账号、数据库服务或 Wayback 自动接入。
+> 请先阅读 README.md、UI_DIRECTION.md、ROADMAP.md 和 docs 下的来源记录，继续 Internet Wanderer 0.5.0。先验证本地启动、测试和构建，保留默认本地快照、固定一键启动入口、现有收藏及原始日期与署名。七个年份各有事件、去处及真实档案，扩展时保留证据和精确捕获时间。新闻维护已有 data:refresh 和有界 data:backfill；新闻不限制发表年代，未来日期仍排除。按路线图完善体验，暂不增加浏览器运行时抓取、账号、数据库服务或 Wayback 自动接入。
 
 ## Demo 与 Live 内容模式
 
@@ -117,7 +119,7 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE=/path/to/chromium npm run test:browser
 
 每轮交付须重新运行构建、离线逻辑测试、浏览器回归与一键启动生命周期验证。验证范围包括连续漫游、刷新恢复、历史新闻入池与未来日期排除、多语言署名和收藏备份、来源采集状态、内容时钟及响应式界面。外站的音频、完整交互、Wayback 的所有图片／子链接，以及尚未部署的公开网址不属于离线验证范围。早期 UI 验收结果与截图见 [UI_DEMO_REVIEW.md](docs/UI_DEMO_REVIEW.md)，不能代替当前版本的回归。
 
-0.4.0 本轮已通过数据校验、TypeScript 与生产构建、77 项逻辑测试、43 项浏览器测试及一键启动回归；启动器重复调用和依赖变化重启正常，测试结束后固定端口已释放。完整导入范围及验证边界见 [验收记录](docs/MULTILINGUAL_NEWS_ARCHIVES.md)。
+0.5.0 已通过数据校验、TypeScript 与生产构建、88 项逻辑测试、48 项浏览器测试及一键启动回归；启动器重复调用和依赖变化重启正常，测试结束后固定端口已释放。本轮外站、历史出处和精确快照见 [核验记录](docs/PLAYFUL_SITES_AND_YEARS_REVIEW.md)，新闻导入范围见 [新闻档案记录](docs/MULTILINGUAL_NEWS_ARCHIVES.md)。
 
 ## 项目结构与修改入口
 
