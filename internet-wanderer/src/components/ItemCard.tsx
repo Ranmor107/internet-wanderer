@@ -5,7 +5,8 @@ import type { WanderItem } from '../domain/item-schema';
 import { SELECTION_RULES } from '../domain/modes';
 import { domainName, formatDate, languageName } from '../content/format';
 import { useContent } from '../app/content-context';
-import ElsewherePostcard from './experiences/ElsewherePostcard';
+import WebsitePreview from './experiences/WebsitePreview';
+import ArchiveArtifact from './experiences/ArchiveArtifact';
 import { getExperienceTheme } from '../ui/themes';
 import NewsMasthead from './experiences/NewsMasthead';
 
@@ -24,9 +25,12 @@ export default function ItemCard({ item, compact = false, index = 0 }: { item: W
   const lastUpdated = newsSnapshot.sourceStates[item.sourceId]?.lastSuccessAt;
   return <article className={`item-card ${compact ? 'item-card--compact' : ''} kind-${item.kind}`} data-testid="wander-card">
     <BrowserFrame theme={getExperienceTheme(mode, item.history?.year, years)} mode={mode} year={item.history?.year} address={domainName(item.url)} label={item.history ? `${item.history.year} / fragment ${String(index + 1).padStart(2, '0')}` : item.kind === 'news' ? 'the other side of the story' : 'a small corner of a very big web'}>
-      {!compact && item.kind === 'website' && !item.history && <ElsewherePostcard item={item} />}
+      {!compact && item.kind === 'website' && !item.history && <WebsitePreview item={item} />}
+      {item.kind === 'archive' && <ArchiveArtifact item={item} />}
+      {item.history?.role === 'place' && <WebsitePreview item={item} small />}
+      {item.history?.role === 'event' && <div className="event-marker" aria-hidden="true"><span>A MOMENT IN TIME</span><strong>{item.history.occurredOn?.slice(5).replace('-', ' / ') ?? item.history.year}</strong><i>↗</i></div>}
       {item.kind === 'news' && <NewsMasthead source={source} language={item.language} />}
-      {item.history && <div className="fragment-ribbon"><span>FRAGMENT {String(index + 1).padStart(2, '0')}</span><b>{({ event: '当年发生', place: '当年去处', archive: '网页存档' } as const)[item.history.role ?? (item.kind === 'archive' ? 'archive' : item.kind === 'event' ? 'event' : 'place')]}</b></div>}
+      {item.history && <div className="fragment-ribbon"><span>EXHIBIT {String(index + 1).padStart(2, '0')}</span><b>{({ event: '当年发生', place: '当年去处', archive: '网页存档' } as const)[item.history.role ?? (item.kind === 'archive' ? 'archive' : item.kind === 'event' ? 'event' : 'place')]}</b></div>}
       <div className="item-body">
         <div className="item-eyebrow"><Icon size={15} strokeWidth={1.6} /><span>{kindNames[item.kind]}</span>{item.history && <span className="year-tag">{item.history.year}</span>}{item.kind === 'news' && <span className="news-edition">{historical ? '历史新闻' : contentRuntime.isDemo ? 'SAMPLE EDITION' : 'NEWS DRIFT'}</span>}</div>
         <h2 className={item.kind === 'news' && item.title.length > 95 ? 'headline-long' : undefined} lang={item.language}>{item.title}</h2>

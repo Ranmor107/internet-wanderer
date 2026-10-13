@@ -10,6 +10,7 @@ import JourneyControls from '../components/JourneyControls';
 import NodeMap from '../components/experiences/NodeMap';
 import SignalTuner from '../components/experiences/SignalTuner';
 import TimeRail from '../components/experiences/TimeRail';
+import MuseumGallery, { exhibitionItems } from '../components/experiences/MuseumGallery';
 import { MODE_LABELS, type Mode } from '../domain/modes';
 
 const descriptions: Record<Mode, string> = {
@@ -22,7 +23,7 @@ const titles: Record<Mode, [string, string]> = { elsewhere: ['One link.', 'Anywh
 
 export default function Wander({ openRecent }: { openRecent: () => void }) {
   const { mode, year, yearInfo, journey, presentation, previous, previousDisabled, visibleItems, primary, next, changeYear } = useWander();
-  const { repository: { years, sources, newsSnapshot, allItems, canRestore }, runtime: contentRuntime } = useContent();
+  const { repository: { years, sources, allItems, canRestore }, runtime: contentRuntime } = useContent();
   const navigate = useNavigate();
   const newsSources = sources.filter(source => source.enabled && allItems.some(item => item.sourceId === source.id && item.kind === 'news' && canRestore(item, 'news')));
   const result = useRef<HTMLDivElement>(null);
@@ -34,7 +35,9 @@ export default function Wander({ openRecent }: { openRecent: () => void }) {
   const era = mode === 'time' ? year : primary?.history?.year;
   const theme = getExperienceTheme(experience, era, years);
   const demoNote = contentRuntime.isDemo && (mode === 'news' || primary?.kind === 'news') ? <p className="demo-note" data-testid="news-sample-note"><span>SAVED EDITION</span>已保存的多语言新闻库 · {contentRuntime.snapshotDate ? `整理于 ${formatDate(contentRuntime.snapshotDate)}` : '整理日期未记录'}。涵盖近期与历史新闻，保留原始发表时间，不实时更新。</p> : null;
-  const controls = primary && <JourneyControls item={primary} next={() => next()} previous={previous} previousDisabled={previousDisabled} time={mode === 'time'} nextLabel={mode === 'elsewhere' ? 'Wander' : mode === 'news' ? '继续漂流' : 'Surprise me'} />;
+  const currentExhibit = mode === 'time' ? exhibitionItems(visibleItems)[0] : primary;
+  const renderControls = (advance = () => next()) => currentExhibit && <JourneyControls item={currentExhibit} next={advance} previous={previous} previousDisabled={previousDisabled} time={mode === 'time'} nextLabel={mode === 'elsewhere' ? 'Wander again' : mode === 'news' ? '继续漂流' : 'Surprise me'} />;
+  const controls = renderControls();
   return <main className={`wander-page page-enter ${primary ? 'has-journey-controls' : ''}`} style={themeStyle(theme)} data-skin={theme.skin} data-motion={theme.motion} data-mode={mode} data-experience={experience} data-era={era ?? 'modern'}>
     <nav className="mode-switch" aria-label="漫游模式">
       {(['surprise', 'elsewhere', 'news', 'time'] as const).map((value, index) => <Link key={value} to={`/wander?mode=${value}`} aria-current={mode === value ? 'page' : undefined} className={mode === value ? 'is-active' : ''}><span className="mode-index" aria-hidden="true">{value === 'surprise' ? <Shuffle size={13} /> : `0${index}`}</span>{MODE_LABELS[value]}</Link>)}
@@ -44,12 +47,12 @@ export default function Wander({ openRecent }: { openRecent: () => void }) {
     {mode === 'time' && <TimeRail years={years} year={year} changeYear={changeYear} />}
     {primary ? <>
       <div ref={result} className="result-anchor" />
-      <p className="arrival-note" role="status" aria-live="polite" data-testid="arrival-note"><span>{presentation.isNew ? '↳ JUST LANDED' : '↶ BACK TO THIS WINDOW'}</span><b>{domainName(primary.url)}</b>{primary.history && <i>{primary.history.year}</i>}</p>
-      {experience === 'elsewhere' && <div className="elsewhere-experience"><div className="map-column"><NodeMap item={primary} sequence={presentation.sequence} revisit={item => navigate('/wander?mode=elsewhere', { state: { restoreItemId: item.id } })} openRecent={openRecent} /><div className="explore-controls"><p>沿着未知的分支，<em>再走一站。</em></p>{controls}</div></div><div className="destination-panel"><span className="panel-coordinate">DESTINATION / {String(journey.entries.length).padStart(2, '0')}</span><div className="result-enter" key={`${primary.id}-${presentation.sequence}`}><ItemCard item={primary} /></div><p className="return-note">打开外站后，随时回来接着走。<ArrowUpRight size={13} /></p></div></div>}
-      {experience === 'news' && <div className="news-experience"><SignalTuner sources={newsSources} sourceId={primary.sourceId} sequence={presentation.sequence} tune={id => next(id)} drift={() => next()} /><div className="news-reading">{demoNote}<div className="result-enter" key={`${primary.id}-${presentation.sequence}`}><ItemCard item={primary} /></div><div className="reading-controls"><span>另一种语言，<br />另一种看世界的方式。</span>{controls}</div></div></div>}
+      <p className="arrival-note" role="status" aria-live="polite" data-testid="arrival-note"><span>{presentation.isNew ? '↳ JUST LANDED' : '↶ BACK TO THIS WINDOW'}</span><b>{domainName((currentExhibit ?? primary).url)}</b>{primary.history && <i>{primary.history.year}</i>}</p>
+      {experience === 'elsewhere' && <NodeMap item={primary} sequence={presentation.sequence} revisit={item => navigate('/wander?mode=elsewhere', { state: { restoreItemId: item.id } })} explore={() => next()} openRecent={openRecent}>{advance => <><div className="result-enter" key={`${primary.id}-${presentation.sequence}`}><ItemCard item={primary} /></div><div className="explore-controls">{renderControls(advance)}</div><p className="return-note">打开外站，或沿着一个问号继续。<ArrowUpRight size={13} /></p></>}</NodeMap>}
+      {experience === 'news' && <SignalTuner sources={newsSources} sourceId={primary.sourceId} sequence={presentation.sequence} tune={id => next(id)} drift={() => next()}><div className="news-reading">{demoNote}<div className="result-enter" key={`${primary.id}-${presentation.sequence}`}><ItemCard item={primary} /></div><div className="reading-controls">{controls}</div></div></SignalTuner>}
       {experience === 'time' && <div className="time-experience">
         <div className="year-intro"><div className="giant-year" aria-hidden="true">{era}</div><div><span className="eyebrow">{theme.caption ?? 'YOU ARE VISITING THE PAST'}</span><h2>{(mode === 'time' ? yearInfo : years.find(option => option.year === era))?.title.replace(/^\d+ · /, '')}</h2><p>{(mode === 'time' ? yearInfo : years.find(option => option.year === era))?.description}</p><div className="era-memento"><span>{theme.connection}</span><i>{theme.note}</i></div></div><span className="time-stamp" aria-hidden="true">PAST<br />IS PRESENT<br /><ArrowUpRight size={21} /></span></div>
-        <div className={mode === 'time' ? 'year-pack result-enter' : 'time-single result-enter'} key={`${mode}-${presentation.sequence}-${primary.id}`}>{visibleItems.map((item, index) => <ItemCard key={item.id} item={item} index={index} compact={mode === 'time'} />)}</div>
+        <MuseumGallery items={visibleItems} sequence={presentation.sequence} />
         <div className="time-actions">{controls}{mode === 'time' ? <button className="secondary-button" onClick={changeYear}><Shuffle size={16} />换个年份</button> : <Link className="secondary-button" to={`/wander?mode=time&year=${era}`}><Clock3 size={16} />继续逛 {era} 年</Link>}</div>
       </div>}
       <div className="journey-bottom"><span>{presentation.note ?? (experience === 'time' ? '事件日期与网页保存日期，分别记录。年代界面是一种设计演绎。' : 'A SMALL STEP OUTSIDE THE FAMILIAR.')}</span><Link to="/">回到探索地图 <ArrowUpRight size={13} /></Link></div>

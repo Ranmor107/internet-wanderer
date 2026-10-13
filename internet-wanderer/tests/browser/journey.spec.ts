@@ -47,7 +47,7 @@ test('home leads directly to a useful surprise, with a safe external link', asyn
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Get lost on the Internet again.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Go somewhere unexpected.' })).toBeVisible();
   await page.getByTestId('home-surprise-cta').click();
   await expect(page.getByTestId('wander-card')).toHaveCount(1);
   const outgoing = page.getByRole('link', { name: /^打开这一站/ });
@@ -331,13 +331,14 @@ test('320px and 390px layouts keep every mode inside the viewport and the home C
   }
 });
 
-test('all year links and the random year action fit narrow and wide viewports', async ({ page }) => {
+test('all year links and the random year action are reachable in narrow and wide viewports', async ({ page }) => {
   for (const width of [320, 390, 768, 1100, 1440]) {
     await page.setViewportSize({ width, height: 1050 });
     await page.goto(timeRoutes[0]);
     const controls = page.getByRole('region', { name: '选择年份', exact: true });
     await expect(controls.locator('.year-buttons').getByRole('link')).toHaveCount(yearValues.length);
     for (const control of await controls.locator('a, button').all()) {
+      await control.scrollIntoViewIfNeeded();
       await expect(control).toBeVisible();
       const box = await control.boundingBox();
       expect(box!.x).toBeGreaterThanOrEqual(0);
@@ -353,7 +354,7 @@ for (const year of [1996, 2001, 2004, 2016]) {
     await expectExperience(page, 'time', String(year));
     const headings = page.getByTestId('wander-card').getByRole('heading');
     const first = await headings.allTextContents();
-    await expect(page.locator('.fragment-ribbon b')).toHaveText(['当年发生', '当年去处', '网页存档']);
+    await expect(page.locator('.fragment-ribbon b')).toHaveText(['网页存档', '当年发生', '当年去处']);
     const archive = page.locator('.kind-archive');
     const title = await archive.getByRole('heading').innerText();
     await expect(archive.getByRole('link', { name: `打开这一站：${title}`, exact: true })).toHaveAttribute('href', new RegExp(`/web/${year}\\d{10}/`));
@@ -362,7 +363,7 @@ for (const year of [1996, 2001, 2004, 2016]) {
     await page.getByRole('button', { name: '再逛这个年份', exact: true }).click();
     const second = await headings.allTextContents();
     expect(new Set([...first, ...second]).size).toBe(6);
-    await expect(page.locator('.fragment-ribbon b')).toHaveText(['当年发生', '当年去处', '网页存档']);
+    await expect(page.locator('.fragment-ribbon b')).toHaveText(['网页存档', '当年发生', '当年去处']);
     await page.getByRole('button', { name: '上一站', exact: true }).click();
     await expect(headings).toHaveText(first);
     await page.reload();
@@ -390,11 +391,16 @@ test('capture desktop and mobile product views', async ({ page }, testInfo) => {
       for (let step = 0; step < 3; step += 1) await page.getByRole('button', { name: /^下一站/ }).click();
     }
     await page.getByRole('heading', { level: 1 }).click();
+    await page.evaluate(() => window.scrollTo(0, 0));
     await page.screenshot({ path: testInfo.outputPath(`${name}-desktop.png`), fullPage: true, animations: 'disabled' });
   }
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
   await page.screenshot({ path: testInfo.outputPath('home-mobile.png'), fullPage: true, animations: 'disabled' });
+  await page.getByRole('button', { name: '足迹', exact: true }).click();
+  const recent = page.getByRole('dialog', { name: '最近遇见', exact: true });
+  await recent.getByRole('button', { name: '清空足迹', exact: true }).click();
+  await recent.getByRole('button', { name: '关闭最近遇见', exact: true }).click();
   await page.goto('/#/wander?mode=time&year=1999');
   await expectExperience(page, 'time', '1999');
   await page.screenshot({ path: testInfo.outputPath('time-1999-mobile.png'), fullPage: true, animations: 'disabled' });
@@ -589,8 +595,9 @@ test('new exploration controls remain reachable at the design breakpoints', asyn
       await page.goto(`/#/wander?mode=${mode}&year=2007`);
       await expect(page.getByTestId('wander-card').first()).toBeVisible();
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${width}px ${mode}`).toBe(true);
-      const controls = mode === 'news' ? page.getByRole('slider') : mode === 'elsewhere' ? page.locator('.map-node') : page.locator('.year-buttons a, .rail-step');
+      const controls = mode === 'news' ? page.getByRole('slider') : mode === 'elsewhere' ? page.locator('.map-node, .unknown-node') : page.locator('.year-buttons a, .rail-step');
       for (const control of await controls.all()) {
+        if (mode === 'time') await control.scrollIntoViewIfNeeded();
         const box = (await control.boundingBox())!;
         // Transformed DOMRects can round 44 CSS pixels to 43.99997.
         expect(box.width, `${width}px ${mode} target width`).toBeGreaterThanOrEqual(43.99);

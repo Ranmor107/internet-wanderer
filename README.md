@@ -2,9 +2,9 @@
 
 一个可以随手出发的互联网漫游器：探索陌生网站、不同语言的新闻，以及过去留下的网页。
 
-当前版本为 **0.6.0**，包含 48 个精选网站、42 条历史切片（七个年份），以及 2,243 条涵盖五种语言、2004～2026 年的新闻记录。默认读取已保存的本地内容，无需账号或 API key。
+当前版本为 **0.7.0**，包含 48 个精选网站、42 条历史切片（七个年份），以及 2,243 条涵盖五种语言、2004～2026 年的新闻记录。默认读取已保存的本地内容，无需账号或 API key。
 
-本轮重设计首页和三个核心空间：节点旅行图、新闻来源调频、年代档案窗口。点击 Surprise Me，让三种探索方式随机连接；收藏、返回、历史依据与永久一键启动继续保留。
+首页用 Take me somewhere 大按钮直接出发，六个真实网站样本展示下一站的可能。Elsewhere 将当前网站放进网络中心；News Drift 将机构地图、来源调频和消息整合为世界信号场；Time Machine 以网页主展品、事件票签和去处海报组成不同年代的展厅。收藏、返回、历史依据与永久一键启动继续保留，内置预览明确标注为原创示意。
 
 ## Windows 一键启动
 
@@ -15,7 +15,7 @@
 ## 开发与来源记录
 
 - [完整运行、开发与维护说明](internet-wanderer/README.md)
-- [整体重设计与交互说明](internet-wanderer/docs/UI_REDESIGN.md)
+- [新版界面、桌面 / 手机截图与验收](internet-wanderer/docs/CONTENT_FIRST_REDESIGN.md)
 - [多语言新闻档案与导入验收](internet-wanderer/docs/MULTILINGUAL_NEWS_ARCHIVES.md)
 - [趣味网站、历史依据与精确快照](internet-wanderer/docs/PLAYFUL_SITES_AND_YEARS_REVIEW.md)
 - [路线图](internet-wanderer/ROADMAP.md)

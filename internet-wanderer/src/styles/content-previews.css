@@ -1,0 +1,40 @@
+.website-preview { position: relative; overflow: hidden; background: #e6eadc; color: #385448; aspect-ratio: 2.4; isolation: isolate; border-bottom: 1px solid #a7b6a0; }
+.website-preview svg { display: block; width: 100%; height: 100%; position: absolute; inset: 0; }
+.preview-label { position: absolute; z-index: 1; top: 10px; left: 12px; font: 7px/1.5 var(--mono); letter-spacing: .6px; opacity: .8; }
+.preview-phrase { position: absolute; bottom: 14px; left: 18px; right: 14px; font: italic 23px/1.1 var(--serif); font-weight: 400; letter-spacing: -.5px; text-shadow: 0 1px #ffffff55; }
+.preview-small { aspect-ratio: 1.55; }
+.preview-small .preview-label { top: 8px; left: 9px; font-size: 6px; letter-spacing: .2px; }
+.preview-small .preview-phrase { font-size: clamp(14px, 1.3vw, 21px); left: 11px; bottom: 12px; }
+.preview-cats { color: #343b39; background: #eec6ae; border-color: #cc9e82; }
+.preview-cats svg { width: 125%; height: 125%; inset: -15% -12% auto; }
+.preview-space { color: #f4e8c6; background: #203e4a; border-color: #506c77; }
+.preview-space .preview-phrase { text-shadow: none; }
+.preview-window { background: #d6ded0; border-color: #a4b3a2; }
+.preview-window svg { opacity: .9; }
+.preview-sand { background: #e6e0cc; color: #604f37; border-color: #b0a489; }
+.preview-play { background: #f0e9c9; border-color: #c6b683; color: #684c3a; }
+.preview-web { background: #ddd5e6; color: #624a7e; border-color: #b5a3c8; }
+.preview-sound { background: #d6e2e1; color: #456975; border-color: #9eb8b9; }
+.preview-human { background: #e6eadc; }
+.archive-artifact { background: #e5e4d7; color: #202b39; overflow: hidden; }
+.artifact-toolbar { display: flex; align-items: center; gap: 14px; padding: 10px 13px; border-block: 2px solid; border-color: #fff #8b8d84 #8b8d84; font: 14px var(--mono); background: #d0d0c6; }
+.artifact-toolbar i { font: 8px var(--mono); background: #f7f7ef; padding: 5px 8px; border: 1px inset #aaa; flex-grow: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.artifact-paper { position: relative; padding: 24px 24px 17px; min-height: 218px; background: #f4f1dc; }
+.artifact-caption { font: 7px var(--mono); letter-spacing: .9px; color: #6b684d; }
+.artifact-paper > strong { display: block; font: bold 55px/.95 Georgia, serif; letter-spacing: -3px; color: #2d3d80; margin: 15px 0 14px; overflow-wrap: anywhere; }
+.artifact-paper em { font-style: normal; color: #b9472d; }
+.artifact-links { display: flex; flex-wrap: wrap; gap: 6px 18px; font: 10px Georgia, serif; color: #39387d; text-decoration: underline; padding-bottom: 13px; border-bottom: 1px solid #8c8b72; }
+.artifact-columns { display: grid; grid-template-columns: 1.2fr 1fr .7fr; gap: 20px; padding: 14px 0 17px; }
+.artifact-columns > div { height: 29px; background: repeating-linear-gradient(#d3d0b4 0 1px, transparent 1px 8px); }
+.artifact-columns > div:last-child { background: #d6d1b4; border: 1px solid #aba586; }
+.artifact-footnote { font: 8px/1.8 var(--mono); color: #6b684d; }
+[data-skin='glass'] .artifact-toolbar { background: linear-gradient(#d8e6ee, #9eb8c9); border: 1px solid #899eae; border-radius: 5px 5px 0 0; }
+[data-skin='glass'] .artifact-paper { background: #edf3f2; }
+[data-skin='glass'] .artifact-paper > strong { color: #346a88; font-family: var(--sans); font-weight: 300; }
+[data-skin='flat'] .artifact-toolbar { background: #e2dcd1; border-width: 1px; }
+[data-skin='flat'] .artifact-paper { background: #f8f4e8; }
+[data-skin='flat'] .artifact-paper > strong { color: #a34d2c; font-family: var(--sans); font-weight: 600; }
+.home-archive-window .artifact-paper { padding: 18px 20px 13px; min-height: 185px; }
+.home-archive-window .artifact-paper > strong { font-size: 42px; }
+.home-archive-window .artifact-columns { padding-block: 10px; }
+@media (max-width: 760px) { .preview-small .preview-phrase { font-size: 20px; } .preview-label { font-size: 6px; } .website-preview:not(.preview-small) { aspect-ratio: 3.4; } .website-preview:not(.preview-small) .preview-phrase { font-size: 17px; bottom: 11px; left: 14px; } .artifact-paper { padding: 22px 18px 16px; min-height: 210px; } .artifact-paper > strong { font-size: 45px; } }

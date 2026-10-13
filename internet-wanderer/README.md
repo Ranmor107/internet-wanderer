@@ -2,9 +2,9 @@
 
 **Get lost on the Internet again.** 一个可以随手出发的互联网漫游器：遇见陌生网站、读一则远处的资讯，或打开过去留下的网页。
 
-当前是 **0.6.0（2026-10-13）**：React + Vite + TypeScript，默认读取项目内快照，可离线浏览已保存的多语言近期与历史新闻，无需账号、数据库服务或 API key。维护脚本在 Node.js 中采集官方接口；浏览器不会直接请求 RSS。四个入口为 Surprise Me、Elsewhere、News Drift、Time Machine；已实现上一站／下一站、最多 20 条最近遇见，以及本机收藏和 JSON 备份导入／导出。
+当前是 **0.7.0（2026-10-13）**：React + Vite + TypeScript，默认读取项目内快照，可离线浏览已保存的多语言近期与历史新闻，无需账号、数据库服务或 API key。维护脚本在 Node.js 中采集官方接口；浏览器不会直接请求 RSS。四个入口为 Surprise Me、Elsewhere、News Drift、Time Machine；已实现上一站／下一站、最多 20 条最近遇见，以及本机收藏和 JSON 备份导入／导出。
 
-0.6.0 将首页与三个模式重构为相连的探索空间。Elsewhere 的节点来自真实最近遇见，可点击回访；News Drift 的频率尺支持拖动和方向键，刻度对应实际来源；Time Machine 的时间轨道与层叠窗口随年代改变字体、控件和浏览器外框。Surprise Me 随机串起三种体验。设计理由见 [重设计说明](docs/UI_REDESIGN.md)。
+0.7.0 继续深化现有探索空间：首页用一个大按钮直接出发，六个可点击的真实网站样本展示下一站的可能。Elsewhere 将目的地放到网络中心，未知分支可出发、旧节点可回访；News Drift 将世界来源地图、调频和消息放入同一个信号场；Time Machine 以旧网页主展品、事件票签与去处海报组成不等大的年代展厅。网站和旧网页的内置预览均为明确标注的原创视觉示意，真实内容通过原站或档案链接打开。设计与验收见 [本轮重设计记录](docs/CONTENT_FIRST_REDESIGN.md)，上一轮设计见 [0.6 记录](docs/UI_REDESIGN.md)。
 
 界面采用暖白纸面、朱红路径与坐标式编号。Elsewhere、News Drift 和年代内容采用不同的空间与操作，七个精选年份复用三种年代皮肤，设计依据见 [UI_DIRECTION.md](UI_DIRECTION.md)。
 
@@ -48,7 +48,7 @@ npm run preview
 
 在本地 Codex 或 IDE 打开项目根目录，可用这段交接说明：
 
-> 请先阅读 README.md、UI_DIRECTION.md、docs/UI_REDESIGN.md、ROADMAP.md 和来源记录，继续 Internet Wanderer 0.6.0。保留节点回访、来源调频、年代轨道及默认本地快照、固定一键启动入口、现有收藏和原始日期与署名。七个年份各有事件、去处及真实档案，扩展时保留证据和精确捕获时间。新闻维护已有 data:refresh 和有界 data:backfill；新闻不限制发表年代，未来日期仍排除。先验证本地启动、测试和构建，再按反馈完善体验。
+> 请先阅读 README.md、UI_DIRECTION.md、docs/CONTENT_FIRST_REDESIGN.md、ROADMAP.md 和来源记录，继续 Internet Wanderer 0.7.0。保留首页的大按钮与网站样本、网络中心目的地、来源调频与年代展厅，以及默认本地快照、固定一键启动入口、现有收藏和原始日期与署名。内置预览为原创示意，不能称作原站截图。七个年份各有事件、去处及真实档案，扩展时保留证据和精确捕获时间。新闻维护已有 data:refresh 和有界 data:backfill；新闻不限制发表年代，未来日期仍排除。先验证本地启动、测试和构建，再按反馈完善体验。
 
 ## Demo 与 Live 内容模式
 
@@ -119,7 +119,7 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE=/path/to/chromium npm run test:browser
 
 每轮交付须重新运行构建、离线逻辑测试、浏览器回归与一键启动生命周期验证。验证范围包括连续漫游、刷新恢复、历史新闻入池与未来日期排除、多语言署名和收藏备份、来源采集状态、内容时钟及响应式界面。外站的音频、完整交互、Wayback 的所有图片／子链接，以及尚未部署的公开网址不属于离线验证范围。早期 UI 验收结果与截图见 [UI_DEMO_REVIEW.md](docs/UI_DEMO_REVIEW.md)，不能代替当前版本的回归。
 
-0.6.0 已通过数据校验、TypeScript 与生产构建、88 项逻辑测试、56 项浏览器测试及一键启动回归；启动器重复调用和依赖变化重启正常，测试结束后固定端口已释放。新版截图与逐项验收见 [重设计记录](docs/UI_REDESIGN.md)。既有外站、历史出处和精确快照见 [核验记录](docs/PLAYFUL_SITES_AND_YEARS_REVIEW.md)，新闻导入范围见 [新闻档案记录](docs/MULTILINGUAL_NEWS_ARCHIVES.md)。
+0.7.0 已通过数据校验、TypeScript 与生产构建、88 项逻辑测试、66 项完整浏览器回归及真实一键启动生命周期验证；启动器重复调用和依赖变化重启正常，测试结束后固定端口已释放。新版桌面 / 手机截图与逐项验收见 [本轮重设计记录](docs/CONTENT_FIRST_REDESIGN.md)。既有外站、历史出处和精确快照见 [核验记录](docs/PLAYFUL_SITES_AND_YEARS_REVIEW.md)，新闻导入范围见 [新闻档案记录](docs/MULTILINGUAL_NEWS_ARCHIVES.md)。
 
 ## 项目结构与修改入口
 
