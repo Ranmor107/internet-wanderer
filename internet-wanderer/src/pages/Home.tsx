@@ -1,53 +1,53 @@
 import { Link } from 'react-router-dom';
-import { ArrowDown, ArrowUpRight, Asterisk, Clock3, Globe2, MoveUpRight, Newspaper, Shuffle } from 'lucide-react';
-import BrowserFrame from '../components/BrowserFrame';
+import { ArrowDown, ArrowUpRight, MoveUpRight, Shuffle } from 'lucide-react';
 import { useContent } from '../app/content-context';
 
-const doors = [
-  { mode: 'elsewhere', number: '01', icon: Globe2, title: 'Elsewhere', sub: 'Somewhere unexpected.', text: '去一个从没听说过的网站。', detail: 'SMALL WEB, BIG FEELINGS', tint: 'lime' },
-  { mode: 'news', number: '02', icon: Newspaper, title: 'News Drift', sub: 'A different point of view.', text: '偶遇一则熟悉视野之外的消息。', detail: 'A WINDOW, NOT A FEED', tint: 'lilac' },
-  { mode: 'time', number: '03', icon: Clock3, title: 'Time Machine', sub: 'The past is still online.', text: '把浏览器，拨回另一个年代。', detail: '1999 / 2007 / 2012', tint: 'peach' },
-];
-
-function UnknownWindow() {
-  return <div className="unknown-window">
-    <div className="floating-note note-hello" aria-hidden="true"><span>new connection</span><strong>hello, stranger<span className="blink-dot">.</span></strong><i>glad you found this place ↗</i></div>
-    <Link className="portal-link" to="/wander?mode=surprise" state={{ freshStart: true }} aria-label="打开未知目的地">
-      <BrowserFrame mode="surprise" address="somewhere.on.the.internet" label="destination: unknown" className="portal-window">
-        <div className="portal-art" aria-hidden="true">
-          <span className="portal-caption">THERE'S SOMETHING<br />ON THE OTHER SIDE.</span>
-          <div className="portal-door"><div><div><div><Asterisk strokeWidth={1} /></div></div></div></div>
-          <svg className="portal-cursor" viewBox="0 0 45 57"><path d="M3 3v43l11-11 9 18 9-5-9-17h16Z" fill="#fbfaf7" stroke="#272824" strokeWidth="2.5" strokeLinejoin="round" /></svg>
-          <span className="portal-coordinate">↳ somewhere / somewhen / something</span>
-        </div>
-        <div className="portal-status"><span><i /> No destination selected.</span><ArrowUpRight size={19} /></div>
-      </BrowserFrame>
+function ConnectedWorlds({ firstYear, lastYear }: { firstYear?: number; lastYear?: number }) {
+  return <div className="connected-worlds" aria-label="三个相连的探索世界">
+    <svg className="world-connections" viewBox="0 0 640 480" fill="none" aria-hidden="true">
+      <path d="M62 174C62 64 210 62 279 133S426 219 481 133M217 170C224 253 383 201 415 290S344 412 278 388M482 171C567 246 585 367 464 385" />
+      <path className="world-route" d="M86 257C119 201 117 129 217 154S274 320 365 334" />
+      <circle cx="86" cy="257" r="5" /><circle cx="279" cy="133" r="4" /><circle cx="464" cy="385" r="4" />
+    </svg>
+    <span className="atlas-coordinate atlas-coordinate--top">THE OPEN INTERNET / NO FIXED ROUTE</span>
+    <Link to="/wander?mode=elsewhere" className="world-elsewhere" aria-label="Elsewhere · 跳入一个陌生网站">
+      <span className="world-number">01 / JUMP</span>
+      <svg viewBox="0 0 280 170" fill="none" aria-hidden="true"><path d="M23 121L75 69L150 107L207 38L256 81M75 69L119 24M150 107L204 153" /><path className="world-route" d="M23 121L75 69L150 107L207 38" /><circle cx="23" cy="121" r="5" /><circle cx="75" cy="69" r="7" /><circle cx="150" cy="107" r="5" /><circle cx="119" cy="24" r="4" /><circle cx="256" cy="81" r="4" /><circle cx="204" cy="153" r="4" /><circle className="node-destination" cx="207" cy="38" r="14" /><path className="node-arrow" d="M202 43l10-10m-10 0h10v10" /></svg>
+      <h2>Elsewhere <ArrowUpRight size={18} /></h2><p>沿一条链接，走远一点。</p>
     </Link>
-    <div className="floating-note note-year" aria-hidden="true"><span>YOU HAVE NO NEW TASKS.</span><strong>Just a little curiosity.</strong><div>↖ follow that feeling</div></div>
-    <span className="portal-side-note" aria-hidden="true">CLICK INTO THE UNKNOWN</span>
+    <Link to="/wander?mode=news" className="world-news" aria-label="News Drift · 接收一则远方消息">
+      <span className="world-number">02 / DRIFT</span>
+      <div className="mini-signal" aria-hidden="true"><span /><span /><span /><i /><b>↗</b></div>
+      <h2>News Drift <ArrowUpRight size={18} /></h2><p>调频，偶遇世界的另一面。</p>
+      <span className="mini-wave" aria-hidden="true">▂ ▃ ▆ ▂ ▅ ▇ ▃ ▂ ▅</span>
+    </Link>
+    <Link to="/wander?mode=time" className="world-time" aria-label="Time Machine · 穿过一扇历史窗口">
+      <span className="world-number">03 / TRAVEL</span>
+      <div className="mini-windows" aria-hidden="true"><i /><i /><div><span>INTERNET EXPLORER <b>− □ ×</b></span><strong>{firstYear ?? 'PAST'}<span>→</span>{lastYear ?? 'NOW'}</strong><em>the past is still online.</em></div></div>
+      <h2>Time Machine <ArrowUpRight size={18} /></h2><p>过去，只隔着一扇窗口。</p>
+    </Link>
   </div>;
 }
 
 export default function Home() {
-  const { repository: { years } } = useContent();
+  const { repository: { years, websiteCount, newsSnapshot } } = useContent();
   return <main className="home-page page-enter">
     <section className="home-hero" aria-labelledby="home-title">
       <div className="hero-copy">
-        <div className="home-kicker"><span className="live-dot" /> THE INTERNET IS STILL OUT THERE.</div>
-        <h1 id="home-title" aria-label="Get lost on the Internet again.">Get lost on<br />the Internet<br /><em>again.</em><Asterisk className="title-spark" strokeWidth={1.2} aria-hidden="true" /></h1>
-        <p className="hero-intro">不是每次上网，都需要一个目的地。<br />离开熟悉的信息流，让好奇心带路。</p>
-        <Link className="surprise-button" data-testid="home-surprise-cta" to="/wander?mode=surprise" state={{ freshStart: true }}><Shuffle size={23} strokeWidth={1.8} /><span>SURPRISE ME<small>随便去哪</small></span><MoveUpRight size={24} /></Link>
-        <p className="hero-footnote">No search. No sign-up. Just a little serendipity.</p>
+        <div className="home-kicker"><span className="live-dot" /> AN OPEN INVITATION TO WANDER</div>
+        <h1 id="home-title" aria-label="Get lost on the Internet again.">Get lost.<br />Find <em>wonder.</em><span className="title-trail" aria-hidden="true">↗</span></h1>
+        <p className="hero-intro">不是每一次上网，都需要一个目的地。<br />让好奇心，把你带到熟悉之外。</p>
+        <Link className="surprise-button" data-testid="home-surprise-cta" to="/wander?mode=surprise" state={{ freshStart: true }}><Shuffle size={20} /><span>Surprise me<small>下一站，交给偶然</small></span><MoveUpRight size={22} /></Link>
+        <p className="hero-footnote">NO SEARCH. NO PLAN. JUST ONE MORE CLICK.</p>
       </div>
-      <UnknownWindow />
+      <ConnectedWorlds firstYear={years[0]?.year} lastYear={years.at(-1)?.year} />
     </section>
-    <div className="door-section-label"><span><ArrowDown size={15} /> OR FOLLOW A THREAD</span><span>有点方向，也可以。</span></div>
-    <section className="mode-doors" aria-label="选择漫游方向">
-      {doors.map(({ icon: Icon, ...door }) => <Link key={door.mode} className={`mode-door tint-${door.tint}`} to={`/wander?mode=${door.mode}`}>
-        <div className="door-top"><span className="door-icon"><Icon size={24} strokeWidth={1.4} /></span><span>{door.number} /</span><ArrowUpRight className="door-arrow" size={20} /></div>
-        <h2>{door.title}</h2><p className="door-subtitle">{door.sub}</p><p className="door-description">{door.text}</p><span className="door-detail">{door.mode === 'time' ? years.map(year => year.year).join(' / ') : door.detail}</span>
-      </Link>)}
+    <section className="departure-index" aria-label="选择漫游方向">
+      <div className="departure-caption"><ArrowDown size={18} /><span>THREE WAYS<br />TO GET A LITTLE LOST.</span></div>
+      <Link to="/wander?mode=elsewhere"><span className="index-number">01</span><div><strong>跳出日常</strong><span>{websiteCount} 个精选网站 · 跟着链接走</span></div><ArrowUpRight size={19} /></Link>
+      <Link to="/wander?mode=news"><span className="index-number">02</span><div><strong>听见远方</strong><span>{new Set(newsSnapshot.items.map(item => item.language)).size} 种原文语言 · 接收陌生视角</span></div><ArrowUpRight size={19} /></Link>
+      <Link to="/wander?mode=time"><span className="index-number">03</span><div><strong>回到从前</strong><span>{years.length} 个精选年份 · 走进真实档案</span></div><ArrowUpRight size={19} /></Link>
     </section>
-    <p className="home-endnote"><Asterisk size={19} /><span>A little less algorithm.<br className="mobile-break" /> A little more accident.</span></p>
+    <div className="home-endnote"><span className="trail-mark" aria-hidden="true">⤳</span><p>The best things aren’t always what you’re looking for.</p><span>一小段没有目的的旅程。</span></div>
   </main>;
 }

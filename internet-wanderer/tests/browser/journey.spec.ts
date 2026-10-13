@@ -62,7 +62,7 @@ test('twenty Elsewhere encounters stay distinct and the last result survives rel
   const titles: string[] = [];
   for (let i = 0; i < 20; i += 1) {
     titles.push(await page.getByTestId('wander-card').getByRole('heading').innerText());
-    if (i < 19) await page.getByRole('button', { name: '下一站', exact: true }).click();
+    if (i < 19) await page.getByRole('button', { name: /^下一站/ }).click();
   }
   expect(new Set(titles).size).toBe(20);
   await page.reload();
@@ -105,10 +105,10 @@ for (const item of nonEnglishSites) {
 test('previous encounter then next then reload restores the current card, not old route state', async ({ page }) => {
   await page.goto('/#/wander?mode=elsewhere');
   const first = await page.getByTestId('wander-card').getByRole('heading').innerText();
-  await page.getByRole('button', { name: '下一站', exact: true }).click();
+  await page.getByRole('button', { name: /^下一站/ }).click();
   await page.getByRole('button', { name: '上一站', exact: true }).click();
   await expect(page.getByTestId('wander-card').getByRole('heading')).toHaveText(first);
-  await page.getByRole('button', { name: '下一站', exact: true }).click();
+  await page.getByRole('button', { name: /^下一站/ }).click();
   const current = await page.getByTestId('wander-card').getByRole('heading').innerText();
   await page.reload();
   await expect(page.getByTestId('wander-card').getByRole('heading')).toHaveText(current);
@@ -129,7 +129,7 @@ test('year navigation produces three cards and records all of them in local hist
 
 test('local history drawer can restore a card and clear its stored trail', async ({ page }) => {
   await page.goto('/#/wander?mode=elsewhere');
-  await page.getByRole('button', { name: '下一站', exact: true }).click();
+  await page.getByRole('button', { name: /^下一站/ }).click();
   await page.getByRole('button', { name: '足迹', exact: true }).click();
   const dialog = page.getByRole('dialog');
   await expect(dialog).toBeVisible();
@@ -164,7 +164,7 @@ test('saved news remains browsable in the future and identifies its collection d
   const [year, month, day] = newsSnapshot.generatedAt!.slice(0, 10).split('-').map(Number);
   await expect(note).toContainText(new RegExp(`${year}\\D+0?${month}\\D+0?${day}`));
   const first = await page.getByTestId('wander-card').getByRole('heading').innerText();
-  await page.getByRole('button', { name: '下一站', exact: true }).click();
+  await page.getByRole('button', { name: /^下一站/ }).click();
   await expect(page.getByTestId('wander-card').getByRole('heading')).not.toHaveText(first);
   await page.reload();
   await expect(page.getByTestId('wander-card')).toHaveCount(1);
@@ -288,7 +288,7 @@ test('reduced motion keeps navigation functional without long-running interface 
   await page.getByTestId('home-surprise-cta').click();
   await page.getByRole('navigation', { name: '漫游模式', exact: true }).getByRole('link', { name: 'Elsewhere', exact: true }).click();
   const first = await page.getByTestId('wander-card').getByRole('heading').innerText();
-  await page.getByRole('button', { name: '下一站', exact: true }).click();
+  await page.getByRole('button', { name: /^下一站/ }).click();
   await expect(page.getByTestId('wander-card').getByRole('heading')).not.toHaveText(first);
   const animated = await page.locator('main').evaluate((main) => {
     const milliseconds = (list: string) => list.split(',').map((value) => value.trim().endsWith('ms') ? parseFloat(value) : parseFloat(value) * 1000);
@@ -305,7 +305,7 @@ test('blocked localStorage still permits continuous wandering', async ({ page })
   await page.addInitScript(() => Object.defineProperty(window, 'localStorage', { configurable: true, get() { throw new Error('Storage disabled'); } }));
   await page.goto('/#/wander?mode=elsewhere');
   const first = await page.getByTestId('wander-card').getByRole('heading').innerText();
-  await page.getByRole('button', { name: '下一站', exact: true }).click();
+  await page.getByRole('button', { name: /^下一站/ }).click();
   await expect(page.getByTestId('wander-card').getByRole('heading')).not.toHaveText(first);
 });
 
@@ -336,7 +336,7 @@ test('all year links and the random year action fit narrow and wide viewports', 
     await page.setViewportSize({ width, height: 1050 });
     await page.goto(timeRoutes[0]);
     const controls = page.getByRole('region', { name: '选择年份', exact: true });
-    await expect(controls.getByRole('link')).toHaveCount(yearValues.length);
+    await expect(controls.locator('.year-buttons').getByRole('link')).toHaveCount(yearValues.length);
     for (const control of await controls.locator('a, button').all()) {
       await expect(control).toBeVisible();
       const box = await control.boundingBox();
@@ -386,6 +386,10 @@ test('capture desktop and mobile product views', async ({ page }, testInfo) => {
       const params = new URLSearchParams(route.split('?')[1]);
       await expectExperience(page, params.get('mode')!, params.get('year') ?? undefined);
     }
+    if (name === 'elsewhere') {
+      for (let step = 0; step < 3; step += 1) await page.getByRole('button', { name: /^下一站/ }).click();
+    }
+    await page.getByRole('heading', { level: 1 }).click();
     await page.screenshot({ path: testInfo.outputPath(`${name}-desktop.png`), fullPage: true, animations: 'disabled' });
   }
   await page.setViewportSize({ width: 390, height: 844 });
@@ -404,7 +408,7 @@ test('capture desktop and mobile product views', async ({ page }, testInfo) => {
 
 test('browser back and forward restore the presentation belonging to each history entry', async ({ page }) => {
   await page.goto('/#/wander?mode=elsewhere');
-  await page.getByRole('button', { name: '下一站', exact: true }).click();
+  await page.getByRole('button', { name: /^下一站/ }).click();
   const title = await page.getByTestId('wander-card').getByRole('heading').innerText();
   await page.getByRole('navigation', { name: '漫游模式' }).getByRole('link', { name: 'News Drift', exact: true }).click();
   await expectExperience(page, 'news');
@@ -452,7 +456,7 @@ test('mobile action bar stays usable after scrolling and synchronizes card favor
   const title = await page.getByTestId('wander-card').getByRole('heading').innerText();
   await controls.getByRole('button', { name: '收藏当前站', exact: true }).click();
   await expect(page.getByRole('button', { name: `取消收藏：${title}`, exact: true })).toHaveAttribute('aria-pressed', 'true');
-  await controls.getByRole('button', { name: '下一站', exact: true }).click();
+  await controls.getByRole('button', { name: /^下一站/ }).click();
   await expect(page.getByTestId('wander-card').getByRole('heading')).not.toHaveText(title);
   await controls.getByRole('button', { name: '上一站', exact: true }).click();
   await expect(page.getByTestId('wander-card').getByRole('heading')).toHaveText(title);
@@ -461,10 +465,169 @@ test('mobile action bar stays usable after scrolling and synchronizes card favor
 
 test('keyboard next keeps focus on the persistent action instead of a removed result', async ({ page }) => {
   await page.goto('/#/wander?mode=elsewhere');
-  const next = page.getByRole('button', { name: '下一站', exact: true });
+  const next = page.getByRole('button', { name: /^下一站/ });
+  await expect(next).toHaveAccessibleName(/Wander/);
   await next.focus();
   const title = await page.getByTestId('wander-card').getByRole('heading').innerText();
   await page.keyboard.press('Enter');
   await expect(page.getByTestId('wander-card').getByRole('heading')).not.toHaveText(title);
   await expect(next).toBeFocused();
+});
+
+test('home connects three distinct worlds directly to their working experiences', async ({ page }) => {
+  for (const [label, mode, testId] of [
+    ['Elsewhere · 跳入一个陌生网站', 'elsewhere', 'node-map'],
+    ['News Drift · 接收一则远方消息', 'news', 'signal-tuner'],
+    ['Time Machine · 穿过一扇历史窗口', 'time', 'wander-card'],
+  ]) {
+    await page.goto('/');
+    await page.getByRole('link', { name: label, exact: true }).click();
+    await expect(page.locator('main')).toHaveAttribute('data-mode', mode);
+    await expect(page.getByTestId(testId).first()).toBeVisible();
+    await page.getByRole('link', { name: '回到探索地图', exact: true }).click();
+    await expect(page.getByTestId('home-surprise-cta')).toBeVisible();
+  }
+});
+
+test('the node map grows with real encounters and an earlier node restores its destination', async ({ page }) => {
+  await page.goto('/#/wander?mode=elsewhere');
+  const heading = page.getByTestId('wander-card').getByRole('heading');
+  const first = await heading.innerText();
+  const map = page.getByTestId('node-map');
+  for (let index = 1; index < 10; index += 1) {
+    await expect(map.getByRole('button', { name: /^回访：/ })).toHaveCount(Math.min(index, 8));
+    await page.getByRole('button', { name: /^下一站/ }).click();
+  }
+  await expect(map.getByRole('button', { name: /^回访：/ })).toHaveCount(8);
+  await map.getByRole('button', { name: '查看全部足迹', exact: true }).click();
+  await page.getByRole('dialog', { name: '最近遇见', exact: true }).getByRole('button').filter({ hasText: first }).click();
+  await expect(heading).toHaveText(first);
+  await expect(map.getByRole('button', { name: `回访：${first}`, exact: true })).toHaveAttribute('aria-pressed', 'true');
+  const other = map.getByRole('button', { name: /^回访：/ }).first();
+  const label = (await other.getAttribute('aria-label'))!.replace('回访：', '');
+  await other.click();
+  await expect(heading).toHaveText(label);
+  await page.reload();
+  await expect(heading).toHaveText(label);
+  await expect(map.getByRole('button', { name: `回访：${label}`, exact: true })).toHaveAttribute('aria-pressed', 'true');
+});
+
+test('keyboard tuning selects actual sources, preserves attribution and restores the station after reload', async ({ page }) => {
+  await page.goto('/#/wander?mode=news');
+  const tuner = page.getByTestId('signal-tuner');
+  const slider = page.getByRole('slider', { name: '新闻来源调频', exact: true });
+  const max = Number(await slider.getAttribute('max'));
+  await slider.press('Home');
+  for (let index = 0; index <= max; index += 1) {
+    await expect(slider).toHaveValue(String(index));
+    const sourceName = await tuner.locator('.tuned-source strong').innerText();
+    const card = page.getByTestId('wander-card');
+    await expect(card.locator('.source-note a').first()).toHaveText(sourceName);
+    await expect(slider).toHaveAttribute('aria-valuetext', new RegExp(sourceName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+    await expect(slider).toBeFocused();
+    await expect(card.locator('.news-context')).toContainText('发表于');
+    if (index < max) await slider.press('ArrowRight');
+  }
+  const title = await page.getByTestId('wander-card').getByRole('heading').innerText();
+  await page.reload();
+  await expect(slider).toHaveValue(String(max));
+  await expect(page.getByTestId('wander-card').getByRole('heading')).toHaveText(title);
+  await tuner.getByRole('button', { name: /让信号继续漂流/ }).click();
+  await expect(page.getByTestId('wander-card').getByRole('heading')).not.toHaveText(title);
+});
+
+test('pointer dragging the frequency ruler changes the source at both ends', async ({ page }) => {
+  await page.goto('/#/wander?mode=news');
+  const slider = page.getByRole('slider', { name: '新闻来源调频', exact: true });
+  const box = (await slider.boundingBox())!;
+  await page.mouse.move(box.x + 6, box.y + box.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(box.x + box.width - 6, box.y + box.height / 2, { steps: 10 });
+  await page.mouse.up();
+  await expect(slider).toHaveValue((await slider.getAttribute('max'))!);
+  const lastSource = await page.locator('.tuned-source strong').innerText();
+  await expect(page.getByTestId('wander-card').locator('.source-note a').first()).toHaveText(lastSource);
+  await slider.click({ position: { x: 6, y: box.height / 2 } });
+  await expect(slider).toHaveValue('0');
+  await expect(page.locator('.tuned-source strong')).not.toHaveText(lastSource);
+});
+
+test('time travel changes the window, typography and buttons while exposing historical evidence', async ({ page }) => {
+  const skins: string[] = [];
+  const buttonStyles: string[] = [];
+  for (const [year, skin] of [[1999, 'bevel'], [2007, 'glass'], [2016, 'flat']] as const) {
+    await page.goto(`/#/wander?mode=time&year=${year}`);
+    await expectExperience(page, 'time', String(year));
+    const frame = page.getByTestId('wander-card').first().locator('.browser-frame');
+    await expect(frame).toHaveAttribute('data-skin', skin);
+    skins.push(await frame.getAttribute('data-skin') as string);
+    buttonStyles.push(await page.getByTestId('wander-card').first().locator('.visit-button').evaluate(element => {
+      const style = getComputedStyle(element);
+      return `${style.backgroundImage}|${style.backgroundColor}|${style.borderRadius}`;
+    }));
+    const evidence = page.getByTestId('wander-card').first().getByText('查看历史依据', { exact: true });
+    await evidence.click();
+    const links = page.getByTestId('wander-card').first().locator('.history-evidence a');
+    await expect(links.first()).toBeVisible();
+    await expect(links.first()).toHaveAttribute('target', '_blank');
+    await expect(links.first()).toHaveAttribute('rel', 'noopener noreferrer');
+  }
+  expect(new Set(skins).size).toBe(3);
+  expect(new Set(buttonStyles).size).toBe(3);
+  await page.getByRole('link', { name: '上一个年份', exact: true }).click();
+  await expect(page.locator('main')).toHaveAttribute('data-era', '2012');
+  await page.getByRole('link', { name: '下一个年份', exact: true }).click();
+  await expect(page.locator('main')).toHaveAttribute('data-era', '2016');
+});
+
+test('new exploration controls remain reachable at the design breakpoints', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  for (const width of [320, 375, 390, 768, 1024, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const mode of ['elsewhere', 'news', 'time']) {
+      await page.goto(`/#/wander?mode=${mode}&year=2007`);
+      await expect(page.getByTestId('wander-card').first()).toBeVisible();
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${width}px ${mode}`).toBe(true);
+      const controls = mode === 'news' ? page.getByRole('slider') : mode === 'elsewhere' ? page.locator('.map-node') : page.locator('.year-buttons a, .rail-step');
+      for (const control of await controls.all()) {
+        const box = (await control.boundingBox())!;
+        // Transformed DOMRects can round 44 CSS pixels to 43.99997.
+        expect(box.width, `${width}px ${mode} target width`).toBeGreaterThanOrEqual(43.99);
+        expect(box.height, `${width}px ${mode} target height`).toBeGreaterThanOrEqual(43.99);
+        expect(box.x).toBeGreaterThanOrEqual(0);
+        expect(box.x + box.width).toBeLessThanOrEqual(width);
+      }
+    }
+  }
+  expect(errors).toEqual([]);
+});
+
+test('mobile wandering and tuning reveal the current headline above the fixed action bar', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const mode of ['elsewhere', 'news']) {
+    await page.goto(`/#/wander?mode=${mode}`);
+    const heading = page.getByTestId('wander-card').getByRole('heading');
+    await expect(heading).toBeVisible();
+    const actions = (await page.getByTestId('journey-controls').boundingBox())!;
+    expect((await heading.boundingBox())!.y).toBeLessThan(actions.y - 35);
+    await page.getByRole('button', { name: /^下一站/ }).click();
+    expect((await heading.boundingBox())!.y).toBeLessThan(actions.y - 35);
+    if (mode === 'news') {
+      const slider = page.getByRole('slider', { name: '新闻来源调频', exact: true });
+      await slider.press('End');
+      await expect(slider).toBeFocused();
+      expect((await heading.boundingBox())!.y).toBeLessThan(actions.y - 35);
+    }
+  }
+});
+
+test('the keyboard skip link focuses the content without replacing the active hash route', async ({ page }) => {
+  await page.goto('/#/wander?mode=elsewhere');
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('link', { name: '跳到主要内容', exact: true })).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#main-content')).toBeFocused();
+  await expect(page).toHaveURL(/#\/wander\?mode=elsewhere$/);
+  await expect(page.getByTestId('node-map')).toBeVisible();
 });

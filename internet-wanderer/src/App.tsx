@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { Asterisk, Bookmark, Footprints, History, X } from 'lucide-react';
+import { Orbit, Bookmark, Footprints, History, X } from 'lucide-react';
 import { JourneyProvider, useJourney } from './app/journey-context';
 import { BookmarksProvider, useBookmarks } from './app/bookmarks-context';
 import BookmarksDialog from './components/BookmarksDialog';
@@ -40,8 +40,8 @@ function Shell() {
   const location = useLocation();
   useEffect(() => { window.scrollTo(0, 0); document.title = location.pathname === '/about' ? '关于 · Internet Wanderer' : 'Internet Wanderer — Get lost again.'; }, [location.pathname]);
   return <div className="app-shell">
-    <a className="skip-link" href="#main-content">跳到主要内容</a>
-    <header className="site-header"><Link to="/" className="wordmark" aria-label="Internet Wanderer 首页"><Asterisk size={41} strokeWidth={1.4} /><span>internet<br /><strong>wanderer</strong><i>↗</i></span></Link><div className="header-middle">NO MAP. NO PLAN.<span>JUST CURIOSITY.</span></div><nav aria-label="站点导航"><button className="text-button" aria-label="打开收藏" onClick={() => { setRecentOpen(false); setBookmarksOpen(true); }}><Bookmark size={16} /><span>收藏</span></button><button className="text-button" onClick={() => { setBookmarksOpen(false); setRecentOpen(true); }}><History size={16} /><span>足迹</span></button><Link to="/about" className={location.pathname === '/about' ? 'header-link is-current' : 'header-link'}>关于 ↗</Link></nav></header>
+    <a className="skip-link" href="#main-content" onClick={event => { event.preventDefault(); document.getElementById('main-content')?.focus(); document.getElementById('main-content')?.scrollIntoView(); }}>跳到主要内容</a>
+    <header className="site-header"><Link to="/" className="wordmark" aria-label="Internet Wanderer 首页"><Orbit size={38} strokeWidth={1.3} /><span>internet<br /><strong>wanderer</strong><i>↗</i></span></Link><div className="header-middle">A FIELD GUIDE TO GETTING LOST.<span>FOLLOW YOUR CURIOSITY ↗</span></div><nav aria-label="站点导航"><button className="text-button" aria-label="打开收藏" onClick={() => { setRecentOpen(false); setBookmarksOpen(true); }}><Bookmark size={16} /><span>收藏</span></button><button className="text-button" onClick={() => { setBookmarksOpen(false); setRecentOpen(true); }}><History size={16} /><span>足迹</span></button><Link to="/about" className={location.pathname === '/about' ? 'header-link is-current' : 'header-link'}>关于 ↗</Link></nav></header>
     <div id="main-content" tabIndex={-1}><Routes><Route path="/" element={<Home />} /><Route path="/wander" element={<Wander key={`${location.state?.entryKey ?? location.key}:${location.search}`} openRecent={() => setRecentOpen(true)} />} /><Route path="/about" element={<About />} /><Route path="*" element={<Navigate to="/" replace />} /></Routes></div>
     <footer className="site-footer"><span>© 2026 INTERNET WANDERER</span><span>THE WEB IS STILL A WEIRD, WONDERFUL PLACE.</span><Link to="/about">STAY CURIOUS ↗</Link></footer>
     <RecentDialog open={recentOpen} close={() => setRecentOpen(false)} />

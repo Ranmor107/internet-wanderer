@@ -79,8 +79,8 @@ export function useWander() {
     return () => { window.removeEventListener('focus', update); window.clearInterval(timer); };
   }, [runtime]);
 
-  function next() {
-    const options = { items: allItems, mode, year: mode === 'time' ? year : undefined, recentIds: journey.entries.map(entry => entry.id), previousId: presentation.items[0]?.id, sourceStates: newsSnapshot.sourceStates, now: runtime.now() };
+  function next(sourceId?: string) {
+    const options = { items: sourceId ? allItems.filter(item => item.kind === 'news' && item.sourceId === sourceId) : allItems, mode: sourceId ? 'news' as const : mode, year: mode === 'time' ? year : undefined, recentIds: journey.entries.map(entry => entry.id), previousId: presentation.items[0]?.id, sourceStates: newsSnapshot.sourceStates, now: runtime.now() };
     if (mode === 'time' && year !== undefined) setPresentation(previous => ({ items: selectYearPack({ ...options, year }), isNew: true, sequence: previous.sequence + 1 }));
     else {
       const result = selectNext(options);

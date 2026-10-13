@@ -1,24 +1,24 @@
 :root {
-  --color-paper: #fffdf7;
-  --color-page: #f7f4ed;
-  --color-ink: #292b28;
-  --color-muted: #686b61;
-  --color-border: #d8d8cb;
+  --color-paper: #fdfcf6;
+  --color-page: #f5f3ec;
+  --color-ink: #272e2b;
+  --color-muted: #656b61;
+  --color-border: #d5d6cb;
   --color-chrome: #f0ede4;
   --color-white: #fff;
-  --color-orange: #ef895e;
-  --color-lime: #d4eb99;
-  --color-forest: #294b37;
-  --color-lime-paper: #edf2df;
-  --color-lime-border: #bac7a5;
-  --color-lavender: #e4d9f3;
-  --color-plum: #604076;
-  --color-lavender-paper: #f0eaf5;
-  --color-lavender-border: #d6c9df;
+  --color-orange: #b9472d;
+  --color-lime: #dce5d4;
+  --color-forest: #395845;
+  --color-lime-paper: #e8eddf;
+  --color-lime-border: #bdc9b6;
+  --color-lavender: #dfe8e8;
+  --color-plum: #325863;
+  --color-lavender-paper: #edf1ed;
+  --color-lavender-border: #bccdd0;
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   --font-serif: Georgia, 'Times New Roman', serif;
   --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
-  --focus-ring: #995032;
+  --focus-ring: #a43c27;
 }
 
 :where([data-mode]) {

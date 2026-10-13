@@ -40,6 +40,7 @@ export default function ItemCard({ item, compact = false, index = 0 }: { item: W
         </div>}
         {item.history?.occurredOn && <p className="date-note">事件日期 · {item.history.occurredOn}</p>}
         {item.archive && <div className="archive-context"><p>保存于 {formatDate(item.archive.capturedAt, true)}</p><p>网页可能缺少图片或部分链接。<a href={item.archive.originalUrl} target="_blank" rel="noopener noreferrer">查看原网址</a></p></div>}
+        {item.history && item.evidenceUrls?.length ? <details className="history-evidence"><summary>查看历史依据</summary>{item.evidenceUrls.map((url, position) => <a key={url} href={url} target="_blank" rel="noopener noreferrer">{position + 1}. {domainName(url)} <ExternalLink size={11} /></a>)}</details> : null}
         {item.tags?.length ? <div className="tag-list">{item.tags.slice(0, 3).map((tag) => <span key={tag}>{tag}</span>)}</div> : null}
         <div className="item-bottom">
           <a className="visit-button" href={item.url} target="_blank" rel="noopener noreferrer" aria-label={`打开这一站：${item.title}`}>打开这一站 <ExternalLink size={15} /></a>

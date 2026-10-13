@@ -1,85 +1,23 @@
-:root {
-  --motion-fast: 140ms;
-  --motion-enter: 380ms;
-  --motion-ease: cubic-bezier(.2, .7, .2, 1);
-}
-
-@keyframes wander-page-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes wander-result-in {
-  from { opacity: 0; transform: translateY(9px) scale(.992); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes wander-window-in {
-  from { opacity: 0; transform: translateY(16px) rotate(var(--portal-tilt, -3deg)) scale(.975); }
-  to { opacity: 1; transform: translateY(0) rotate(var(--portal-tilt, -3deg)) scale(1); }
-}
-
-.page-enter {
-  animation: wander-page-in var(--motion-enter) var(--motion-ease) backwards;
-}
-
-.result-enter {
-  animation: wander-result-in var(--experience-enter-duration, 230ms) var(--motion-ease) backwards;
-}
-
-.portal-window {
-  transform: rotate(var(--portal-tilt, -3deg));
-  transform-origin: center;
-  animation: wander-window-in 520ms var(--motion-ease) backwards;
-  transition: transform 240ms var(--motion-ease);
-}
-
-:where(button, [role='button'], .primary-button, .secondary-button, .next-button, .visit-button, .surprise-button) {
-  transition: transform var(--motion-fast) var(--motion-ease), opacity var(--motion-fast) ease;
-}
-
+:root { --motion-fast: 160ms; --motion-enter: 260ms; --motion-ease: cubic-bezier(.2, .7, .2, 1); }
+@keyframes page-arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes result-arrive { from { opacity: .15; transform: translateY(7px); } to { opacity: 1; transform: none; } }
+@keyframes route-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes node-land { from { opacity: .2; scale: .7; } to { opacity: 1; scale: 1; } }
+@keyframes signal-catch { from { opacity: .2; transform: rotate(-130deg); } to { opacity: 1; transform: rotate(-35deg); } }
+@keyframes window-arrive { from { opacity: .3; translate: 0 9px; } to { opacity: 1; translate: 0 0; } }
+.page-enter { animation: page-arrive var(--motion-enter) var(--motion-ease) backwards; }
+.result-enter { animation: result-arrive 280ms 90ms var(--motion-ease) backwards; }
+[data-experience='time'] .result-enter { animation: window-arrive 260ms ease-out backwards; }
+[data-motion='snap'] .result-enter { animation-duration: 90ms; }
+:where(button, [role='button'], .secondary-button, .next-button, .visit-button, .surprise-button, .world-elsewhere, .world-news, .world-time) { transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, opacity 180ms ease; }
+.surprise-button > svg, .next-button > svg:last-child { transition: transform 180ms ease; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  :where(button, [role='button'], .primary-button, .secondary-button, .next-button, .visit-button, .surprise-button):not(:disabled):hover {
-    transform: translateY(-1px);
-  }
-
-  .portal-window:hover {
-    transform: translateY(-3px) rotate(var(--portal-tilt, -3deg));
-  }
+  .surprise-button:hover > svg:last-child, .next-button:hover > svg:last-child { transform: translate(2px, -2px); }
+  .world-elsewhere:hover .world-route { stroke: #b9472d; }
+  .world-news:hover .mini-signal > i { transform: rotate(-18deg); }
+  .mini-signal > i { transition: transform 240ms ease; }
 }
-
-:where(button, [role='button'], .primary-button, .secondary-button, .next-button, .visit-button, .surprise-button):not(:disabled):active {
-  transform: translateY(1px) scale(.98);
-}
-
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
-
-  .page-enter, .result-enter {
-    transform: none;
-  }
-
-  .portal-window,
-  .portal-window:hover {
-    transform: rotate(var(--portal-tilt, -3deg));
-  }
-
-  :where(button, [role='button'], .primary-button, .secondary-button, .next-button, .visit-button, .surprise-button):not(:disabled):active {
-    transform: none;
-  }
-}
-
-@keyframes wander-snap-in { from { opacity: .25; } to { opacity: 1; } }
-[data-motion='snap'] .result-enter, .page-enter[data-motion='snap'] { animation-name: wander-snap-in; animation-duration: 90ms; }
-.portal-door, .portal-door > div, .portal-door svg, .portal-cursor, .title-spark, .postcard-art > svg { transition: transform 260ms var(--motion-ease); }
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .home-hero:has(.surprise-button:hover) .portal-door, .home-hero:has(.surprise-button:focus-visible) .portal-door, .portal-link:hover .portal-door { transform: scale(1.045) translateY(-3px); }
-  .home-hero:has(.surprise-button:hover) .portal-door svg, .portal-link:hover .portal-door svg { transform: rotate(90deg) scale(1.15); }
-  .home-hero:has(.surprise-button:hover) .portal-cursor { transform: translate(-9px, -6px) rotate(4deg); }
-  .surprise-button:hover > svg:first-child { transform: rotate(-12deg); }
-  .item-card:hover .postcard-art > svg { transform: rotate(3deg) scale(1.035); }
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .page-enter, .result-enter { transform: none; }
 }

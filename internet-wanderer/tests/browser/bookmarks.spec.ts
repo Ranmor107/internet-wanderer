@@ -91,7 +91,7 @@ test('saving survives reload and removing updates both the drawer and card', asy
 test('clearing the recent trail leaves saved favorites intact', async ({ page }) => {
   await page.goto('/#/wander?mode=elsewhere');
   const title = await saveCurrent(page);
-  await page.getByRole('button', { name: '下一站', exact: true }).click();
+  await page.getByRole('button', { name: /^下一站/ }).click();
   await page.getByRole('button', { name: '足迹', exact: true }).click();
   await page.getByRole('dialog').getByRole('button', { name: '清空足迹', exact: true }).click();
   await expect.poll(() => page.evaluate(() => JSON.parse(localStorage.getItem('internet-wanderer:journey:v1')!).entries.length)).toBe(0);
@@ -221,7 +221,7 @@ test('a saved report absent from the news library retains attribution without jo
   await page.reload();
   await expect(page.getByTestId('wander-card')).toHaveCount(1);
   await expect(page.getByTestId('wander-card')).not.toContainText(item.title);
-  await page.getByRole('button', { name: '下一站', exact: true }).click();
+  await page.getByRole('button', { name: /^下一站/ }).click();
   await expect(page.getByTestId('wander-card')).not.toContainText(item.title);
   await page.getByRole('navigation', { name: '漫游模式', exact: true }).getByRole('link', { name: 'Surprise Me', exact: true }).click();
   await expect(page.getByTestId('wander-card')).toHaveCount(1);
@@ -262,7 +262,7 @@ test('corruption from a second tab does not overwrite the file or discard this t
   await expect(entries(page)).toHaveCount(1);
   await expect(entries(page).first()).toContainText(first);
   await page.keyboard.press('Escape');
-  await page.getByRole('button', { name: '下一站', exact: true }).click();
+  await page.getByRole('button', { name: /^下一站/ }).click();
   await saveCurrent(page);
   await openDrawer(page);
   await expect(entries(page)).toHaveCount(2);

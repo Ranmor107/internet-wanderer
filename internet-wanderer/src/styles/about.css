@@ -1,7 +1,7 @@
 .about-page { max-width: 840px; margin: auto; padding: 65px 0 45px; }
 .about-page > .eyebrow { color: var(--color-muted); font-size: 9px; letter-spacing: 1.4px; }
 .about-page h1 { font-size: 65px; font-weight: 400; letter-spacing: -3px; line-height: 1.12; margin: 23px 0 26px; }
-.about-page h1 em { font-family: var(--serif); color: #80629f; }
+.about-page h1 em { font-family: var(--serif); color: var(--color-orange); }
 .about-lead { font-size: 17px; line-height: 1.9; color: #5f6559; margin-bottom: 28px; }
 .about-prose { font-size: 14px; line-height: 2; color: var(--color-muted); }
 .about-prose p + p { margin-top: 17px; }
@@ -24,10 +24,10 @@
 @media (max-width: 760px) {
   .about-page { padding-top: 41px; }
   .about-page h1 { font-size: 43px; letter-spacing: -2px; }
-  .about-lead { font-size: 14px; }
-  .about-prose { font-size: 13px; }
+  .about-lead { font-size: 16px; }
+  .about-prose { font-size: 16px; }
   .about-section { grid-template-columns: 1fr; gap: 10px; }
   .about-section h2 { font-size: 21px; }
-  .about-section p { font-size: 12px; }
+  .about-section p { font-size: 16px; }
   .about-last p { font-size: 18px; }
 }
