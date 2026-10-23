@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom';
-import { ArrowDown, ArrowUpRight, Radio, Shuffle } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Shuffle } from 'lucide-react';
 import { useContent } from '../app/content-context';
-import { domainName, formatDate, languageName } from '../content/format';
+import { domainName } from '../content/format';
 import WebsitePreview, { FEATURED_SITE_IDS } from '../components/experiences/WebsitePreview';
 import ArchiveArtifact from '../components/experiences/ArchiveArtifact';
+import NewsWorldPreview from '../components/experiences/NewsWorldPreview';
 
 export default function Home() {
   const { repository } = useContent();
   const sites = FEATURED_SITE_IDS.map(id => repository.itemById.get(id)).filter(item => !!item && repository.canRestore(item, 'elsewhere'));
-  const news = repository.allItems.find(item => item.kind === 'news' && item.language?.startsWith('zh') && repository.canRestore(item, 'news')) ?? repository.allItems.find(item => item.kind === 'news' && repository.canRestore(item, 'news'));
-  const source = news && repository.sourceById.get(news.sourceId);
   const archive = repository.allItems.find(item => item.kind === 'archive');
   return <main className="home-page page-enter">
     <section className="departure-hero" aria-labelledby="home-title">
@@ -29,7 +28,7 @@ export default function Home() {
     </section>
     <div className="other-worlds-label"><span>THE WEB ALSO HAS OTHER FREQUENCIES.</span><span>或者，换一种漫游方式。</span></div>
     <section className="home-other-worlds" aria-label="另外两个探索世界">
-      <article className="home-news-world"><Link className="news-world-link" to="/wander?mode=news" state={news ? { restoreItemId: news.id } : undefined} aria-label="News Drift · 接收一则远方消息"><header><span><Radio size={17} /> News Drift</span><ArrowUpRight size={21} /></header><div className="home-signal-lines" aria-hidden="true"><i /><i /><i /><b>↗</b></div><span className="eyebrow">A SIGNAL FROM SOMEWHERE ELSE</span><h2 lang={news?.language}>{news?.title ?? 'The world has another side.'}</h2><p>{source?.name} · {languageName(news?.language)}{news?.kind === 'news' && ` · ${formatDate(news.publishedAt)}`}</p><span className="world-invitation">调到一个陌生视角 <ArrowUpRight size={15} /></span></Link>{news?.kind === 'news' && <div className="home-news-credits">{news.author && <span>作者：{news.author}</span>}{news.translator && <span>译者：{news.translator}</span>}{news.licenseUrl && <a href={news.licenseUrl} target="_blank" rel="noopener noreferrer">CC BY 3.0</a>}</div>}</article>
+      <NewsWorldPreview />
       <Link className="home-time-world" to={`/wander?mode=time${archive?.history ? `&year=${archive.history.year}` : ''}`} state={archive ? { restoreItemId: archive.id } : undefined} aria-label="Time Machine · 穿过一扇历史窗口"><header><span>Time Machine</span><ArrowUpRight size={21} /></header>{archive && <div className="home-archive-window"><ArchiveArtifact item={archive} /></div>}<div className="home-time-caption"><span className="eyebrow">THE PAST IS STILL ONLINE</span><h2>{archive?.title ?? 'Open a window to another year.'}</h2><p>事件、去处、旧网页。走进一个年代的互联网。</p></div></Link>
     </section>
     <div className="home-endnote"><span className="trail-mark" aria-hidden="true">⤳</span><p>You don’t have to know where you’re going.</p><span>只需要一点好奇心。</span></div>

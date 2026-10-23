@@ -1,6 +1,6 @@
 # Internet Wanderer · UI direction
 
-当前设计以 **A field guide to getting lost** 为主线。0.7 的内容中心构图、参考入口和验收约定见 [CONTENT_FIRST_REDESIGN.md](docs/CONTENT_FIRST_REDESIGN.md)，0.6 的设计演进见 [UI_REDESIGN.md](docs/UI_REDESIGN.md)。
+当前设计以 **A field guide to getting lost** 为主线。0.9 将 News Drift 改为可直接操纵的世界，见 [EARTH_NEWS_EXPLORER.md](docs/EARTH_NEWS_EXPLORER.md)。0.8 的地球信号界面见 [NEWS_GLOBE_REDESIGN.md](docs/NEWS_GLOBE_REDESIGN.md)。0.7 的内容中心构图、参考入口和验收约定见 [CONTENT_FIRST_REDESIGN.md](docs/CONTENT_FIRST_REDESIGN.md)，0.6 的设计演进见 [UI_REDESIGN.md](docs/UI_REDESIGN.md)。
 
 ## 统一品牌
 
@@ -8,21 +8,21 @@
 
 ## 首页
 
-大标题与 Take me somewhere 主按钮直接邀请出发，借鉴 The Useless Web 的低决策成本。六个真实网站的小浏览器样本使用不同原创示意，点击能进入准确条目；手机采用原生横向滚动。下方通过一则真实消息与历史网页意象展示另外两个世界。示意预览始终明确标注，不能称为第三方截图。
+大标题与 Take me somewhere 主按钮直接邀请出发，借鉴 The Useless Web 的低决策成本。六个真实网站的小浏览器样本使用不同原创示意，点击能进入准确条目；手机采用原生横向滚动。下方通过可旋转的三维地球和历史网页意象展示另外两个世界。示意预览始终明确标注，不能称为第三方截图。
 
 ## 三种交互
 
 | 模式 | 空间与操作 | 内容边界 |
 | --- | --- | --- |
 | Elsewhere | 当前网站位于网络中心，真实最近遇见构成周围轨迹，最多八个网站节点；未知分支可出发、旧节点可回访，Wander again 沿不同路径到达 | 仅表示在本站遇见，不追踪外站浏览；全部足迹最多二十条 |
-| News Drift | 深蓝世界信号场中叠放纸面消息，来源地图、调频尺和漂流按钮共享空间；拖动 / 点击 / 方向键调频 | 刻度对应现有可用来源；地图表示机构所在地，保留原始日期及署名，不声称实时广播 |
+| News Drift | 卫星纹理三维地球占据探索视口，拖动 / 缩放 / 点选国家或信号；相机飞向地区，新闻浮在地球之上 | 地区明确关联已审核报道；未归类文章只标发布机构所在地，保留原始日期及署名，使用保存的新闻库 |
 | Time Machine | 年份轨道进入不等大的展厅：网页主展品、事件票签和去处海报；斜面等宽、玻璃圆角和平面主题随年代变化 | 年代外观及内置网页意象是设计演绎；真实事件与档案有依据入口，捕获时间与事件日期分别显示 |
 
 Surprise Me 继续按可用池随机抽取，采用实际结果所属空间，标明当前旅程并提供进入完整模式的入口。
 
 ## 结构与交互约定
 
-内容与纯随机算法、浏览器存储、年代注册、视觉组件和动效分离。NodeMap、SignalTuner、TimeRail 不包含采集或存储逻辑；默认数据和稳定 ID 保留。调频只对本次抽取缩小来源范围，不改变默认随机漂流。
+内容与纯随机算法、浏览器存储、年代注册、视觉组件和动效分离。NodeMap、SignalTuner、TimeRail 不包含采集或存储逻辑；默认数据和稳定 ID 保留。地区与媒体来源筛选决定 News Drift 的本次抽取范围；Surprise Me 的跨模式选择保留原规则。
 
 动画只在路径延伸、节点落位、信号捕获和窗口切换时触发，不加入人为等待或无限循环。减少动画时直接展示新状态。按钮保留稳定焦点，移动端固定上一站 / 继续探索 / 收藏，外链在用户明确点击后以安全新标签页打开。收藏、备份、最近遇见及提供层容错继续可用。
 

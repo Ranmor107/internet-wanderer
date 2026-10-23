@@ -1,0 +1,389 @@
+{
+  "schemaVersion": 1,
+  "basis": "Title-reviewed country associations; country reference coordinates, not event geocodes.",
+  "reviewedAt": "2026-10-19",
+  "regions": [
+    {
+      "id": "JP",
+      "name": "日本",
+      "englishName": "Japan",
+      "longitude": 138,
+      "latitude": 37,
+      "items": [
+        {
+          "id": "news-global-voices-fa724f95b9c732f7035c",
+          "title": "Young Japanese find new outlets for peace activism amid rising tensions in the Pacific"
+        },
+        {
+          "id": "news-global-voices-9ca68ffc0cfbcd131323",
+          "title": "Japanese pop culture is sexually explicit, but sex education is wanting"
+        },
+        {
+          "id": "news-global-voices-01d1df81aa9a7362cd6a",
+          "title": "All about ‘osechi ryōri’, Japan's traditional New Year's food"
+        },
+        {
+          "id": "news-global-voices-zh-2b57afcb123338b2ba07",
+          "title": "别错过东京摄影俱乐部令人惊艳的日本照片"
+        }
+      ]
+    },
+    {
+      "id": "CN",
+      "name": "中国",
+      "englishName": "China",
+      "longitude": 104,
+      "latitude": 35,
+      "items": [
+        {
+          "id": "news-global-voices-b59e8d9e2f3ada8b47b0",
+          "title": "West-to-east energy, east-to-west computing: The Uyghur costs of China’s digital order"
+        },
+        {
+          "id": "news-global-voices-zh-437dd65dd6a24a030eb9",
+          "title": "中国古典文学里的反骨精神与叛逆分子"
+        },
+        {
+          "id": "news-global-voices-8c4592b8c43faa765424",
+          "title": "China's campaign against Christmas makes celebrating a difficult choice for citizens"
+        }
+      ]
+    },
+    {
+      "id": "IN",
+      "name": "印度",
+      "englishName": "India",
+      "longitude": 79,
+      "latitude": 22,
+      "items": [
+        {
+          "id": "news-global-voices-e8a4582fa143cb69f76c",
+          "title": "A fact-check of India’s socio-political undercurrents: the case of Zubair"
+        },
+        {
+          "id": "news-global-voices-9b6e2b9dd84fe79c43fc",
+          "title": "Death toll reaches 27 in India's citizenship protests"
+        },
+        {
+          "id": "news-global-voices-ac5c9350c4d425a41ba4",
+          "title": "In 2016, These YouTube Channels From India Offered Meaningful Content"
+        }
+      ]
+    },
+    {
+      "id": "KE",
+      "name": "肯尼亚",
+      "englishName": "Kenya",
+      "longitude": 38,
+      "latitude": 0.5,
+      "items": [
+        {
+          "id": "news-global-voices-d531f2e4061924f42c59",
+          "title": "Kenyan filmmaker Emily Nderitu shows the world how to talk about climate change in Africa"
+        },
+        {
+          "id": "news-global-voices-c6e01cdc358bb7be0256",
+          "title": "Kenya now has a data protection law. What does this mean for netizens?"
+        },
+        {
+          "id": "news-global-voices-9a33f97e037c9d7b0fd3",
+          "title": "Kenya: 10 Best Kenyan Sites in 2010"
+        }
+      ]
+    },
+    {
+      "id": "NG",
+      "name": "尼日利亚",
+      "englishName": "Nigeria",
+      "longitude": 8,
+      "latitude": 9,
+      "items": [
+        {
+          "id": "news-global-voices-78217194d9880abad1ac",
+          "title": "What #EndSARS left behind in Nigeria: A generation caught between protest, politics, and departure"
+        },
+        {
+          "id": "news-global-voices-c6dce41c5277d0b7cf5c",
+          "title": "The rise of compressed natural gas as an alternative fuel in Nigeria"
+        },
+        {
+          "id": "news-global-voices-e072ea0fa2f6fc51e6ef",
+          "title": "Shadow of terrorism: Nigeria's battles with healthcare access as polio persist"
+        }
+      ]
+    },
+    {
+      "id": "ZA",
+      "name": "南非",
+      "englishName": "South Africa",
+      "longitude": 25,
+      "latitude": -29,
+      "items": [
+        {
+          "id": "news-global-voices-6ef188037d8bd1418c5a",
+          "title": "South Africa’s air pollution crisis: Contributing factors and solutions"
+        },
+        {
+          "id": "news-global-voices-zh-75d88888f1267b22b92f",
+          "title": "与移民有关的新冲突横扫南非"
+        },
+        {
+          "id": "news-global-voices-cd74bc9d01db02caa2d4",
+          "title": "South Africa: South African marketing podcast"
+        }
+      ]
+    },
+    {
+      "id": "BR",
+      "name": "巴西",
+      "englishName": "Brazil",
+      "longitude": -52,
+      "latitude": -12,
+      "items": [
+        {
+          "id": "news-global-voices-7f47b034064f36ddee2f",
+          "title": "In Brazil’s capital, residents grow their own heat-fighting solutions"
+        },
+        {
+          "id": "news-global-voices-392a78e8bbf22076c7d2",
+          "title": "‘Clean up your culture’: a TV host’s comment makes Indigenous Brazilians speak up"
+        },
+        {
+          "id": "news-global-voices-96c1587a63508f8716af",
+          "title": "‘Femicide does not start on the day of the crime’: A Brazilian researcher’s view on gender violence in her country"
+        }
+      ]
+    },
+    {
+      "id": "MX",
+      "name": "墨西哥",
+      "englishName": "Mexico",
+      "longitude": -102,
+      "latitude": 24,
+      "items": [
+        {
+          "id": "news-global-voices-53038163ca7d8e4fa34a",
+          "title": "Life at the U.S.–Mexico border under the Trump administration"
+        },
+        {
+          "id": "news-global-voices-zh-d5ae54b1a54fe33e4f71",
+          "title": "「移民远征队」的到来，暴露了墨西哥自身反移民的一面"
+        },
+        {
+          "id": "news-global-voices-d5a64556fddeab5069fd",
+          "title": "‘Learning to Live with the Narco in Mexico’, Stories from Survivors of the War on Organized Crime"
+        }
+      ]
+    },
+    {
+      "id": "PE",
+      "name": "秘鲁",
+      "englishName": "Peru",
+      "longitude": -75,
+      "latitude": -10,
+      "items": [
+        {
+          "id": "news-global-voices-7a3f25cb658f5b5da20f",
+          "title": "Difficult Moments, Alleged Negotiations and Protests from the Latest Political Crisis in Peru"
+        },
+        {
+          "id": "news-global-voices-zh-d300f7acb0aa7ade4042",
+          "title": "气候变迁的后果 秘鲁亚马逊区域面临低温"
+        },
+        {
+          "id": "news-global-voices-zh-6313e56adbf8908eef11",
+          "title": "秘鲁：反对矿场开发影片（上）"
+        }
+      ]
+    },
+    {
+      "id": "CL",
+      "name": "智利",
+      "englishName": "Chile",
+      "longitude": -71,
+      "latitude": -32,
+      "items": [
+        {
+          "id": "news-global-voices-6ba173397d0f5761f716",
+          "title": "How Some Musicians Are Reshaping the Image of Chile's Music Scene"
+        },
+        {
+          "id": "news-global-voices-418f163dd33aa3e5a78e",
+          "title": "Chile: Neighbors and Netizens Unite to Save Concon Dunes"
+        },
+        {
+          "id": "news-global-voices-7131d0bb068fd804b4ca",
+          "title": "Chile: Netizens Report and React to Torres del Paine Wildfire"
+        }
+      ]
+    },
+    {
+      "id": "UA",
+      "name": "乌克兰",
+      "englishName": "Ukraine",
+      "longitude": 32,
+      "latitude": 49,
+      "items": [
+        {
+          "id": "news-global-voices-d373dab6c71f5876bc2d",
+          "title": "Ukraine to get support from Apple with conducting national census in 2023"
+        },
+        {
+          "id": "news-global-voices-21a904ce798f22ea4531",
+          "title": "‘How do you live here?’ A local podcaster takes on misconceptions about eastern Ukraine"
+        },
+        {
+          "id": "news-global-voices-fe94f0db83b18d71a04d",
+          "title": "Hijacked Printers in Eastern Ukraine and Russia Print Pro-Ukraine Messages"
+        }
+      ]
+    },
+    {
+      "id": "RU",
+      "name": "俄罗斯",
+      "englishName": "Russia",
+      "longitude": 96,
+      "latitude": 60,
+      "items": [
+        {
+          "id": "news-global-voices-0468a7cd611b37c942be",
+          "title": "Russian TikTokers wanted to vote for an anti-war agenda. Putin’s farce elections did not allow that."
+        },
+        {
+          "id": "news-global-voices-7796751415e5d00cc582",
+          "title": "The 2016 Russian Words of the Year, Explained"
+        },
+        {
+          "id": "news-global-voices-9707a4c1a034309ed3b1",
+          "title": "Russian musicians sing about war resistance — few people take them seriously"
+        }
+      ]
+    },
+    {
+      "id": "ID",
+      "name": "印度尼西亚",
+      "englishName": "Indonesia",
+      "longitude": 117,
+      "latitude": -3,
+      "items": [
+        {
+          "id": "news-global-voices-e32ee63bbdffaf306d78",
+          "title": "Cyberbullying hinders women’s participation in Indonesia’s 2024 elections"
+        },
+        {
+          "id": "news-global-voices-997b9adf3f32c14332f8",
+          "title": "Wayang Wahyu: Preaching the Bible Through Indonesian Javanese Puppets"
+        },
+        {
+          "id": "news-global-voices-4c81e904bd4df94d8350",
+          "title": "One of 2015's Biggest Political Scandals Ends in the Indonesian House Speaker's Resignation"
+        }
+      ]
+    },
+    {
+      "id": "PH",
+      "name": "菲律宾",
+      "englishName": "Philippines",
+      "longitude": 122,
+      "latitude": 12,
+      "items": [
+        {
+          "id": "news-global-voices-cdf8e178cb3abd8fae39",
+          "title": "Christmas in the Philippines in the time of Duterte and COVID-19"
+        },
+        {
+          "id": "news-global-voices-c678b4fbcfe0e54780e8",
+          "title": "Shooting of mother and son highlights institutionalized police violence in the Philippines"
+        },
+        {
+          "id": "news-global-voices-zh-ed8842b0403f6e2677c1",
+          "title": "菲律宾教师抗议，因总统未兑现加薪承诺"
+        }
+      ]
+    },
+    {
+      "id": "AU",
+      "name": "澳大利亚",
+      "englishName": "Australia",
+      "longitude": 134,
+      "latitude": -25,
+      "items": [
+        {
+          "id": "news-global-voices-802aa6c8a14d7cf49c90",
+          "title": "Australia's under 16 social media ban under microscope at home and abroad"
+        },
+        {
+          "id": "news-global-voices-3b48b3fffef6603a8b3e",
+          "title": "‘Matilda': Australian word of the year following magnificent 2023 FIFA Women's World Cup"
+        },
+        {
+          "id": "news-global-voices-57749c6745986444d865",
+          "title": "Australia explores ways to combat widespread greenwashing of carbon emissions"
+        }
+      ]
+    },
+    {
+      "id": "FR",
+      "name": "法国",
+      "englishName": "France",
+      "longitude": 2,
+      "latitude": 47,
+      "items": [
+        {
+          "id": "news-global-voices-e5561ed8cf74816fe1e0",
+          "title": "France's institutional fear of multilingualism: An interview with language activist Michel Feltin-Palas"
+        },
+        {
+          "id": "news-global-voices-zh-02ef711f193aabffda55",
+          "title": "一句世界杯的玩笑话，能否迫使法国面对其非洲议题？"
+        },
+        {
+          "id": "news-global-voices-82bcd8fe4f46e0e0a0d7",
+          "title": "The Yellow Vest movement in France: What's at stake?"
+        }
+      ]
+    },
+    {
+      "id": "TR",
+      "name": "土耳其",
+      "englishName": "Türkiye",
+      "longitude": 35,
+      "latitude": 39,
+      "items": [
+        {
+          "id": "news-global-voices-2ddffef29d5b0d4e016c",
+          "title": "The complex nature of Turkey's relations with Syria"
+        },
+        {
+          "id": "news-global-voices-80d3a7dfd528da5aa399",
+          "title": "Turkey's environmental activist is among BBC's 100 inspiring and influential women"
+        },
+        {
+          "id": "news-global-voices-e4e38824d13b119dc64c",
+          "title": "Turkey bans access to 16 VPN providers"
+        }
+      ]
+    },
+    {
+      "id": "US",
+      "name": "美国",
+      "englishName": "United States",
+      "longitude": -98,
+      "latitude": 39,
+      "items": [
+        {
+          "id": "news-global-voices-zh-d5b9c25f06e3e9ee5269",
+          "title": "在美国的叙利亚难民盼美国人民了解美国的难民审查过程"
+        },
+        {
+          "id": "news-global-voices-zh-0328fb3de52df3bb30ca",
+          "title": "古巴: 美国新国会与对古巴政策"
+        },
+        {
+          "id": "news-global-voices-53038163ca7d8e4fa34a",
+          "title": "Life at the U.S.–Mexico border under the Trump administration"
+        }
+      ]
+    }
+  ]
+}

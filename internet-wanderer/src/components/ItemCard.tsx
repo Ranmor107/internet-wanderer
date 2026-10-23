@@ -36,7 +36,7 @@ export default function ItemCard({ item, compact = false, index = 0 }: { item: W
         <h2 className={item.kind === 'news' && item.title.length > 95 ? 'headline-long' : undefined} lang={item.language}>{item.title}</h2>
         {item.blurb && <p className="item-description">{item.blurb}</p>}
         {item.kind === 'news' && <div className="news-context">
-          <p>{source?.publisherType === 'institution' ? '机构资讯' : '新闻报道'} · {source?.publisherCountry ?? '地区未标注'} · {languageName(item.language)}</p>
+          <p>{source?.publisherType === 'institution' ? '机构资讯' : '新闻报道'} · 来源位于 {source?.publisherCountry ?? '地区未标注'} · {languageName(item.language)}</p>
           <p>发表于 {formatDate(item.publishedAt, true)}</p>
           {item.author && <p>作者：{item.author}</p>}
           {item.translator && <p>译者：{item.translator}</p>}

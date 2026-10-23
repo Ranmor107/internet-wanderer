@@ -44,11 +44,6 @@
 .home-news-world h2 { position: relative; font: 28px/1.4 var(--serif); margin: 15px 0 18px; max-width: 23ch; text-wrap: pretty; }
 .home-news-world p { font: 9px/1.8 var(--mono); color: #c1d4d5; }
 .world-invitation { display: flex; align-items: center; gap: 9px; margin-top: 23px; font-size: 12px; }
-.home-signal-lines { position: absolute; width: 260px; height: 260px; right: -70px; top: 0; opacity: .45; pointer-events: none; }
-.home-signal-lines i { position: absolute; inset: 0; border: 1px solid #8dafb6; border-radius: 50%; }
-.home-signal-lines i:nth-child(2) { inset: 35px; }
-.home-signal-lines i:nth-child(3) { inset: 70px; }
-.home-signal-lines b { position: absolute; left: 100px; top: 85px; font: 75px var(--serif); color: #dfba5e; font-weight: 400; }
 .home-news-credits { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 6px 14px; padding: 0 30px 24px; color: #c1d4d5; font-size: 10px; line-height: 1.8; }
 .home-news-credits a { display: inline-flex; align-items: center; text-decoration: underline; min-height: 24px; }
 .home-time-world { padding: 27px 30px; background: #e9e3d3; border: 1px solid #c5bc9f; overflow: hidden; }

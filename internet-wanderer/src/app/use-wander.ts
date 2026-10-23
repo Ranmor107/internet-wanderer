@@ -49,6 +49,7 @@ export function useWander() {
       return { items: pack, isNew: true, sequence: 0 };
     }
     if (remembered) return { items: [remembered], isNew: false, sequence: 0 };
+    if (mode === 'news') return { items: [], isNew: false, sequence: 0 };
     const result = selectNext(common);
     return { items: result.item ? [result.item] : [], isNew: true, note: result.reason, sequence: 0 };
   });
@@ -94,6 +95,12 @@ export function useWander() {
     if (picked) navigate(`/wander?mode=time&year=${picked.year}`, { state: { freshStart: true } });
     else next();
   }
+  function visitNews(id: string) {
+    const item = itemById.get(id);
+    if ((mode === 'news' || mode === 'surprise') && item?.kind === 'news' && canRestore(item, 'news', runtime.now())) {
+      setPresentation(previous => ({ items: [item], isNew: true, sequence: previous.sequence + 1 }));
+    }
+  }
   const trail = journey.trail ?? [];
   const currentView = { mode, year: mode === 'time' ? year : undefined, ids: presentation.items.map(item => item.id) };
   const trailIndex = trail.map(view => JSON.stringify(view)).lastIndexOf(JSON.stringify(currentView));
@@ -106,5 +113,5 @@ export function useWander() {
   }
   const visibleItems = presentation.items.filter(item => canRestore(item, mode, now));
   return { mode, year, yearInfo, journey, presentation, previousDisabled: !previousView && !previousEncounter,
-    previous, visibleItems, primary: visibleItems[0], next, changeYear };
+    previous, visibleItems, primary: visibleItems[0], next, changeYear, visitNews };
 }

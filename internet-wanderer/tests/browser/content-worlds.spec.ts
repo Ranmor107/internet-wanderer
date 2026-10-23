@@ -41,21 +41,17 @@ test('unknown branches are keyboard actions that grow real footsteps and keep fo
   await expect(heading).toHaveText(first);
 });
 
-test('world signals identify publisher locations while the central dispatch retains its source and date', async ({ page }) => {
+test('publisher-only reports identify their geographic basis without pretending to locate the event', async ({ page }) => {
   await page.goto('/#/wander?mode=news');
-  const slider = page.getByRole('slider', { name: '新闻来源调频', exact: true });
-  await slider.press('Home');
-  await expect(page.locator('.world-origin.is-receiving small')).toHaveText('Global Voices');
-  await slider.press('ArrowRight');
-  await expect(page.locator('.world-origin.is-receiving small')).toHaveText('NASA');
-  await expect(slider).toHaveAttribute('aria-valuetext', /来源所在地 美国/);
-  const dispatch = page.locator('.signal-dispatch');
-  await expect(dispatch.getByTestId('wander-card').locator('.source-note')).toContainText('NASA');
-  await expect(dispatch.locator('.news-context')).toContainText('发表于');
-  await slider.press('ArrowRight');
-  await expect(page.locator('.world-origin.is-receiving small')).toHaveText('ECB');
-  await expect(slider).toHaveAttribute('aria-valuetext', /来源所在地 德国/);
-  await expect(dispatch.getByRole('heading')).toBeVisible();
+  await page.getByRole('button', { name: '地区信号', exact: true }).click();
+  const select = page.getByRole('combobox', { name: '新闻来源', exact: true });
+  for (const [id, code] of [['nasa', 'US'], ['ecb', 'DE']]) {
+    await select.selectOption(id);
+    await expect(page.getByTestId('signal-tuner')).toHaveAttribute('data-phase', 'ready');
+    await expect(page.getByTestId('signal-tuner')).toHaveAttribute('data-region', code);
+    await expect(page.getByTestId('earth-dispatch')).toContainText('发布机构所在地');
+    await expect(page.getByTestId('wander-card').locator('.news-context')).toContainText('发表于');
+  }
 });
 
 test('the era exhibition gives the archive a lead space and restores all three original records', async ({ page }) => {

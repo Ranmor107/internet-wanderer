@@ -184,6 +184,8 @@ test('a saved report absent from the news library retains attribution without jo
   const currentTime = new Date(Date.parse(newsSnapshot.generatedAt!) + 8 * 24 * 60 * 60 * 1000);
   await page.clock.setFixedTime(currentTime);
   await page.goto('/#/wander?mode=news');
+  await page.getByRole('button', { name: /^下一站/ }).click();
+  await page.getByRole('button', { name: '展开消息与来源' }).click();
   await expect(page.getByTestId('wander-card')).toHaveCount(1);
   await expect(page.getByTestId('news-sample-note')).toContainText('新闻库');
   await openDrawer(page);

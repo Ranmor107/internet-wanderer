@@ -30,12 +30,19 @@ async function expectExperience(page: Page, mode: string, year?: string) {
   const main = page.locator('main');
   await expect(main).toHaveAttribute('data-mode', mode);
   const cards = page.getByTestId('wander-card');
+  if (mode === 'news' && await cards.count() === 0) await page.getByRole('button', { name: /^下一站/ }).click();
   await expect(cards).toHaveCount(mode === 'time' ? 3 : 1);
   if (mode === 'news') await expect(cards).toHaveClass(/kind-news/);
   if (mode === 'elsewhere') await expect(cards).toHaveClass(/kind-website/);
   if (mode === 'time' || mode === 'news' || mode === 'elsewhere') {
     const era = mode === 'time' ? year! : 'modern';
     await expect(main).toHaveAttribute('data-era', era);
+    if (mode === 'news') {
+      await expect(cards).toHaveClass(/news-letter/);
+      await expect(cards.locator('.browser-frame')).toHaveCount(0);
+      await expect(page.getByTestId('earth-dispatch')).toContainText('DISPATCH RECEIVED');
+      return;
+    }
     await expect.poll(() => cards.evaluateAll((items) => items.map((item) => {
       const frame = item.matches('[data-era]') ? item : item.querySelector('[data-era]');
       return frame?.getAttribute('data-era');
@@ -147,6 +154,7 @@ test('news keeps author, publication date and licensing attribution', async ({ p
   await page.addInitScript((id) => localStorage.setItem('internet-wanderer:journey:v1', JSON.stringify({ version: 1, entries: [], currentId: id, currentMode: 'news' })), item.id);
   await page.goto('/#/wander?mode=news');
   const card = page.getByTestId('wander-card');
+  await page.getByRole('button', { name: '展开消息与来源' }).click();
   await expect(card.getByRole('heading')).toHaveText(item.title);
   await expect(card.getByText(`作者：${item.author}`)).toBeVisible();
   await expect(card.getByRole('link', { name: 'CC BY 3.0' })).toHaveAttribute('href', 'https://creativecommons.org/licenses/by/3.0/');
@@ -156,6 +164,8 @@ test('news keeps author, publication date and licensing attribution', async ({ p
 test('saved news remains browsable in the future and identifies its collection date', async ({ page }) => {
   await page.clock.setFixedTime(new Date('2099-01-01T00:00:00.000Z'));
   await page.goto('/#/wander?mode=news');
+  await page.getByRole('button', { name: /^下一站/ }).click();
+  await page.getByRole('button', { name: '展开消息与来源' }).click();
   await expect(page.getByTestId('wander-card')).toHaveCount(1);
   await expect(page.getByTestId('wander-card')).toHaveClass(/kind-news/);
   const note = page.getByTestId('news-sample-note');
@@ -168,6 +178,7 @@ test('saved news remains browsable in the future and identifies its collection d
   await expect(page.getByTestId('wander-card').getByRole('heading')).not.toHaveText(first);
   await page.reload();
   await expect(page.getByTestId('wander-card')).toHaveCount(1);
+  await page.getByRole('button', { name: '展开消息与来源' }).click();
   await expect(page.getByTestId('news-sample-note')).toContainText('新闻库');
   await page.goto('/#/about');
   await expect(page.getByText(`本地新闻库已保存 ${newsSnapshot.items.length} 条记录。`, { exact: false })).toBeVisible();
@@ -185,6 +196,7 @@ for (const [language, label] of [['en', '英语'], ['zh-CN', '中文'], ['ja', '
     const card = page.getByTestId('wander-card');
     await expect(card.getByRole('heading')).toHaveText(item.title);
     await expect(card.getByRole('heading')).toHaveAttribute('lang', language);
+    await page.getByRole('button', { name: '展开消息与来源' }).click();
     await expect(card.getByText('历史新闻', { exact: true })).toBeVisible();
     await expect(card.locator('.news-context')).toContainText(label);
     const publishedDate = await page.evaluate((value) => new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(value)), item.publishedAt);
@@ -242,6 +254,7 @@ test('all four modes stay reachable and every configured year applies its era to
     await link.click();
     await expect(link).toHaveAttribute('aria-current', 'page');
     await expect(main).toHaveAttribute('data-mode', mode);
+    if (mode === 'news' && await page.getByTestId('wander-card').count() === 0) await page.getByRole('button', { name: /^下一站/ }).click();
     await expect(page.getByTestId('wander-card')).toHaveCount(count);
     if (mode === 'elsewhere' || mode === 'news') await expect(main).toHaveAttribute('data-era', 'modern');
     if (mode === 'surprise') {
@@ -390,7 +403,8 @@ test('capture desktop and mobile product views', async ({ page }, testInfo) => {
     if (name === 'elsewhere') {
       for (let step = 0; step < 3; step += 1) await page.getByRole('button', { name: /^下一站/ }).click();
     }
-    await page.getByRole('heading', { level: 1 }).click();
+    if (name === 'news') await expect(page.getByTestId('signal-tuner')).toHaveAttribute('data-phase', 'ready');
+    else await page.getByRole('heading', { level: 1 }).click();
     await page.evaluate(() => window.scrollTo(0, 0));
     await page.screenshot({ path: testInfo.outputPath(`${name}-desktop.png`), fullPage: true, animations: 'disabled' });
   }
@@ -409,6 +423,7 @@ test('capture desktop and mobile product views', async ({ page }, testInfo) => {
   await page.screenshot({ path: testInfo.outputPath('elsewhere-mobile.png'), animations: 'disabled' });
   await page.goto('/#/wander?mode=news');
   await expectExperience(page, 'news');
+  await expect(page.getByTestId('signal-tuner')).toHaveAttribute('data-phase', 'ready');
   await page.screenshot({ path: testInfo.outputPath('news-mobile.png'), animations: 'disabled' });
 });
 
@@ -490,7 +505,7 @@ test('home connects three distinct worlds directly to their working experiences'
     await page.getByRole('link', { name: label, exact: true }).click();
     await expect(page.locator('main')).toHaveAttribute('data-mode', mode);
     await expect(page.getByTestId(testId).first()).toBeVisible();
-    await page.getByRole('link', { name: '回到探索地图', exact: true }).click();
+    await page.getByRole('link', { name: mode === 'news' ? 'Internet Wanderer 首页' : '回到探索地图', exact: true }).click();
     await expect(page.getByTestId('home-surprise-cta')).toBeVisible();
   }
 });
@@ -518,44 +533,40 @@ test('the node map grows with real encounters and an earlier node restores its d
   await expect(map.getByRole('button', { name: `回访：${label}`, exact: true })).toHaveAttribute('aria-pressed', 'true');
 });
 
-test('keyboard tuning selects actual sources, preserves attribution and restores the station after reload', async ({ page }) => {
+test('source selection preserves attribution, keyboard focus and restoration', async ({ page }) => {
   await page.goto('/#/wander?mode=news');
-  const tuner = page.getByTestId('signal-tuner');
-  const slider = page.getByRole('slider', { name: '新闻来源调频', exact: true });
-  const max = Number(await slider.getAttribute('max'));
-  await slider.press('Home');
-  for (let index = 0; index <= max; index += 1) {
-    await expect(slider).toHaveValue(String(index));
-    const sourceName = await tuner.locator('.tuned-source strong').innerText();
+  await page.getByRole('button', { name: '地区信号', exact: true }).click();
+  const select = page.getByRole('combobox', { name: '新闻来源', exact: true });
+  const ids = await select.locator('option:not([disabled])').evaluateAll(options => options.map(option => (option as HTMLOptionElement).value));
+  for (const id of ids) {
+    await select.focus(); await select.selectOption(id);
+    await expect(page.getByTestId('signal-tuner')).toHaveAttribute('data-phase', 'ready');
+    const name = await select.locator('option:checked').innerText();
     const card = page.getByTestId('wander-card');
-    await expect(card.locator('.source-note a').first()).toHaveText(sourceName);
-    await expect(slider).toHaveAttribute('aria-valuetext', new RegExp(sourceName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
-    await expect(slider).toBeFocused();
+    await expect(card.locator('.source-note a').first()).toHaveText(name.split(' · ').slice(0, -1).join(' · '));
+    await expect(select).toBeFocused();
     await expect(card.locator('.news-context')).toContainText('发表于');
-    if (index < max) await slider.press('ArrowRight');
   }
+  await page.getByRole('button', { name: '关闭地区列表' }).click();
   const title = await page.getByTestId('wander-card').getByRole('heading').innerText();
   await page.reload();
-  await expect(slider).toHaveValue(String(max));
   await expect(page.getByTestId('wander-card').getByRole('heading')).toHaveText(title);
-  await tuner.getByRole('button', { name: /让信号继续漂流/ }).click();
+  await page.getByRole('button', { name: /^下一站/ }).click();
   await expect(page.getByTestId('wander-card').getByRole('heading')).not.toHaveText(title);
 });
 
-test('pointer dragging the frequency ruler changes the source at both ends', async ({ page }) => {
+test('keyboard globe controls rotate, zoom and reset the real camera', async ({ page }) => {
   await page.goto('/#/wander?mode=news');
-  const slider = page.getByRole('slider', { name: '新闻来源调频', exact: true });
-  const box = (await slider.boundingBox())!;
-  await page.mouse.move(box.x + 6, box.y + box.height / 2);
-  await page.mouse.down();
-  await page.mouse.move(box.x + box.width - 6, box.y + box.height / 2, { steps: 10 });
-  await page.mouse.up();
-  await expect(slider).toHaveValue((await slider.getAttribute('max'))!);
-  const lastSource = await page.locator('.tuned-source strong').innerText();
-  await expect(page.getByTestId('wander-card').locator('.source-note a').first()).toHaveText(lastSource);
-  await slider.click({ position: { x: 6, y: box.height / 2 } });
-  await expect(slider).toHaveValue('0');
-  await expect(page.locator('.tuned-source strong')).not.toHaveText(lastSource);
+  await expect(page.getByTestId('earth-viewport')).toHaveAttribute('data-renderer', 'ready');
+  const host = page.locator('.earth-canvas-host'); const canvas = host.locator('canvas');
+  const longitude = await host.getAttribute('data-longitude');
+  await canvas.focus(); await canvas.press('ArrowRight');
+  await expect(host).not.toHaveAttribute('data-longitude', longitude!);
+  const distance = Number(await host.getAttribute('data-distance'));
+  await canvas.press('+');
+  await expect.poll(async () => Number(await host.getAttribute('data-distance'))).toBeLessThan(distance);
+  await canvas.press('Home'); await expect(host).toHaveAttribute('data-distance', '3.350');
+  await expect(canvas).toBeFocused();
 });
 
 test('time travel changes the window, typography and buttons while exposing historical evidence', async ({ page }) => {
@@ -593,9 +604,9 @@ test('new exploration controls remain reachable at the design breakpoints', asyn
     await page.setViewportSize({ width, height: 900 });
     for (const mode of ['elsewhere', 'news', 'time']) {
       await page.goto(`/#/wander?mode=${mode}&year=2007`);
-      await expect(page.getByTestId('wander-card').first()).toBeVisible();
+      if (mode !== 'news') await expect(page.getByTestId('wander-card').first()).toBeVisible();
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${width}px ${mode}`).toBe(true);
-      const controls = mode === 'news' ? page.getByRole('slider') : mode === 'elsewhere' ? page.locator('.map-node, .unknown-node') : page.locator('.year-buttons a, .rail-step');
+      const controls = mode === 'news' ? page.locator('.earth-tools button, .earth-region-toggle, .earth-drift') : mode === 'elsewhere' ? page.locator('.map-node, .unknown-node') : page.locator('.year-buttons a, .rail-step');
       for (const control of await controls.all()) {
         if (mode === 'time') await control.scrollIntoViewIfNeeded();
         const box = (await control.boundingBox())!;
@@ -614,6 +625,7 @@ test('mobile wandering and tuning reveal the current headline above the fixed ac
   await page.setViewportSize({ width: 390, height: 844 });
   for (const mode of ['elsewhere', 'news']) {
     await page.goto(`/#/wander?mode=${mode}`);
+    if (mode === 'news') await page.getByRole('button', { name: /^下一站/ }).click();
     const heading = page.getByTestId('wander-card').getByRole('heading');
     await expect(heading).toBeVisible();
     const actions = (await page.getByTestId('journey-controls').boundingBox())!;
@@ -621,9 +633,10 @@ test('mobile wandering and tuning reveal the current headline above the fixed ac
     await page.getByRole('button', { name: /^下一站/ }).click();
     expect((await heading.boundingBox())!.y).toBeLessThan(actions.y - 35);
     if (mode === 'news') {
-      const slider = page.getByRole('slider', { name: '新闻来源调频', exact: true });
-      await slider.press('End');
-      await expect(slider).toBeFocused();
+      await page.getByRole('button', { name: '地区信号', exact: true }).click();
+      const select = page.getByRole('combobox', { name: '新闻来源', exact: true });
+      await select.selectOption('nasa');
+      await expect(page.getByTestId('signal-tuner')).toHaveAttribute('data-phase', 'ready');
       expect((await heading.boundingBox())!.y).toBeLessThan(actions.y - 35);
     }
   }

@@ -1,0 +1,190 @@
+/* A world to manipulate; stories remain a layer within it. */
+.app-shell:has([data-experience='news']) .site-footer { display: none; }
+.wander-page[data-experience='news'] { position: relative; padding: 0; width: 100vw; margin-left: calc((100% - 100vw) / 2); background: #080f18; color: #f2f0e5; }
+[data-experience='news'].page-enter { animation: none; }
+[data-experience='news'] .mode-switch { position: absolute; z-index: 7; top: 18px; left: 36px; margin: 0; gap: 22px; }
+[data-experience='news'] .mode-switch a { color: #bcc5c4; font-size: 11px; }
+[data-experience='news'] .mode-switch a.is-active { color: #f2dfac; border-color: #d5bc85; }
+[data-experience='news'] .mode-index { color: #9aa8ad; }
+[data-experience='news'] .wander-heading, [data-experience='news'] .arrival-note { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+[data-experience='news'] .surprise-itinerary { display: none; }
+.earth-explorer { height: calc(100svh - 96px); min-height: 620px; position: relative; overflow: hidden; background: radial-gradient(ellipse at 67% 40%, #172535 0, #080f18 65%); isolation: isolate; }
+.earth-viewport, .earth-canvas-host { position: absolute; inset: 0; }
+.earth-canvas-host canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+.earth-canvas-host canvas:active { cursor: grabbing; }
+.earth-canvas-host canvas:focus-visible { outline: 2px solid #e5c888; outline-offset: -5px; }
+.earth-loading, .earth-unavailable { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 12px; color: #d2dddb; font-size: 12px; pointer-events: none; }
+.earth-loading i { width: 7px; height: 7px; background: #dbbc77; border-radius: 50%; }
+.earth-unavailable { flex-direction: column; text-align: center; line-height: 1.9; }
+.earth-unavailable button { pointer-events: auto; background: #e8d6ac; color: #182833; min-height: 44px; border-radius: 3px; padding: 10px 15px; }
+.earth-fallback { width: 230px; height: 230px; border-radius: 50%; background: url('/earth/day.jpg') center / cover; box-shadow: inset -40px -15px 50px #030b14e0; opacity: .7; }
+.earth-pin-layer { position: absolute; inset: 0; pointer-events: none; }
+.earth-pin { position: absolute; top: 0; left: 0; z-index: 2; width: 44px; min-width: 44px; height: 44px; padding: 0; display: grid; place-items: center; background: none; color: #fff9e9; font: 11px/1.3 var(--sans); pointer-events: auto; text-shadow: 0 1px 6px #000, 0 0 14px #000; border-radius: 22px; white-space: nowrap; }
+.earth-pin span { position: absolute; left: 35px; }
+.earth-pin[data-edge='left'] span { left: auto; right: 35px; }
+.earth-pin[hidden] { display: none; }
+.earth-pin i { width: 7px; height: 7px; flex: 0 0 7px; background: #f7dfac; border: 1px solid #fffae9; border-radius: 50%; box-shadow: 0 0 0 5px #e8d5a125, 0 1px 8px #0006; }
+.earth-pin:hover, .earth-pin:focus-visible { background: #172633c9; }
+.earth-pin[aria-pressed='true'] { color: #ffe0a1; }
+.earth-pin[aria-pressed='true'] i { box-shadow: 0 0 0 8px #e8d5a130, 0 0 0 14px #e8d5a116; }
+.earth-shade { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, #080f18b3 0, transparent 45%), linear-gradient(0deg, #080f18d6 0, transparent 20%, transparent 85%, #080f1877); }
+.earth-topline { position: absolute; z-index: 5; inset: 37px 36px auto auto; display: flex; gap: 25px; font: 9px/1.5 var(--mono); color: #c5d0cc; letter-spacing: .7px; pointer-events: none; }
+.earth-topline > span:first-child { color: #e1cc9d; }
+.earth-intro { position: absolute; z-index: 3; top: 22%; left: 5%; max-width: 400px; pointer-events: none; transition: opacity 220ms ease; }
+.earth-intro > span { display: flex; align-items: center; gap: 8px; color: #bfcfce; font: 8px/1.8 var(--mono); letter-spacing: 1.2px; }
+.earth-intro h2 { font: 66px/1.02 var(--serif); letter-spacing: -2.5px; color: #f4f1e5; margin-top: 27px; }
+.earth-intro h2 em { color: #e4c88e; font-weight: 400; }
+.earth-intro p { margin-top: 25px; font-size: 13px; line-height: 1.95; color: #c5d2ce; }
+.earth-intro > small { display: block; font-size: 9px; color: #8faaa9; margin-top: 28px; }
+.earth-intro.is-quiet { opacity: 0; visibility: hidden; }
+.earth-tools { position: absolute; right: 28px; bottom: 123px; z-index: 7; display: flex; flex-direction: column; padding: 4px; border-radius: 26px; border: 1px solid #b8c9cc36; background: #182733df; color: #e2e9e3; box-shadow: 0 8px 20px #0003; }
+.earth-tools button { display: grid; place-items: center; min-height: 44px; width: 44px; border-radius: 50%; background: none; color: inherit; }
+.earth-tools button:hover { background: #3e515c; }
+.earth-tools button[aria-pressed='false'] { color: #8b9ca1; }
+.earth-tools > span { width: 22px; height: 1px; background: #84999a59; margin: 4px auto; }
+.earth-explorer :focus-visible { outline-color: #edce8e; }
+.earth-journey { position: absolute; z-index: 7; left: 50%; bottom: 45px; transform: translateX(-50%); display: flex; align-items: center; gap: 14px; }
+.earth-journey > button:not(.earth-drift) { display: grid; place-items: center; width: 44px; height: 44px; color: #d7e0d9; border-radius: 50%; background: #20313bc9; border: 1px solid #8ba1aa40; }
+.earth-journey > button[aria-pressed='true'] { color: #f3d695; background: #3b4540; }
+.earth-drift { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-width: 265px; min-height: 67px; padding: 13px 24px; background: #ead9b0; color: #24363e; border-radius: 35px; box-shadow: 0 6px 25px #0003; }
+.earth-drift:hover { background: #f6e6bf; }
+.earth-drift:active { scale: .98; }
+.earth-drift > span { text-align: left; font-size: 16px; }
+.earth-drift small { display: block; font: 7px/1.4 var(--mono); letter-spacing: .5px; margin-top: 4px; }
+.earth-bottomline { position: absolute; z-index: 4; inset: auto 36px 16px; display: flex; justify-content: space-between; gap: 20px; color: #9aafaf; font: 8px/1.6 var(--mono); pointer-events: none; }
+.earth-bottomline a { pointer-events: auto; text-decoration: underline; text-underline-offset: 3px; }
+.earth-region-menu { position: absolute; z-index: 8; left: 36px; bottom: 54px; }
+.earth-region-toggle { display: flex; align-items: center; gap: 11px; min-height: 44px; padding: 10px 17px; border-radius: 24px; border: 1px solid #b5c7c640; background: #182733e8; color: #dbe4df; font-size: 11px; }
+.region-signal-list { position: absolute; bottom: 57px; left: 0; width: 350px; max-height: min(540px, calc(100svh - 240px)); display: flex; flex-direction: column; background: #f4f1e5; color: #263c44; border-radius: 10px; box-shadow: 0 15px 50px #0005; overflow: hidden; }
+.region-signal-list > header { display: flex; justify-content: space-between; align-items: center; padding: 12px 18px 7px; }
+.region-signal-list > header strong { font-size: 15px; font-weight: 500; }
+.region-signal-list > div { overflow-y: auto; overscroll-behavior: contain; }
+.region-signal-list > div > button { display: flex; justify-content: space-between; align-items: center; min-height: 55px; width: 100%; background: none; color: inherit; padding: 9px 21px; border-bottom: 1px solid #d8d9cc; text-align: left; font-size: 13px; }
+.region-signal-list > div > button:hover { background: #e6e8db; }
+.region-signal-list small { display: block; margin-top: 3px; font: 8px var(--mono); color: #5f7877; }
+.region-signal-list i { font: 10px var(--mono); color: #6b7b72; }
+.region-signal-list > label { padding: 15px 18px; border-top: 1px solid #d8d9cc; font-size: 10px; }
+.region-signal-list select { display: block; width: 100%; margin-top: 9px; min-height: 44px; border: 1px solid #aab8ae; background: #fffdf5; color: #29434a; padding: 7px; font-size: 11px; }
+/* News arrives as a field dispatch, connected to the selected place. */
+.earth-dispatch { position: absolute; z-index: 6; left: 36px; top: 95px; width: 385px; max-height: calc(100% - 205px); overflow-y: auto; overscroll-behavior: contain; border: 1px solid #9db8bc50; border-radius: 14px; background: #132b36f2; backdrop-filter: blur(24px); color: #e7eee8; box-shadow: 0 24px 70px #0005, inset 0 1px #ffffff12; animation: dispatch-arrive 480ms cubic-bezier(.16,1,.3,1) both; scrollbar-width: thin; scrollbar-color: #6b8589 transparent; }
+.earth-dispatch > header { position: sticky; top: 0; z-index: 1; display: flex; justify-content: space-between; align-items: center; padding: 19px 23px 15px; border-bottom: 1px solid #afc4bf25; background: #142c37f5; }
+.earth-dispatch > header > div { display: flex; flex-direction: column; gap: 7px; }
+.earth-dispatch > header span { font: 8px/1.5 var(--mono); letter-spacing: 1px; color: #adbfbb; }
+.earth-dispatch > header strong { font-size: 28px; font-weight: 400; letter-spacing: 2px; }
+.earth-dispatch > header button { color: #d1dfda; }
+.dispatch-postmark { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 13px 23px; color: #b7c7bf; font: 7px/1.6 var(--mono); letter-spacing: .6px; }
+.dispatch-postmark span:first-child { display: flex; align-items: center; gap: 7px; color: #e5d2a7; }
+.dispatch-postmark i { width: 5px; height: 5px; background: #e5d2a7; border-radius: 50%; box-shadow: 0 0 0 4px #d5c39815; }
+.news-letter { margin: 0 10px; padding: 22px 22px 16px; background: #f3f0e6; color: #253e45; border-radius: 5px 5px 10px 10px; animation: letter-arrive 460ms cubic-bezier(.16,1,.3,1) both; }
+.dispatch-edition { display: flex; justify-content: space-between; gap: 15px; color: #576e6e; font: 9px/1.6 var(--mono); margin-bottom: 18px; }
+.dispatch-edition > span:first-child { font-weight: 600; }
+.dispatch-edition .news-edition { margin: 0; white-space: nowrap; font: inherit; }
+.earth-dispatch .news-letter h2 { font: 28px/1.24 var(--serif); letter-spacing: -.5px; max-width: none; overflow-wrap: anywhere; }
+.news-letter .news-context { display: flex; flex-wrap: wrap; gap: 5px 12px; padding-top: 15px; margin-top: 17px; border-top: 1px solid #c6cec3; }
+.news-letter .news-context p { font-size: 9px; line-height: 1.8; color: #536b68; }
+.dispatch-summary { font-size: 13px; line-height: 1.9; margin-top: 16px; color: #3e5757; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+[data-expanded='true'] .dispatch-summary { display: block; }
+.dispatch-byline { margin-top: 12px; font-size: 10px; line-height: 1.8; color: #5c716d; }
+.dispatch-actions { display: flex; align-items: center; gap: 14px; margin: 18px 0 12px; }
+.news-letter .visit-button { min-height: 44px; padding: 10px 15px; background: #294d59; font-size: 11px; border-radius: 22px; }
+.news-letter .save-bookmark { min-height: 44px; color: #42625f; background: none; font-size: 11px; }
+.news-letter .source-note { display: flex; flex-wrap: wrap; gap: 7px 12px; padding-top: 13px; border-top: 1px solid #d3d8cb; font-size: 9px; line-height: 1.7; color: #60746d; }
+.dispatch-provenance { padding-top: 13px; font-size: 10px; line-height: 1.8; color: #60746d; animation: letter-arrive 220ms ease-out both; }
+.earth-dispatch .dispatch-expand { display: flex; align-items: center; justify-content: space-between; width: calc(100% - 46px); background: none; color: #d6dcca; min-height: 48px; margin: 0 23px; font-size: 10px; }
+.earth-dispatch .demo-note { margin: 0 23px 18px; font-size: 10px; color: #b5c6bc; }
+[data-expanded='true'] .dispatch-expand svg { rotate: 180deg; }
+.region-stories { padding: 15px 20px 8px; background: #0e253066; border-top: 1px solid #acc0b72b; }
+.region-stories > span { display: block; font-size: 10px; color: #adbfbb; margin-bottom: 6px; }
+.region-stories > button { display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; padding: 12px 0; min-height: 44px; background: none; color: #dae2d8; border-bottom: 1px solid #b8cab924; font: 13px/1.5 var(--serif); text-align: left; }
+.region-stories > button:last-child { border: 0; }
+.earth-dispatch > footer { font-size: 9px; line-height: 1.8; padding: 13px 20px; color: #a9bcb5; }
+.earth-empty { padding: 25px 20px; }
+.earth-empty h3 { font-size: 18px; font-weight: 500; line-height: 1.6; }
+.earth-empty p { font-size: 12px; color: #b1c3bd; line-height: 1.9; margin-top: 15px; }
+.earth-empty > button { display: flex; align-items: center; gap: 10px; background: none; color: #e2d2a8; min-height: 44px; padding: 8px 0; margin-top: 15px; font-size: 12px; }
+.earth-preview-card { position: relative; overflow: hidden; background: #0c1721; min-height: 560px; }
+.earth-preview-card > header { position: relative; z-index: 2; padding: 25px 28px 0; margin-bottom: 0; color: #e7ede5; font-size: 18px; }
+.earth-preview-card > header > span:last-child { font: 7px var(--mono); letter-spacing: 1px; color: #aabebd; }
+.home-earth { position: relative; height: 300px; }
+.earth-preview-card .news-world-link { padding: 0 28px 27px; }
+.earth-preview-card h2 { font: 28px/1.25 var(--serif); margin: 12px 0; }
+.earth-preview-card h2 em { font-weight: 400; color: #e2c58f; }
+.earth-preview-card p { color: #bbcbc7; font-size: 11px; }
+.earth-preview-card .world-invitation { color: #ecd7a4; margin-top: 18px; }
+.earth-viewport--preview .earth-pin span { display: none; }
+.earth-viewport--preview .earth-pin { min-width: 30px; height: 30px; padding: 10px; }
+
+.earth-passage { position: absolute; z-index: 3; left: 5%; top: 32%; pointer-events: none; color: #e7e8db; animation: letter-arrive 250ms ease-out both; }
+.earth-passage > span { display: block; font: 8px var(--mono); letter-spacing: 2px; color: #b6c7c5; }
+.earth-passage strong { display: block; margin: 15px 0 13px; font-size: 48px; font-weight: 300; letter-spacing: 3px; }
+.earth-passage small { font-size: 10px; color: #adc0bc; }
+.earth-passage > i { display: block; margin-top: 24px; width: 130px; height: 1px; background: #c8d9c82b; overflow: hidden; }
+.earth-passage > i::after { content: ''; display: block; width: 40%; height: 100%; background: #e6cb91; animation: passage-scan 900ms ease-in-out infinite alternate; }
+.earth-tools button:active, .earth-region-toggle:active, .dispatch-actions button:active, .dispatch-actions a:active { scale: .96; }
+.region-stories > button { transition: color 150ms, padding-left 180ms; }
+.region-stories > button:hover { color: #f0d39a; padding-left: 5px; }
+.earth-canvas-host::after { content: ''; pointer-events: none; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: #e4c889; transform: scaleX(var(--flight-progress, 0)); transform-origin: left; opacity: 0; }
+[data-phase='flying'] .earth-canvas-host::after { opacity: .6; }
+@keyframes dispatch-arrive { from { opacity: 0; transform: translateX(-18px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes letter-arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes passage-scan { from { transform: translateX(-100%); } to { transform: translateX(350%); } }
+@media (max-width: 1100px) {
+  .earth-intro { left: 36px; max-width: 280px; }
+  .earth-intro h2 { font-size: 52px; }
+  .earth-topline > span:last-child { display: none; }
+  .earth-dispatch { width: 330px; }
+}
+@media (max-width: 760px) {
+  .earth-explorer { height: calc(100svh - 80px); min-height: 580px; }
+  [data-experience='news'] .mode-switch { top: 10px; left: 18px; right: 18px; width: auto; gap: 0; }
+  [data-experience='news'] .mode-switch a { font-size: 9px; }
+  [data-experience='news'] .mode-index { font-size: 6px; }
+  .earth-topline { left: 20px; right: 20px; top: 66px; font-size: 7px; }
+  .earth-intro { top: 15%; left: 22px; max-width: 270px; }
+  .earth-intro > span { display: none; }
+  .earth-intro h2 { font-size: 44px; letter-spacing: -1.8px; margin-top: 0; text-shadow: 0 2px 15px #0005; }
+  .earth-intro p { font-size: 11px; margin-top: 15px; text-shadow: 0 1px 6px #000; }
+  .earth-intro > small { display: none; }
+  .earth-tools { right: 12px; bottom: 141px; padding: 2px; }
+  .earth-tools button { width: 44px; min-height: 44px; }
+  .earth-journey { width: calc(100% - 32px); bottom: calc(44px + env(safe-area-inset-bottom)); gap: 9px; justify-content: center; }
+  .earth-drift { flex: 1; min-width: 0; max-width: 320px; min-height: 60px; padding: 12px 19px; gap: 12px; }
+  .earth-drift > span { font-size: 14px; }
+  .earth-drift small { font-size: 6px; }
+  .earth-journey > button:not(.earth-drift) { background: #192d37; flex-shrink: 0; }
+  .earth-region-menu { left: 18px; bottom: 124px; }
+  .earth-region-toggle { padding: 9px 12px; font-size: 10px; }
+  .region-signal-list { width: min(350px, calc(100vw - 36px)); max-height: min(510px, calc(100svh - 275px)); }
+  .earth-bottomline { inset: auto 19px 15px; font-size: 6px; gap: 8px; }
+  .earth-bottomline > span:first-child { max-width: 180px; }
+  .earth-pin { font-size: 10px; }
+  .earth-dispatch { z-index: 9; left: 12px; right: 12px; top: auto; bottom: calc(115px + env(safe-area-inset-bottom)); width: auto; max-height: 41svh; border-radius: 12px; }
+  .earth-dispatch > header { padding: 10px 15px 8px; }
+  .earth-dispatch > header > div { flex-direction: row; align-items: center; gap: 10px; }
+  .earth-dispatch > header strong { font-size: 18px; }
+  .earth-dispatch > header span { font-size: 7px; }
+  .dispatch-postmark { padding: 10px 15px; font-size: 6px; }
+  .news-letter { margin: 0 7px; padding: 16px 15px; }
+  .earth-dispatch { animation-name: letter-arrive; }
+  .earth-passage { left: 23px; top: 18%; }
+  .earth-passage strong { font-size: 36px; }
+  .earth-dispatch .news-letter h2 { font-size: 23px; }
+  .earth-dispatch .news-context { margin-top: 13px; }
+  .dispatch-edition { margin-bottom: 12px; }
+  .earth-explorer[data-expanded='true'] .earth-dispatch { max-height: 68svh; }
+  .earth-explorer[data-panel='true'] .earth-region-menu { bottom: auto; top: 95px; }
+  .earth-explorer[data-panel='true'] .region-signal-list { top: 55px; bottom: auto; }
+  .earth-explorer[data-panel='true'] .earth-tools { bottom: auto; top: 95px; }
+  .earth-explorer[data-panel='true'] .earth-tools > span, .earth-explorer[data-panel='true'] .earth-tools > button:nth-last-child(-n+2) { display: none; }
+  .earth-preview-card > header { padding-inline: 24px; }
+  .earth-preview-card .news-world-link { padding-inline: 24px; }
+  .home-earth { height: 270px; }
+  .earth-preview-card { min-height: 520px; }
+}
+@media (max-width: 360px) { .earth-intro h2 { font-size: 40px; } .earth-drift { padding-inline: 15px; } .earth-drift small { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .earth-explorer *, .earth-explorer *::after { animation: none !important; transition: none !important; }
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .earth-dispatch, .earth-dispatch > header { background: #142c37; backdrop-filter: none; }
+}
