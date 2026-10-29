@@ -6,6 +6,7 @@ import { yearsSchema } from '../src/domain/year-schema';
 import { createEraRegistry } from '../src/ui/era-registry';
 import { contentSourceSchema, datasetSchema, newsSnapshotSchema } from '../src/domain/item-schema';
 import { GLOBAL_VOICES_LICENSE, isGlobalVoices } from '../src/domain/news-attribution';
+import { newsTopicIndexSchema } from '../src/domain/news-topics';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const json = async (path: string) => JSON.parse(await readFile(resolve(root, path), 'utf8'));
@@ -19,6 +20,11 @@ if (sourceIds.size !== sources.length) throw new Error('Duplicate source IDs');
 const sites = datasetSchema.parse(await json('data/sites.json'));
 const history = datasetSchema.parse(await json('data/history.json'));
 const news = newsSnapshotSchema.parse(await json('data/news.snapshot.json'));
+const topics = newsTopicIndexSchema.parse(await json('data/news-topics.json'));
+const newsById = new Map(news.items.map(item => [item.id, item]));
+for (const record of topics.items) {
+  if (newsById.get(record.id)?.title !== record.title) throw new Error(`${record.id}: news topic review must match the saved headline`);
+}
 const combined = datasetSchema.parse({ schemaVersion: 1, items: [...sites.items, ...history.items, ...news.items] });
 const years = yearsSchema.parse(await json('config/years.json'));
 createEraRegistry(await json('config/era-themes.json'), years);

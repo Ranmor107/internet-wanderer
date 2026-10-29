@@ -44,3 +44,21 @@ test('late results from a replaced provider cannot overwrite the active source',
   await expect(page.getByText('Obsolete source resolved', { exact: true })).toBeVisible();
   await expect(page.getByTestId('wander-card').getByRole('heading')).toHaveText('Changed source sample');
 });
+
+test('a provider without news offers a clear empty topic and never substitutes unrelated content', async ({ page }) => {
+  await page.goto(`${origin}/tests/fixtures/provider.html#/wander?mode=news`);
+  await page.getByRole('button', { name: 'Switch static source', exact: true }).click();
+  const category = page.getByRole('combobox', { name: '新闻类别', exact: true });
+  await category.selectOption('military');
+  await expect(page.getByText('这个类别暂时没有可用报道。')).toBeVisible();
+  await expect(page.getByTestId('wander-card')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: /^下一站/ })).toBeDisabled();
+  await page.getByRole('button', { name: '地区信号', exact: true }).click();
+  await expect(page.locator('.region-signal-list > div > button')).toHaveCount(0);
+  await expect(page.getByRole('combobox', { name: '新闻来源', exact: true })).toBeDisabled();
+  await page.getByRole('button', { name: '关闭地区列表', exact: true }).click();
+  await page.getByRole('button', { name: '查看全部新闻', exact: true }).click();
+  await expect(category).toHaveValue('all');
+  await expect(category).toBeFocused();
+  await expect(page.getByTestId('wander-card')).toHaveCount(0);
+});

@@ -13,15 +13,32 @@ test.beforeEach(async ({ context }) => {
   });
 });
 
-for (const title of ['Cat Bounce', 'If the Moon Were Only 1 Pixel', 'WindowSwap', 'Sandspiel', 'Nicky Case', "Cameron's World"]) {
-  test(`sample window opens ${title} and preserves it on reload`, async ({ page }) => {
+for (const [title, url] of [
+  ['Cat Bounce', 'https://cat-bounce.com/'],
+  ['If the Moon Were Only 1 Pixel', 'https://www.joshworth.com/dev/pixelspace/pixelspace_solarsystem.html'],
+  ['WindowSwap', 'https://www.window-swap.com/'],
+  ['Sandspiel', 'https://sandspiel.club/'],
+  ['Nicky Case', 'https://ncase.me/'],
+  ["Cameron's World", 'https://www.cameronsworld.net/'],
+]) {
+  test(`sample window opens ${title} directly in a new tab without changing the journey`, async ({ page, context }) => {
     await page.goto('/');
     await expect(page.getByTestId('site-example')).toHaveCount(6);
-    await page.getByRole('link', { name: `探索示例：${title}`, exact: true }).click();
-    await expect(page.getByTestId('node-map').getByRole('heading', { name: title, exact: true })).toBeVisible();
-    await expect(page.getByTestId('website-preview')).toHaveAttribute('aria-label', `${title} 的原创视觉示意`);
-    await page.reload();
-    await expect(page.getByTestId('wander-card').getByRole('heading')).toHaveText(title);
+    const sample = page.getByRole('link', { name: `打开网站：${title}（新标签页）`, exact: true });
+    await expect(sample).toHaveAttribute('href', url);
+    await expect(sample).toHaveAttribute('target', '_blank');
+    await expect(sample).toHaveAttribute('rel', 'noopener noreferrer');
+    await expect(sample.getByTestId('website-preview')).toHaveAttribute('aria-label', `${title} 的原创视觉示意`);
+    const journey = await page.evaluate(() => localStorage.getItem('internet-wanderer:journey:v1'));
+    // The shared context route aborts external requests; the navigation itself is real.
+    const [popup] = await Promise.all([
+      page.waitForEvent('popup'),
+      context.waitForEvent('request', request => request.isNavigationRequest() && request.url() === url),
+      sample.click(),
+    ]);
+    await expect(page).toHaveURL('http://wanderer.test/');
+    expect(await page.evaluate(() => localStorage.getItem('internet-wanderer:journey:v1'))).toBe(journey);
+    await popup.close();
   });
 }
 
@@ -77,7 +94,7 @@ test('the era exhibition gives the archive a lead space and restores all three o
   await expect(gallery.getByRole('button', { name: `取消收藏：${title}`, exact: true })).toHaveAttribute('aria-pressed', 'true');
 });
 
-test('small screens expose the departure action and scroll website samples without widening the page', async ({ page }) => {
+test('small screens expose departure and keyboard-open offscreen samples in a new tab', async ({ page, context }) => {
   for (const width of [320, 390]) {
     await page.setViewportSize({ width, height: 640 });
     await page.goto('/');
@@ -85,8 +102,37 @@ test('small screens expose the departure action and scroll website samples witho
     expect(departure.y + departure.height).toBeLessThan(570);
     expect(departure.height).toBeGreaterThanOrEqual(78);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole('link', { name: "探索示例：Cameron's World", exact: true }).focus();
-    await page.keyboard.press('Enter');
-    await expect(page.getByTestId('wander-card').getByRole('heading')).toHaveText("Cameron's World");
+    const sample = page.getByRole('link', { name: "打开网站：Cameron's World（新标签页）", exact: true });
+    const journey = await page.evaluate(() => localStorage.getItem('internet-wanderer:journey:v1'));
+    await sample.focus();
+    await expect(sample).toBeInViewport();
+    const [popup] = await Promise.all([
+      page.waitForEvent('popup'),
+      context.waitForEvent('request', request => request.isNavigationRequest() && request.url() === 'https://www.cameronsworld.net/'),
+      sample.press('Enter'),
+    ]);
+    await expect(page).toHaveURL('http://wanderer.test/');
+    expect(await page.evaluate(() => localStorage.getItem('internet-wanderer:journey:v1'))).toBe(journey);
+    await popup.close();
   }
+});
+
+test('sample feedback treats pointer and keyboard alike and respects reduced motion', async ({ page }) => {
+  await page.goto('/');
+  const sample = page.getByTestId('site-example').nth(1);
+  await sample.hover();
+  await expect(sample).toHaveCSS('translate', '0px 7px');
+  const hoverShadow = await sample.evaluate(element => getComputedStyle(element).boxShadow);
+  await page.mouse.move(0, 0);
+  await sample.focus();
+  await sample.press('Tab');
+  await page.keyboard.press('Shift+Tab');
+  await expect(sample).toBeFocused();
+  await expect(sample).toHaveCSS('translate', '0px 7px');
+  await expect(sample).toHaveCSS('box-shadow', hoverShadow);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(sample).toHaveCSS('translate', '0px 14px');
+  await page.mouse.move(0, 0);
+  await sample.hover();
+  await expect(sample).toHaveCSS('translate', '0px 14px');
 });

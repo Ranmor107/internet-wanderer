@@ -20,10 +20,10 @@ export default function Home() {
       <span className="hero-thread" aria-hidden="true">↓</span>
     </section>
     <section className="possible-stops" aria-labelledby="possible-stops-title">
-      <header><div><span className="eyebrow">A FEW POSSIBLE NEXT TABS</span><h2 id="possible-stops-title">下一站，可能长这样。</h2></div><span>真实网站 · 原创示意预览 <ArrowDown size={13} /></span></header>
-      <div className="sample-wall">{sites.map((item, index) => item && <Link className={`sample-window sample-window-${index}`} key={item.id} to="/wander?mode=elsewhere" state={{ restoreItemId: item.id }} aria-label={`探索示例：${item.title}`} data-testid="site-example">
+      <header><div><span className="eyebrow">A FEW POSSIBLE NEXT TABS</span><h2 id="possible-stops-title">下一站，可能长这样。</h2></div><span>点击直达 · 新标签打开 · 原创示意预览 <ArrowDown size={13} /></span></header>
+      <div className="sample-wall">{sites.map((item, index) => item && <a className={`sample-window sample-window-${index}`} key={item.id} href={item.url} target="_blank" rel="noopener noreferrer" aria-label={`打开网站：${item.title}（新标签页）`} data-testid="site-example">
         <div className="sample-chrome"><span aria-hidden="true">● ○ ○</span><span>{domainName(item.url)}</span><ArrowUpRight size={12} /></div><WebsitePreview item={item} small /><div className="sample-caption"><h3>{item.title}</h3><ArrowUpRight size={17} /><p>{item.blurb}</p></div>
-      </Link>)}</div>
+      </a>)}</div>
       <div className="sample-wall-note"><span>小小的网页，各有自己的世界。</span><Link to="/wander?mode=elsewhere" state={{ freshStart: true }}>沿着一条链接走远 <ArrowUpRight size={14} /></Link></div>
     </section>
     <div className="other-worlds-label"><span>THE WEB ALSO HAS OTHER FREQUENCIES.</span><span>或者，换一种漫游方式。</span></div>

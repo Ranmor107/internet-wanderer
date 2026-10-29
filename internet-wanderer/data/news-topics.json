@@ -1,0 +1,1674 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-26",
+  "basis": "人工依据现有报道标题审核主题；允许跨类；未分类报道留在全部。",
+  "items": [
+    {
+      "id": "news-nasa-39679df3aac001adacb7",
+      "title": "NASA to Cover Northrop Grumman CRS-24 Spacecraft Departure",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-nasa-976727167dae39e7719d",
+      "title": "October 2026 Satellite Puzzler",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-nasa-672cd33abfd923ef0096",
+      "title": "Lunar Grounding Challenge",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-nasa-2128d3d472cc6eba93eb",
+      "title": "NASA Glenn Invites Phase 1 Proposals for Aerospace Power Systems Laboratory",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-nasa-1a7da91b7ddc46fab5c8",
+      "title": "Astronomers Solve Cosmic Cold Case with NASA Hubble Data",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-nasa-96a63d921322892197bc",
+      "title": "NASA’s Curiosity Rover Catches Stunning Martian Dawn",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-nasa-cfa12f85fd0d4abee3a2",
+      "title": "NASA’s Webb Captures Commotion From Nebula’s Stellar Jets",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-ecb-83020bb1c63ef28c45f7",
+      "title": "Piero Cipollone: Money in the digital age: digital euro, tokenisation and the role of central banks",
+      "topics": [
+        "technology",
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-dba60f16adc0dd6c4fb2",
+      "title": "Young people are bridging the climate divide for Oceania and the Caribbean",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-c78b0201c482f81b2a10",
+      "title": "No se debería glorificar a criminales de guerra para conmemorar independencia de Macedonia del Norte",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-nasa-6a337996fce9b648126c",
+      "title": "APOD: 2026 October 6 – A Complete Auroral Oval from SMILE",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-nasa-92ec09c4cd961b3d891e",
+      "title": "Curiosity Blog, Sols 5029-5035: Back in the Lab",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-e9e8af9cccca82e91034",
+      "title": "When radio finds a new digital voice: Bringing Romani language and culture online in Kosovo",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-ecb-f4c67ec69a48b6b67d66",
+      "title": "Philip R. Lane: Diagnostic Challenges for ECB Monetary Policy",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-bf0187aa000039a98fd7",
+      "title": "«Régimen de permisos» de Singapur vulnera derecho ciudadano a la protesta",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-2ef964ffdfd467d9c5cb",
+      "title": "Too young to run, old enough to protest: West Africa’s unfinished democratic bargain",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-9af3be339c7a97ec8fec",
+      "title": "How a farmers’ protest in Bucharest was inflated online, then hijacked",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-ecb-17fa26efe52cb0c248ff",
+      "title": "Boris Vujčić: Resilience, integration and competitiveness: building the future of European banking",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-4cc0b8f89144ca16bce1",
+      "title": "How Cambodia’s law on ‘freedom parks’ curtailed people’s right to protest",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-nasa-8260199402adf7737316",
+      "title": "APOD: 2026 October 2 – The Complete Sharpless Catalog: 313 Nebulas",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-nasa-5d947fccd15dbc1f0891",
+      "title": "NASA’s SpaceX Crew-13 Launches",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-nasa-ede541027696753d76f4",
+      "title": "NASA’s SpaceX Crew-13 Launches to International Space Station",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-ecb-948785e80d375de04479",
+      "title": "Isabel Schnabel: Central banks on-chain",
+      "topics": [
+        "technology",
+        "business"
+      ]
+    },
+    {
+      "id": "news-nasa-6dd5f16404b729895df2",
+      "title": "NASA’s Webb Provides Crash Course on Planet-Shattering Collisions",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-ecb-1a51741a0c7f69915fab",
+      "title": "Christine Lagarde: Where AI risks meet",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-b59e8d9e2f3ada8b47b0",
+      "title": "West-to-east energy, east-to-west computing: The Uyghur costs of China’s digital order",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-ecb-769e7ce5f60e12b6aa83",
+      "title": "Isabel Schnabel: Monetary policy in a world of overlapping shocks",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-7f47b034064f36ddee2f",
+      "title": "In Brazil’s capital, residents grow their own heat-fighting solutions",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-4cdd5f7f6b7dfd2a0efe",
+      "title": "Who can speak on behalf of the people? The new frontiers of protest in the Sahel",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-ecb-8a4638ed9ab3637df452",
+      "title": "ECB amends monetary policy implementation guidelines as part of regular review",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-51fee6d56bb1ee78b0c1",
+      "title": "Equating protest with terrorism: A narrative against dissent",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-705154cbb541712dd803",
+      "title": "When the right to protest remains, but demonstrating comes at a price",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-3a10c19efe8cb7aaf063",
+      "title": "When telcos shut down the internet, they shut down protests for the government",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-fr-18aae03d48106bb73e5a",
+      "title": "Qui parle d'intelligence artificielle en Équateur ?",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-ecb-dec770ac92ea5f0cb3fc",
+      "title": "Christine Lagarde: Hearing of the Committee on Economic and Monetary Affairs of the European Parliament",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-ff5a801325fd602fe1c5",
+      "title": "After five years of war, how do Ukrainian small businesses survive?",
+      "topics": [
+        "military",
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-c5813b412903c11911e3",
+      "title": "Beyond protest: Mob violence and the struggle for institutional response in Bangladesh",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-78217194d9880abad1ac",
+      "title": "What #EndSARS left behind in Nigeria: A generation caught between protest, politics, and departure",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-4a7934921d9833355214",
+      "title": "Bangladesh: Protests can change governments, but can they strengthen democracy?",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-ecb-059a1723ec41ace80fd5",
+      "title": "Philip R. Lane: The outlook for the euro area economy",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-a7128beb5d7d886cd008",
+      "title": "Pskov’s medieval religious art is being appropriated by the Russian state to support the invasion of Ukraine",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-9a3ba9ed85847d5272fa",
+      "title": "From north to south, protests sweep across Tunisia: Is change at hand?",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-4b7178e89b466087d1df",
+      "title": "Technology-facilitated trafficking: How Bangladeshi migrants become victims of recruitment in Cambodia",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-0468a7cd611b37c942be",
+      "title": "Russian TikTokers wanted to vote for an anti-war agenda. Putin’s farce elections did not allow that.",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-5de52c19001bb9bc3bd0",
+      "title": "The commodification of Indigenous cultures and traditions",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-13837875eb261af69f89",
+      "title": "戦争しか知らない子どもたち",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-a0cde6f3457d7ed108e8",
+      "title": "バルカンより愛を込めてーイェレナ・ミルシッチとメリマ・クリュチョの魂の音楽",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-deb34516bd11614f4e7d",
+      "title": "中国東北部、延辺の朝鮮族女性の作る水豆腐",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-08816567b248b3f3b49b",
+      "title": "中国東北部に住む朝鮮族女性の話",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-dbad5cdf5230b260dfc4",
+      "title": "国を超えたギグエコノミーで収入を得るアフリカの女性たち",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-898ad0992203658165c6",
+      "title": "新たな健康危機が世界に広がるー戦争が子どもたちに与えたトラウマ",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-867425a386c93605f463",
+      "title": "Prospect and implications of other effective area-based conservation measures in indigenous Chepang landscape in Nepal",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-9ca68ffc0cfbcd131323",
+      "title": "Japanese pop culture is sexually explicit, but sex education is wanting",
+      "topics": [
+        "entertainment",
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-23b417b1aeff96786022",
+      "title": "Senegal: Where women’s bodies belong to everyone but themselves",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-d531f2e4061924f42c59",
+      "title": "Kenyan filmmaker Emily Nderitu shows the world how to talk about climate change in Africa",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-392a78e8bbf22076c7d2",
+      "title": "‘Clean up your culture’: a TV host’s comment makes Indigenous Brazilians speak up",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-2198618fbc89e3bef287",
+      "title": "Ten migrant domestic workers died in Hong Kong’s inferno, the survivors struggle to grieve",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-63038e8f02cf6466368f",
+      "title": "Dominican Republic wastes renewable energy while fossil fuel thermoelectric plants operate above legal limits",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-e5759e521cb681d5ed10",
+      "title": "China’s green investment in Pakistan: Solar dreams, debt shadows, and the politics of a rapid transition",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-89e2fa5eb13b720a40b2",
+      "title": "Social networks fuel youth mobilization on Argentina’s streets",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-66c37f433e76fb396b34",
+      "title": "China’s green power in Angola: When clean energy comes with heavy debt",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-b2337befa7755b2a0672",
+      "title": "Words across worlds: Moharaj Sharma on language, culture, and belonging in Nepal",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-3f8f05c8a41e2e5a1d11",
+      "title": "Nepal’s Indigenous communities pay the highest price for their part in the organized illegal wildlife trade",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-96c1587a63508f8716af",
+      "title": "‘Femicide does not start on the day of the crime’: A Brazilian researcher’s view on gender violence in her country",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-fr-bc4693573878c5819d0f",
+      "title": "Sabar Bonda : quand le cinéma marathi réinvente la vie queer en milieu rural",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-fr-028d936de814135a5686",
+      "title": "L'objectif du Couloir vert Kivu-Kinshasa en RDC est la création d'une nouvelle économie verte en vue de la promotion de la paix et du développement durable",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-63f48559edfaa2281f54",
+      "title": "タリバン政権のもと、うつ症状で薬に依存する女性たち",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-ba889732e51e3b420b4a",
+      "title": "ストップモーション・アニメーションに祖先の地ウクライナへの愛を込めて",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-f8169f89cfff97d38351",
+      "title": "学びを力に－－抑圧に立ち向かうアフガニスタンの女性たち",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-d24dac7e0df93e861374",
+      "title": "パンダは香港の経済を救えるか？",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-af02885954d7ede573ac",
+      "title": "How the UN Cybercrime Convention 2023 can pose a threat to human rights defenders and exiled journalists",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-ef299e83f0ddd5084a7f",
+      "title": "Muchas muertes ocurridas durante la dictadura militar en Brasil no se politizaron, dice historiador",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-6c7e5f9c90864a88c528",
+      "title": "Many deaths under Brazil’s military dictatorship were not politicized, says historian",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-6ea273442e139a957f7d",
+      "title": "Christianity's impact on Chepang Indigenous spirituality in Nepal",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-6ef188037d8bd1418c5a",
+      "title": "South Africa’s air pollution crisis: Contributing factors and solutions",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-252516a9babecbb384f6",
+      "title": "«El cielo sobre Zenica»: Símbolo de la lucha contra la contaminación en Bosnia Herzegovina",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-d68e251cec6dace8f09b",
+      "title": "Greek state suppresses peaceful protestors commemorating 2008 police killing of a boy",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-c6dce41c5277d0b7cf5c",
+      "title": "The rise of compressed natural gas as an alternative fuel in Nigeria",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-e9971ba731e86644a18b",
+      "title": "Year in review: Climate justice remained a pressing issue for the Caribbean in 2024",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-7494fa6a6dc143d34da1",
+      "title": "Exploring the longstanding cultural tug-of-war between Thailand and Cambodia",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-bcfd947f12851a314d59",
+      "title": "Exploring the depths of Nepali poetry: A conversation with poet Bhupeen",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-dab34533f9c152713620",
+      "title": "Kusturizatsiya: One word that explains Kyrgyzstan’s fight against economic crimes",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-a76923eb2073214c5108",
+      "title": "Latin America ends the year with rock ‘n’ roll, salsa, and ballads — listen to how its music captures the spirit of the season",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-7d8ea82b25d036b270d3",
+      "title": "Closed borders in Azerbaijan: Security measure or a violation of human rights?",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-0cc57669cfb9a2da0c3c",
+      "title": "How artificial intelligence can be weaponized for harassment",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-63063b2cf3be13edcd20",
+      "title": "Mongolia's free trade deal with the Eurasian Economic Union gets postponed after backlash from businesses",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-bff629e57c2f1ae704d2",
+      "title": "La mejor película de Kazajistán en 2024 explora los daños que causa singular y ancestral tradición",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-cc4f4ff5ccb2a0ab47b1",
+      "title": "Surprising developments from Ghana’s 2024 elections and other elections in Africa",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-80d3a7dfd528da5aa399",
+      "title": "Turkey's environmental activist is among BBC's 100 inspiring and influential women",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-e7506fbbca7ff3cc3c24",
+      "title": "Artificial Intelligence Narratives: A Global Voices Report",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-fr-97721bd7207ab8d5caa6",
+      "title": "Des histoires renfermées dans mes chaussures : un souvenir des deux années infernales de la guerre du Tigré que nous avons endurées en Éthiopie",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-fr-6195c8727dab97c198ec",
+      "title": "Des dizaines de Népalais recrutés par la ruse dans l’armée russe",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-f297d04f96eb6b541cdd",
+      "title": "ポルトガルとボスニアに音楽の橋をかけるマヤ・ミリンコヴィッチ",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-6a56d7e9eaef585037eb",
+      "title": "映画で知る、台湾人起業家が東南アジアで見る夢と現実",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-60771871bf48fc56d119",
+      "title": "中国助喀麦隆饮建设用水基础设施：是援助发展，还是债务危机？",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-26143377002249b4701e",
+      "title": "抵制新疆棉，对中亚的环境和劳工权利影响几何？",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-b62028a512f38bfc31de",
+      "title": "アカデミー受賞作『関心領域』の監督 ガザ戦争で「ユダヤ人とホロコーストが乗っ取られている」とスピーチ",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-e1ec1c6449bf85478505",
+      "title": "历史性公投后，厄瓜多尔会停止在亚马逊地区开采新油田吗？",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-4aa6ae368c78873e3905",
+      "title": "Earl Rodney, virtuoso del tambor metálico, murió a los 85 años, y deja música «de calidad» e interrogantes sobre si Trinidad y Tobago podría honrar más a sus íconos culturales",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-e32ee63bbdffaf306d78",
+      "title": "Cyberbullying hinders women’s participation in Indonesia’s 2024 elections",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-0bb02ffeb8b786f99ec5",
+      "title": "スポーツウェア界に新風 伝統文化を表現するアフリカのデザイナーたち",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-84bff873cee11aaf312e",
+      "title": "Azerbaijan to host next UN Climate Summit",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-e4e38824d13b119dc64c",
+      "title": "Turkey bans access to 16 VPN providers",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-537c92e4c21589dd8b28",
+      "title": "Retelling the history of Nepal's Gurkha fighters",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-de549e732b5300a57367",
+      "title": "In Turkey yet another television show finds itself in hot water",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-3b48b3fffef6603a8b3e",
+      "title": "‘Matilda': Australian word of the year following magnificent 2023 FIFA Women's World Cup",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-9707a4c1a034309ed3b1",
+      "title": "Russian musicians sing about war resistance — few people take them seriously",
+      "topics": [
+        "entertainment",
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-d51cf0b10e02405fd7a5",
+      "title": "Year in review: In 2023, the climate crisis was top of mind for the Caribbean",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-2343ec48bc2ef2a0fdde",
+      "title": "The rich culture of Latin American traditional Christmas food",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-fr-6ac4d6ecac28a02ef421",
+      "title": "Japon : l’île « cuirassée » teintée de travail forcé pendant la guerre",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-fr-2e83fa9cf65a5dbeb656",
+      "title": "En Colombie, les femmes Kamëntšá perpétuent leur culture ancestrale à travers la musique",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-664749fcb85d56bb4c32",
+      "title": "チリ軍事クーデターの貴重な歴史的映像記憶を救出した若者たち",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-ee468c9a1473687f3003",
+      "title": "ウクライナ戦争で言葉を見失いかける話",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-133ae7a62fd5e5de8062",
+      "title": "インターネットで拓く 新時代のグローバルな繋がり―イーサン・ザッカーマンへのインタビュー（1）",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-e5561ed8cf74816fe1e0",
+      "title": "France's institutional fear of multilingualism: An interview with language activist Michel Feltin-Palas",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-543a07dd58d8ba937c5c",
+      "title": "El recorrido de la música parang de Trinidad, en podcast informativo",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-e17559f4de7a540e88de",
+      "title": "How Morocco’s Atlas Lions made history at the 2022 World Cup",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-e5088c867cd63bdafbb7",
+      "title": "For school New Year's Eve parties in Moscow, some music is apparently deemed inappropriate",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-98a519188ee1c42c04db",
+      "title": "Undertones en Pakistán: Ejército, mujeres, blasfemia",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-fr-4d6987b13b2313c5e827",
+      "title": "Les travailleurs migrants népalais qui ont construit les stades pour la Coupe du monde complètement oubliés",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-637020405aec8fac201d",
+      "title": "Classical dance pushes the bounds of traditional gender identities in Cambodia",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-805a9189883a1bc056ac",
+      "title": "Police in Azerbaijan detain protesters on the day of activist's trial",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-72c88adcbb766b3694ea",
+      "title": "Governments are still free to use the Pegasus software without human rights safeguards in place",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-bb84f6830037a5a40f58",
+      "title": "Another attack on LGBTQ+ center in Podgorica highlights the need to protect human rights in Montenegro",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-d79fea9f6b2c554a87f4",
+      "title": "Transgender women are despised, like the Virgin Mary in her day",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-1ade5236ced99958e1d8",
+      "title": "Undertones in Afghanistan: ‘Taliban 2.0,’ Women, Resistance",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-3b36c6d738f43ebc4791",
+      "title": "Woman dubbed ‘Messi's grandma’ goes viral in Argentina following World Cup win",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-57749c6745986444d865",
+      "title": "Australia explores ways to combat widespread greenwashing of carbon emissions",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-6ed21e6a5961cb2aa0ce",
+      "title": "フィリピンの重量挙げ選手ヒディリン・ディアス（30歳） 東京オリンピックでフィリピン史上初の金メダル",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-5956a93ea29cb7812f4b",
+      "title": "ベラルーシ当局 東京オリンピックに参加した同国短距離選手を本国へ送還するために羽田空港へ強制連行 選手は亡命を求める",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-ee50845333f136cecf81",
+      "title": "台湾と日本のことを知る映画15本",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-d3309006fe461cdef5ef",
+      "title": "オリンピック参加選手のメンタルヘルス 大会後なおざりに 新たな研究で判明",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-9ec99bc21e3d610a23af",
+      "title": "悲惨な内戦後、人々を勇気づけたナイジェリアのイボハイライフ音楽",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-7a5caa035dbd0a793307",
+      "title": "Turkish finance minister wrecks economy ‘with a twinkle in his eye’",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-f115d1ddb7ac634e507c",
+      "title": "Despite widespread opposition, Japan plans to dump water from Fukushima plant into the Pacific Ocean",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-1d14eae87d3a2b5d2288",
+      "title": "Portugal: Human rights activist fighting racism wins international award",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-e863dcc0968eaeafe890",
+      "title": "10 stories on Black and Indigenous identity from Latin America in 2021",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-bf16dc3334588dbed018",
+      "title": "2021: A fruitful year for Indigenous communities in Taiwan",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-46d434128737dca6818e",
+      "title": "The untold story of a young Colombian Indigenous reporter, guardian and hairdresser",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-d373dab6c71f5876bc2d",
+      "title": "Ukraine to get support from Apple with conducting national census in 2023",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-1c53fc403b3c9eaa34c0",
+      "title": "«Huelga silenciosa» de Myanmar condena enérgicamente continuidad del gobierno militar",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-649e965f8bd44dc0505b",
+      "title": "Exploitation of Indian migrant workers in Serbia continues",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-bbbb5ee6299926c0614c",
+      "title": "Indian migrant workers fight for their right to get paid in Serbia",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-fr-9430a33d8ee1408bdc6e",
+      "title": "COP 26 : Les sportifs kényans s'engagent contre la crise climatique",
+      "topics": [
+        "environment",
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-120588af59d69616ce98",
+      "title": "Turkish pop star angers the public with tone-deaf comments on current economic crisis",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-356c14377f0c60c69d0a",
+      "title": "タリバン政権下で苦境に追いやられるアフガニスタンの女性たち",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-a1ff2228fc238e5ca0d8",
+      "title": "トルコで相次ぐ自然災害 山火事、干ばつ、洪水、将来は地震の可能性も",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-6bc9021986f2a2163bb7",
+      "title": "ソビエトのビンテージ音楽がウズベキスタンから世界へ発信",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-ac80d00bcd32107725e9",
+      "title": "Iconic House of Wonders collapse leaves Zanzibaris wondering about fate of cultural heritage",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-c678b4fbcfe0e54780e8",
+      "title": "Shooting of mother and son highlights institutionalized police violence in the Philippines",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-d11772459ace5be6dc5c",
+      "title": "From COVID-19 to Caribbean literature, this is what the region looked like in 2020",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-624c115357fe539ec555",
+      "title": "Crackdown against journalist and activists mars Human Rights Day in the Philippines",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-c5e9336162f950c36f94",
+      "title": "New height of Mount Everest announced just as Nepal reopens its tourism sector",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-5be25bc193f0a401a858",
+      "title": "Fendika cultural hub in Addis Ababa wins major cultural prize",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-5d695b66a689b4bb7d72",
+      "title": "In Belarus, a new civic culture is born out of recycled historical symbols in urban yards",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-f9b7a928776b9d5c8474",
+      "title": "短編映画が描く、日本で黒人の少年として生きるとは？",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-71996affd2b9af2c89be",
+      "title": "Presentan popular película animada japonesa ‘Nausicaä’ como obra kabuki",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-fr-b99792f0de3b82750821",
+      "title": "Le joueur de cricket Ali Khan au cœur d'une polémique après son apparition dans un clip de soca trinidadien",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-32896cc116d71d34eaa5",
+      "title": "8 West African countries rename currency in historic break from France — but colonial-era debts persist",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-c6e01cdc358bb7be0256",
+      "title": "Kenya now has a data protection law. What does this mean for netizens?",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-ed8842b0403f6e2677c1",
+      "title": "菲律宾教师抗议，因总统未兑现加薪承诺",
+      "topics": [
+        "society"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-823be26c108c56cf8a45",
+      "title": "出于对语言的热爱第一本以Mro语印制的童话书出炉!",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-02ef711f193aabffda55",
+      "title": "一句世界杯的玩笑话，能否迫使法国面对其非洲议题？",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-cb5735d3244ddb8efc86",
+      "title": "Indonesian military suspected of using chemical weapons against West Papuan separatists, reports Australian newspaper",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-aa856a87033d913997c3",
+      "title": "New edition of Macedonian Twitter Calendar combines nude art photography with humanitarian fundraising",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-820220638337c90b96a8",
+      "title": "来自日本民间的访灵仪式列入了联合国教科文组织非物质文化遗产名录",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-7384fd70943fc21a11db",
+      "title": "サッカー・ロシアW杯で、メキシコサポーターの差別的チャントが反則をとられトラブルに！",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-437dd65dd6a24a030eb9",
+      "title": "中国古典文学里的反骨精神与叛逆分子",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-29c2a259f69eaab1cdd0",
+      "title": "向叶门料理致敬：斋戒月传统美食",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-b92893d4c76f0ef42456",
+      "title": "ワールドカップに行けなかったけどアメリカに勝って喜ぶトリニダード・トバゴのサポーター",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-df3c23f6c513d8e6c92e",
+      "title": "スカーフが意味することは？ バングラデシュのロボットレストランが議論の的に",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-fr-0de50b1a2601433b1e83",
+      "title": "Le tragique destin de l'athlète olympique somalienne Samia Yusuf Omar, conté dans une BD en macédonien",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-623f28dc85b203d62e24",
+      "title": "ニジェールの若年技術者 自ら発明した装置で工場大気汚染の改善に取り組む",
+      "topics": [
+        "technology",
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-6ba173397d0f5761f716",
+      "title": "How Some Musicians Are Reshaping the Image of Chile's Music Scene",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-069317d8b7cfbd64b39f",
+      "title": "Thailand's Military Junta Wants to Promote Nationalism With a Soap Opera Called ‘Love Missions’",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-01d1df81aa9a7362cd6a",
+      "title": "All about ‘osechi ryōri’, Japan's traditional New Year's food",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-2b57afcb123338b2ba07",
+      "title": "别错过东京摄影俱乐部令人惊艳的日本照片",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-3e42146a59d25216ac43",
+      "title": "反映错综复杂台日关系的15部电影",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-961d616c85981f132be1",
+      "title": "摄影师镜头下的东京日常",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-95ab04abdcb4e8ad5b80",
+      "title": "A Satellite Launch Lights Up the Night Sky Over Japan",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-7796751415e5d00cc582",
+      "title": "The 2016 Russian Words of the Year, Explained",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-ac5c9350c4d425a41ba4",
+      "title": "In 2016, These YouTube Channels From India Offered Meaningful Content",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-d6e37ee8721f3df16dcc",
+      "title": "Macedonia's Pollution Is So Bad That Activists Have Installed ‘Mountain Air Breathing Booths’ in Protest",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-98f1106cf94026b50d15",
+      "title": "Syria's War May be the Most Documented Ever—And Yet We Know So Little.",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-a456546a9fc0709408c8",
+      "title": "ブラジル オリンピックの余り食材を利用 貧困者向け本格レストラン",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-5205e22150c3baeaa658",
+      "title": "Why Millions of Chinese Are Victimized by the Blooming Peer-to-Peer Lending Business",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-127af0783de15eb33d1b",
+      "title": "In Spanish, Inclusive Language Can Be at Odds With Grammar Rules",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-5f3381e52e05d98b327b",
+      "title": "Finding the Cultural Bridges of the Middle East in Literary Istanbul",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-fr-38cc8c6b065d6309bcca",
+      "title": "Les censeurs russes lancent une traque automatisée des contenus « extrémistes » sur Internet",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-4a13ce11c45b04b67551",
+      "title": "音楽がこのインド人女性にとって経済的自立への道だった",
+      "topics": [
+        "entertainment",
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-63e36e2949d0aafb9117",
+      "title": "中国技术人员与Google和Mozilla站在同一阵线─2大浏览器与中国网络安全监管者的对立",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-110df27562609628e0ea",
+      "title": "当年年仅十二岁的阿富汗男孩跨越九个国度只为逃离战争",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-c3db73bd5f9c6cc91cbb",
+      "title": "墨西哥音乐计划 贡献最新作品供公众免费下载",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-2baa3ad50022772ea86b",
+      "title": "Brasil: Mucho más que el Mundial de Fútbol ha pasado en 2014",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-59f00cf8121a154920af",
+      "title": "Traditional Iñupiaq Story Comes To Life Through Video Game",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-4a1a2718eaf58e605eb8",
+      "title": "COP20: Responsibilities of Capitalism On Climate Change",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-70179c421c5be9cc05f7",
+      "title": "Argentina: The Tourism Input in Economy",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-7de5bf12cb8db8bb7cb2",
+      "title": "Economía cubana podría mejorar con normalización de relaciones con Estados Unidos",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-fr-8b4c1e30350e4082a3de",
+      "title": "Au cœur du Salegy, la musique dominante à Madagascar",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-d300f7acb0aa7ade4042",
+      "title": "气候变迁的后果 秘鲁亚马逊区域面临低温",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-ce3aaf376882c1dc2d2b",
+      "title": "フランスはモノのインターネットで中国に勝てるか？",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-0dc3a9834cb36c6850b6",
+      "title": "中国污染问题",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-ac15bfe8da4f50f842ff",
+      "title": "印度：以高科技改造古城瓦拉納西",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-c5c61f5482dc166e2837",
+      "title": "Art in the Trolley – Invading Public Spaces in Quito",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-bb85ea065bfefbba6060",
+      "title": "Widespread Power Outages Leave Argentines Dying of Heat",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-fr-6ac6c6ebe5387f5170a6",
+      "title": "Guatemala: Les restes de victimes de la guerre civile exhumés et remis à leurs familles 32 ans après",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-cf7a9cfb92333652a85d",
+      "title": "South Korea: Reason Behind Movie ‘The Attorney's Box Office Smash",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-172ee558e758d257391a",
+      "title": "PHOTOS: Humans of Portugal",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-e1f42f96217e277bce55",
+      "title": "PHOTOS: Humans of Comoros, Madagascar and the Mascarene Islands",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-f1396eeffba8fa6a660a",
+      "title": "冬季ロシアオリンピックの変わったお金",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-bfb174acbf9fc6498fb8",
+      "title": "Bolivia: Nationalization and football",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-ce41a61a2aa41273ef24",
+      "title": "Perú: La inundación de Vía Parque Rímac",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-659a73832654ad26e8f7",
+      "title": "マラウィの経済：課題が山積み？",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-69e26fd1d287a9ad2112",
+      "title": "Escándalo de la selección nacional de fútbol del Líbano",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-148eb8b4d2a702c6f8b2",
+      "title": "Japan's Independent Film Theaters are Disappearing",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-17078f17311106c6f71a",
+      "title": "巴拿马、宏都拉斯、哥斯大黎加在通往2014巴西世界杯的道路上更进了一步",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-6470bfd07d6f4d259207",
+      "title": "足球：记录属于谁，梅西或齐塔鲁？",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-418f163dd33aa3e5a78e",
+      "title": "Chile: Neighbors and Netizens Unite to Save Concon Dunes",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-7131d0bb068fd804b4ca",
+      "title": "Chile: Netizens Report and React to Torres del Paine Wildfire",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-fr-a374705fb1d90f2c5ed2",
+      "title": "Pérou : La musique noire afro-péruvienne de Noël",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-603b8c4d7d23001fb0d9",
+      "title": "全球之声播客：科技的力量",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-e0dacc770bb9305b9696",
+      "title": "オーストラリア：国を分裂させる歴史的な新炭素価格法",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-99781d96b0009259f67f",
+      "title": "North Korea's State-run TV Broadcasted its First Western-made Film",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-d798b2f037cc735ad0c9",
+      "title": "Mexican Film in 2010: The Good, The Bad, and The Realistic",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-8b1469a11fe628065e95",
+      "title": "China, Congo y Japón: Política del fútbol",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-0e1b1b6e1d977c7563f1",
+      "title": "Jordania: Sentencian a crítico presidente de club de fútbol",
+      "topics": [
+        "sports"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-d31f14bb57c35c4ebe0a",
+      "title": "厄瓜多尔：让传统延续下去－死者之日",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-25349019389ee4404b50",
+      "title": "塞尔维亚：孩童赴俄接受军事训练",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-beb2a459e1844991a5cb",
+      "title": "セルビア：ロシアで軍事訓練を受ける子どもたち",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-0d03d3b030a2381204e2",
+      "title": "俄罗斯：两件太空博客案例",
+      "topics": [
+        "technology"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-0a7c65091e8bf224e903",
+      "title": "哥斯达黎加：艺术家诠释经典作品",
+      "topics": [
+        "humanities"
+      ]
+    },
+    {
+      "id": "news-global-voices-a635d7b6b0b6595828a2",
+      "title": "Iran: A new blog and military intervention in Gaza",
+      "topics": [
+        "military"
+      ]
+    },
+    {
+      "id": "news-global-voices-zh-89b551250692585a3e52",
+      "title": "特别报导：2007峇里岛全球气候变化会议",
+      "topics": [
+        "environment"
+      ]
+    },
+    {
+      "id": "news-global-voices-ja-bd96bb284e7f6ca198f4",
+      "title": "日本：「違法」ダウンロードの経済",
+      "topics": [
+        "business"
+      ]
+    },
+    {
+      "id": "news-global-voices-39c2a630e9d7e64ee33b",
+      "title": "Sri Lanka: A movie for South Asia",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-4d2b69365eddedc6eac1",
+      "title": "Jamaica: Manual a la música reggae",
+      "topics": [
+        "entertainment"
+      ]
+    },
+    {
+      "id": "news-global-voices-es-56edd480168af6091108",
+      "title": "India: Partido de cricket",
+      "topics": [
+        "sports"
+      ]
+    }
+  ]
+}

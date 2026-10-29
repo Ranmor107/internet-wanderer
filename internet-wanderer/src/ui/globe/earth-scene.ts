@@ -4,7 +4,7 @@ import { globeCoordinates, globePoint, type NewsRegion } from './geography';
 import { countryAt, countryRings } from './country-geography';
 
 export interface EarthTarget { id: string; name: string; longitude: number; latitude: number; animate?: boolean; token: number }
-export interface EarthApi { flyTo: (target: EarthTarget) => void; zoom: (direction: number) => void; reset: () => void; signals: (visible: boolean) => void; dispose: () => void }
+export interface EarthApi { flyTo: (target: EarthTarget) => void; zoom: (direction: number, animate?: boolean) => void; reset: (animate?: boolean) => void; signals: (visible: boolean) => void; setRegions: (regions: NewsRegion[]) => void; cancelFlight: () => void; dispose: () => void }
 interface Options {
   regions: NewsRegion[]; preview: boolean;
   ready: () => void; arrive: (target: EarthTarget) => void; interrupt: () => void;
@@ -36,6 +36,7 @@ export function createEarth(host: HTMLDivElement, options: Options): EarthApi {
   let flight: { start: number; from: THREE.Vector3; to: THREE.Vector3; target: EarthTarget; duration: number } | undefined;
   let selected: THREE.LineSegments | undefined;
   let arrivalStart = 0;
+  let distanceMotion: { target: number; velocity: number; last: number } | undefined;
   const geometries: THREE.BufferGeometry[] = [];
   const materials: THREE.Material[] = [];
   const textures: THREE.Texture[] = [];
@@ -94,17 +95,31 @@ export function createEarth(host: HTMLDivElement, options: Options): EarthApi {
   }, undefined, () => { if (!disposed) options.error(); });
   textures.push(texture);
   const pinLayer = document.createElement('div'); pinLayer.className = 'earth-pin-layer'; host.appendChild(pinLayer);
-  const pins = options.regions.map(region => {
-    const button = document.createElement('button'); button.className = 'earth-pin';
-    button.dataset.region = region.id;
-    button.setAttribute('aria-label', `探索${region.name}：${region.items.length}条地区新闻`);
-    const dot = document.createElement('i'), label = document.createElement('span');
-    label.textContent = region.name; button.append(dot, label);
-    button.addEventListener('click', () => options.pick(region)); pinLayer.appendChild(button);
-    return { button, point: new THREE.Vector3(...globePoint(region.longitude, region.latitude, 1.012)) };
-  });
-  let showSignals = true;
+  const pins: { button: HTMLButtonElement; point: THREE.Vector3; region: NewsRegion }[] = [];
+  let showSignals = true, selectedId = '';
+  function setRegions(regions: NewsRegion[]) {
+    const next = regions.map(region => {
+      let pin = pins.find(pin => pin.region.id === region.id);
+      if (!pin) {
+        const button = document.createElement('button'); button.className = 'earth-pin'; button.hidden = true;
+        button.dataset.region = region.id;
+        button.append(document.createElement('i'), document.createElement('span'));
+        pin = { button, point: new THREE.Vector3(), region };
+        const current = pin;
+        button.addEventListener('click', () => options.pick(current.region)); pinLayer.appendChild(button);
+      }
+      pin.region = region; pin.point.fromArray(globePoint(region.longitude, region.latitude, 1.012));
+      pin.button.setAttribute('aria-label', `探索${region.name}：${region.items.length}条地区新闻`);
+      pin.button.setAttribute('aria-pressed', String(region.id === selectedId));
+      pin.button.querySelector('span')!.textContent = region.name;
+      return pin;
+    });
+    pins.filter(pin => !next.includes(pin)).forEach(pin => pin.button.remove());
+    pins.splice(0, pins.length, ...next); invalidate();
+  }
+  setRegions(options.regions);
   function markCountry(id: string) {
+    selectedId = id;
     if (selected) { scene.remove(selected); selected.geometry.dispose(); (selected.material as THREE.Material).dispose(); selected = undefined; }
     const vertices: number[] = [];
     for (const ring of countryRings(id)) for (let i = 1; i < ring.length; i++) {
@@ -120,6 +135,7 @@ export function createEarth(host: HTMLDivElement, options: Options): EarthApi {
     pins.forEach(({ button }) => button.setAttribute('aria-pressed', String(button.dataset.region === id)));
   }
   function stopFlight() {
+    distanceMotion = undefined;
     route.visible = false; beacon.visible = false; arrivalStart = 0;
     if (flight) { flight = undefined; options.interrupt(); }
   }
@@ -145,9 +161,9 @@ export function createEarth(host: HTMLDivElement, options: Options): EarthApi {
   const keyDown = (event: KeyboardEvent) => {
     if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', '+', '=', '-', 'Home'].includes(event.key)) {
       event.preventDefault(); stopFlight();
-      if (event.key === 'Home') api.reset();
-      else if (event.key === '+' || event.key === '=') api.zoom(1);
-      else if (event.key === '-') api.zoom(-1);
+      if (event.key === 'Home') api.reset(false);
+      else if (event.key === '+' || event.key === '=') api.zoom(1, false);
+      else if (event.key === '-') api.zoom(-1, false);
       else {
         const point = globeCoordinates(camera.position.x, camera.position.y, camera.position.z);
         camera.position.fromArray(globePoint(point.longitude + (event.key === 'ArrowLeft' ? -12 : event.key === 'ArrowRight' ? 12 : 0), Math.max(-82, Math.min(82, point.latitude + (event.key === 'ArrowUp' ? 10 : event.key === 'ArrowDown' ? -10 : 0))), camera.position.length()));
@@ -164,6 +180,15 @@ export function createEarth(host: HTMLDivElement, options: Options): EarthApi {
   function draw(now: number) {
     frame = 0;
     if (disposed || !visible || document.hidden) return;
+    if (distanceMotion) {
+      const motion = distanceMotion, dt = Math.min(.05, (now - motion.last) / 1000);
+      const offset = camera.position.length() - motion.target, decay = Math.exp(-18 * dt);
+      const impulse = motion.velocity + 18 * offset;
+      const remaining = (offset + impulse * dt) * decay;
+      motion.velocity = (motion.velocity - 18 * impulse * dt) * decay; motion.last = now;
+      camera.position.setLength(THREE.MathUtils.clamp(motion.target + remaining, controls.minDistance, controls.maxDistance));
+      if (Math.abs(remaining) < .001 && Math.abs(motion.velocity) < .005) { camera.position.setLength(motion.target); distanceMotion = undefined; }
+    }
     if (flight) {
       const f = flight, t = Math.min(1, (now - f.start) / f.duration), ease = t * t * t * (t * (t * 6 - 15) + 10);
       const from = f.from.clone().normalize(), to = f.to.clone().normalize();
@@ -197,12 +222,13 @@ export function createEarth(host: HTMLDivElement, options: Options): EarthApi {
     const location = globeCoordinates(camera.position.x, camera.position.y, camera.position.z);
     host.dataset.longitude = location.longitude.toFixed(2); host.dataset.latitude = location.latitude.toFixed(2);
     host.dataset.distance = camera.position.length().toFixed(3);
-    if (flight || changing || arrivalStart) invalidate();
+    if (flight || changing || arrivalStart || distanceMotion) invalidate();
   }
   function invalidate() { if (!frame && !disposed && visible && !document.hidden) frame = requestAnimationFrame(draw); }
   function resize() {
     const width = host.clientWidth, height = host.clientHeight;
     if (!width || !height) return;
+    distanceMotion = undefined;
     renderer.setSize(width, height); camera.aspect = width / height;
     const halfField = Math.atan(Math.tan(camera.fov * Math.PI / 360) * Math.min(1, camera.aspect));
     const fit = options.preview ? 3.5 : Math.max(3.35, 1.08 / Math.sin(halfField));
@@ -218,12 +244,14 @@ export function createEarth(host: HTMLDivElement, options: Options): EarthApi {
   const reduceMotion = () => {
     if (reduced.matches) {
       arrivalStart = 0; beacon.visible = false;
+      if (distanceMotion) { camera.position.setLength(distanceMotion.target); distanceMotion = undefined; controls.update(); }
       if (flight) { camera.position.copy(flight.to); const target = flight.target; flight = undefined; controls.update(); receive(target); }
       invalidate();
     }
   }; reduced.addEventListener('change', reduceMotion);
   const api: EarthApi = {
     flyTo(target) {
+      distanceMotion = undefined;
       markCountry(target.id);
       const to = new THREE.Vector3(...globePoint(target.longitude, target.latitude, options.preview ? 3.5 : Math.max(2.6, globalDistance * .6)));
       // Flush residual drag velocity before taking over from the current camera.
@@ -244,9 +272,14 @@ export function createEarth(host: HTMLDivElement, options: Options): EarthApi {
       }
       invalidate();
     },
-    zoom(direction) { stopFlight(); camera.position.setLength(THREE.MathUtils.clamp(camera.position.length() * (direction > 0 ? .82 : 1.22), controls.minDistance, controls.maxDistance)); controls.update(); invalidate(); },
-    reset() { stopFlight(); markCountry(''); camera.position.setLength(globalDistance); controls.update(); invalidate(); },
+    zoom(direction, animate = true) {
+      const radius = distanceMotion?.target ?? camera.position.length(), velocity = distanceMotion?.velocity ?? 0;
+      stopFlight(); moveDistance(THREE.MathUtils.clamp(radius * (direction > 0 ? .82 : 1.22), controls.minDistance, controls.maxDistance), animate, velocity);
+    },
+    reset(animate = true) { stopFlight(); markCountry(''); moveDistance(globalDistance, animate); },
     signals(value) { showSignals = value; invalidate(); },
+    setRegions,
+    cancelFlight() { stopFlight(); invalidate(); },
     dispose() {
       disposed = true; cancelAnimationFrame(frame); resizeObserver.disconnect(); observer.disconnect();
       document.removeEventListener('visibilitychange', visibilityChange); reduced.removeEventListener('change', reduceMotion);
@@ -257,6 +290,11 @@ export function createEarth(host: HTMLDivElement, options: Options): EarthApi {
       renderer.dispose(); renderer.forceContextLoss(); canvas.remove(); pinLayer.remove();
     },
   };
+  function moveDistance(target: number, animate: boolean, velocity = 0) {
+    if (animate && !reduced.matches) distanceMotion = { target, velocity, last: performance.now() };
+    else { camera.position.setLength(target); controls.update(); }
+    invalidate();
+  }
   resize(); controls.update(); invalidate();
   return api;
 }

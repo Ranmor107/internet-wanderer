@@ -1,12 +1,13 @@
 :root { --motion-fast: 160ms; --motion-enter: 260ms; --motion-ease: cubic-bezier(.2, .7, .2, 1); }
-@keyframes page-arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-@keyframes result-arrive { from { opacity: .15; transform: translateY(7px); } to { opacity: 1; transform: none; } }
+/* Keep viewport-fixed journey controls anchored during the page entrance. */
+@keyframes page-arrive { from { opacity: 0; } to { opacity: 1; } }
+@keyframes result-arrive { from { opacity: .6; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 @keyframes route-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 @keyframes node-land { from { opacity: .2; scale: .7; } to { opacity: 1; scale: 1; } }
 @keyframes signal-catch { from { opacity: .2; transform: rotate(-130deg); } to { opacity: 1; transform: rotate(-35deg); } }
 @keyframes window-arrive { from { opacity: .3; translate: 0 9px; } to { opacity: 1; translate: 0 0; } }
 .page-enter { animation: page-arrive var(--motion-enter) var(--motion-ease) backwards; }
-.result-enter { animation: result-arrive 280ms 90ms var(--motion-ease) backwards; }
+.result-enter { animation: result-arrive 180ms var(--motion-ease) backwards; }
 [data-experience='time'] .result-enter { animation: window-arrive 260ms ease-out backwards; }
 [data-motion='snap'] .result-enter { animation-duration: 90ms; }
 :where(button, [role='button'], .secondary-button, .next-button, .visit-button, .surprise-button, .world-elsewhere, .world-news, .world-time) { transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, opacity 180ms ease; }

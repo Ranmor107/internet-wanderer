@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "basis": "Title-reviewed country associations; country reference coordinates, not event geocodes.",
-  "reviewedAt": "2026-10-19",
+  "reviewedAt": "2026-10-26",
   "regions": [
     {
       "id": "JP",
@@ -25,6 +25,62 @@
         {
           "id": "news-global-voices-zh-2b57afcb123338b2ba07",
           "title": "别错过东京摄影俱乐部令人惊艳的日本照片"
+        },
+        {
+          "id": "news-global-voices-148eb8b4d2a702c6f8b2",
+          "title": "Japan's Independent Film Theaters are Disappearing"
+        },
+        {
+          "id": "news-global-voices-ja-f9b7a928776b9d5c8474",
+          "title": "短編映画が描く、日本で黒人の少年として生きるとは？"
+        },
+        {
+          "id": "news-global-voices-es-71996affd2b9af2c89be",
+          "title": "Presentan popular película animada japonesa ‘Nausicaä’ como obra kabuki"
+        },
+        {
+          "id": "news-global-voices-zh-3e42146a59d25216ac43",
+          "title": "反映错综复杂台日关系的15部电影"
+        },
+        {
+          "id": "news-global-voices-ja-ee50845333f136cecf81",
+          "title": "台湾と日本のことを知る映画15本"
+        },
+        {
+          "id": "news-global-voices-fr-6ac4d6ecac28a02ef421",
+          "title": "Japon : l’île « cuirassée » teintée de travail forcé pendant la guerre"
+        },
+        {
+          "id": "news-global-voices-95ab04abdcb4e8ad5b80",
+          "title": "A Satellite Launch Lights Up the Night Sky Over Japan"
+        },
+        {
+          "id": "news-global-voices-zh-820220638337c90b96a8",
+          "title": "来自日本民间的访灵仪式列入了联合国教科文组织非物质文化遗产名录"
+        },
+        {
+          "id": "news-global-voices-zh-961d616c85981f132be1",
+          "title": "摄影师镜头下的东京日常"
+        },
+        {
+          "id": "news-global-voices-ja-6ed21e6a5961cb2aa0ce",
+          "title": "フィリピンの重量挙げ選手ヒディリン・ディアス（30歳） 東京オリンピックでフィリピン史上初の金メダル"
+        },
+        {
+          "id": "news-global-voices-ja-5956a93ea29cb7812f4b",
+          "title": "ベラルーシ当局 東京オリンピックに参加した同国短距離選手を本国へ送還するために羽田空港へ強制連行 選手は亡命を求める"
+        },
+        {
+          "id": "news-global-voices-ja-bd96bb284e7f6ca198f4",
+          "title": "日本：「違法」ダウンロードの経済"
+        },
+        {
+          "id": "news-global-voices-f115d1ddb7ac634e507c",
+          "title": "Despite widespread opposition, Japan plans to dump water from Fukushima plant into the Pacific Ocean"
+        },
+        {
+          "id": "news-global-voices-es-8b1469a11fe628065e95",
+          "title": "China, Congo y Japón: Política del fútbol"
         }
       ]
     },
@@ -46,6 +102,46 @@
         {
           "id": "news-global-voices-8c4592b8c43faa765424",
           "title": "China's campaign against Christmas makes celebrating a difficult choice for citizens"
+        },
+        {
+          "id": "news-global-voices-zh-63e36e2949d0aafb9117",
+          "title": "中国技术人员与Google和Mozilla站在同一阵线─2大浏览器与中国网络安全监管者的对立"
+        },
+        {
+          "id": "news-global-voices-ja-ce3aaf376882c1dc2d2b",
+          "title": "フランスはモノのインターネットで中国に勝てるか？"
+        },
+        {
+          "id": "news-global-voices-5205e22150c3baeaa658",
+          "title": "Why Millions of Chinese Are Victimized by the Blooming Peer-to-Peer Lending Business"
+        },
+        {
+          "id": "news-global-voices-zh-60771871bf48fc56d119",
+          "title": "中国助喀麦隆饮建设用水基础设施：是援助发展，还是债务危机？"
+        },
+        {
+          "id": "news-global-voices-ja-08816567b248b3f3b49b",
+          "title": "中国東北部に住む朝鮮族女性の話"
+        },
+        {
+          "id": "news-global-voices-ja-deb34516bd11614f4e7d",
+          "title": "中国東北部、延辺の朝鮮族女性の作る水豆腐"
+        },
+        {
+          "id": "news-global-voices-zh-0dc3a9834cb36c6850b6",
+          "title": "中国污染问题"
+        },
+        {
+          "id": "news-global-voices-es-8b1469a11fe628065e95",
+          "title": "China, Congo y Japón: Política del fútbol"
+        },
+        {
+          "id": "news-global-voices-66c37f433e76fb396b34",
+          "title": "China’s green power in Angola: When clean energy comes with heavy debt"
+        },
+        {
+          "id": "news-global-voices-e5759e521cb681d5ed10",
+          "title": "China’s green investment in Pakistan: Solar dreams, debt shadows, and the politics of a rapid transition"
         }
       ]
     },
@@ -67,6 +163,30 @@
         {
           "id": "news-global-voices-ac5c9350c4d425a41ba4",
           "title": "In 2016, These YouTube Channels From India Offered Meaningful Content"
+        },
+        {
+          "id": "news-global-voices-zh-ac15bfe8da4f50f842ff",
+          "title": "印度：以高科技改造古城瓦拉納西"
+        },
+        {
+          "id": "news-global-voices-ja-4a13ce11c45b04b67551",
+          "title": "音楽がこのインド人女性にとって経済的自立への道だった"
+        },
+        {
+          "id": "news-global-voices-es-56edd480168af6091108",
+          "title": "India: Partido de cricket"
+        },
+        {
+          "id": "news-global-voices-649e965f8bd44dc0505b",
+          "title": "Exploitation of Indian migrant workers in Serbia continues"
+        },
+        {
+          "id": "news-global-voices-bbbb5ee6299926c0614c",
+          "title": "Indian migrant workers fight for their right to get paid in Serbia"
+        },
+        {
+          "id": "news-global-voices-fr-bc4693573878c5819d0f",
+          "title": "Sabar Bonda : quand le cinéma marathi réinvente la vie queer en milieu rural"
         }
       ]
     },
@@ -88,6 +208,10 @@
         {
           "id": "news-global-voices-9a33f97e037c9d7b0fd3",
           "title": "Kenya: 10 Best Kenyan Sites in 2010"
+        },
+        {
+          "id": "news-global-voices-fr-9430a33d8ee1408bdc6e",
+          "title": "COP 26 : Les sportifs kényans s'engagent contre la crise climatique"
         }
       ]
     },
@@ -109,6 +233,10 @@
         {
           "id": "news-global-voices-e072ea0fa2f6fc51e6ef",
           "title": "Shadow of terrorism: Nigeria's battles with healthcare access as polio persist"
+        },
+        {
+          "id": "news-global-voices-ja-9ec99bc21e3d610a23af",
+          "title": "悲惨な内戦後、人々を勇気づけたナイジェリアのイボハイライフ音楽"
         }
       ]
     },
@@ -151,6 +279,22 @@
         {
           "id": "news-global-voices-96c1587a63508f8716af",
           "title": "‘Femicide does not start on the day of the crime’: A Brazilian researcher’s view on gender violence in her country"
+        },
+        {
+          "id": "news-global-voices-6c7e5f9c90864a88c528",
+          "title": "Many deaths under Brazil’s military dictatorship were not politicized, says historian"
+        },
+        {
+          "id": "news-global-voices-es-ef299e83f0ddd5084a7f",
+          "title": "Muchas muertes ocurridas durante la dictadura militar en Brasil no se politizaron, dice historiador"
+        },
+        {
+          "id": "news-global-voices-ja-a456546a9fc0709408c8",
+          "title": "ブラジル オリンピックの余り食材を利用 貧困者向け本格レストラン"
+        },
+        {
+          "id": "news-global-voices-es-2baa3ad50022772ea86b",
+          "title": "Brasil: Mucho más que el Mundial de Fútbol ha pasado en 2014"
         }
       ]
     },
@@ -172,6 +316,18 @@
         {
           "id": "news-global-voices-d5a64556fddeab5069fd",
           "title": "‘Learning to Live with the Narco in Mexico’, Stories from Survivors of the War on Organized Crime"
+        },
+        {
+          "id": "news-global-voices-d798b2f037cc735ad0c9",
+          "title": "Mexican Film in 2010: The Good, The Bad, and The Realistic"
+        },
+        {
+          "id": "news-global-voices-zh-c3db73bd5f9c6cc91cbb",
+          "title": "墨西哥音乐计划 贡献最新作品供公众免费下载"
+        },
+        {
+          "id": "news-global-voices-ja-7384fd70943fc21a11db",
+          "title": "サッカー・ロシアW杯で、メキシコサポーターの差別的チャントが反則をとられトラブルに！"
         }
       ]
     },
@@ -193,6 +349,14 @@
         {
           "id": "news-global-voices-zh-6313e56adbf8908eef11",
           "title": "秘鲁：反对矿场开发影片（上）"
+        },
+        {
+          "id": "news-global-voices-fr-a374705fb1d90f2c5ed2",
+          "title": "Pérou : La musique noire afro-péruvienne de Noël"
+        },
+        {
+          "id": "news-global-voices-es-ce41a61a2aa41273ef24",
+          "title": "Perú: La inundación de Vía Parque Rímac"
         }
       ]
     },
@@ -214,6 +378,10 @@
         {
           "id": "news-global-voices-7131d0bb068fd804b4ca",
           "title": "Chile: Netizens Report and React to Torres del Paine Wildfire"
+        },
+        {
+          "id": "news-global-voices-ja-664749fcb85d56bb4c32",
+          "title": "チリ軍事クーデターの貴重な歴史的映像記憶を救出した若者たち"
         }
       ]
     },
@@ -235,6 +403,22 @@
         {
           "id": "news-global-voices-fe94f0db83b18d71a04d",
           "title": "Hijacked Printers in Eastern Ukraine and Russia Print Pro-Ukraine Messages"
+        },
+        {
+          "id": "news-global-voices-ff5a801325fd602fe1c5",
+          "title": "After five years of war, how do Ukrainian small businesses survive?"
+        },
+        {
+          "id": "news-global-voices-a7128beb5d7d886cd008",
+          "title": "Pskov’s medieval religious art is being appropriated by the Russian state to support the invasion of Ukraine"
+        },
+        {
+          "id": "news-global-voices-ja-ee468c9a1473687f3003",
+          "title": "ウクライナ戦争で言葉を見失いかける話"
+        },
+        {
+          "id": "news-global-voices-ja-ba889732e51e3b420b4a",
+          "title": "ストップモーション・アニメーションに祖先の地ウクライナへの愛を込めて"
         }
       ]
     },
@@ -256,6 +440,42 @@
         {
           "id": "news-global-voices-9707a4c1a034309ed3b1",
           "title": "Russian musicians sing about war resistance — few people take them seriously"
+        },
+        {
+          "id": "news-global-voices-a7128beb5d7d886cd008",
+          "title": "Pskov’s medieval religious art is being appropriated by the Russian state to support the invasion of Ukraine"
+        },
+        {
+          "id": "news-global-voices-fr-6195c8727dab97c198ec",
+          "title": "Des dizaines de Népalais recrutés par la ruse dans l’armée russe"
+        },
+        {
+          "id": "news-global-voices-fr-38cc8c6b065d6309bcca",
+          "title": "Les censeurs russes lancent une traque automatisée des contenus « extrémistes » sur Internet"
+        },
+        {
+          "id": "news-global-voices-zh-0d03d3b030a2381204e2",
+          "title": "俄罗斯：两件太空博客案例"
+        },
+        {
+          "id": "news-global-voices-e5088c867cd63bdafbb7",
+          "title": "For school New Year's Eve parties in Moscow, some music is apparently deemed inappropriate"
+        },
+        {
+          "id": "news-global-voices-ja-f1396eeffba8fa6a660a",
+          "title": "冬季ロシアオリンピックの変わったお金"
+        },
+        {
+          "id": "news-global-voices-ja-3e3c64ade01c8c656aea",
+          "title": "アカデミー賞に輝いたドナルドダックのアニメ映画、ロシアでの配信は違法"
+        },
+        {
+          "id": "news-global-voices-zh-25349019389ee4404b50",
+          "title": "塞尔维亚：孩童赴俄接受军事训练"
+        },
+        {
+          "id": "news-global-voices-ja-beb2a459e1844991a5cb",
+          "title": "セルビア：ロシアで軍事訓練を受ける子どもたち"
         }
       ]
     },
@@ -277,6 +497,10 @@
         {
           "id": "news-global-voices-4c81e904bd4df94d8350",
           "title": "One of 2015's Biggest Political Scandals Ends in the Indonesian House Speaker's Resignation"
+        },
+        {
+          "id": "news-global-voices-cb5735d3244ddb8efc86",
+          "title": "Indonesian military suspected of using chemical weapons against West Papuan separatists, reports Australian newspaper"
         }
       ]
     },
@@ -298,6 +522,14 @@
         {
           "id": "news-global-voices-zh-ed8842b0403f6e2677c1",
           "title": "菲律宾教师抗议，因总统未兑现加薪承诺"
+        },
+        {
+          "id": "news-global-voices-ja-6ed21e6a5961cb2aa0ce",
+          "title": "フィリピンの重量挙げ選手ヒディリン・ディアス（30歳） 東京オリンピックでフィリピン史上初の金メダル"
+        },
+        {
+          "id": "news-global-voices-624c115357fe539ec555",
+          "title": "Crackdown against journalist and activists mars Human Rights Day in the Philippines"
         }
       ]
     },
@@ -319,6 +551,10 @@
         {
           "id": "news-global-voices-57749c6745986444d865",
           "title": "Australia explores ways to combat widespread greenwashing of carbon emissions"
+        },
+        {
+          "id": "news-global-voices-ja-e0dacc770bb9305b9696",
+          "title": "オーストラリア：国を分裂させる歴史的な新炭素価格法"
         }
       ]
     },
@@ -340,6 +576,10 @@
         {
           "id": "news-global-voices-82bcd8fe4f46e0e0a0d7",
           "title": "The Yellow Vest movement in France: What's at stake?"
+        },
+        {
+          "id": "news-global-voices-ja-ce3aaf376882c1dc2d2b",
+          "title": "フランスはモノのインターネットで中国に勝てるか？"
         }
       ]
     },
@@ -361,6 +601,26 @@
         {
           "id": "news-global-voices-e4e38824d13b119dc64c",
           "title": "Turkey bans access to 16 VPN providers"
+        },
+        {
+          "id": "news-global-voices-7a5caa035dbd0a793307",
+          "title": "Turkish finance minister wrecks economy ‘with a twinkle in his eye’"
+        },
+        {
+          "id": "news-global-voices-120588af59d69616ce98",
+          "title": "Turkish pop star angers the public with tone-deaf comments on current economic crisis"
+        },
+        {
+          "id": "news-global-voices-de549e732b5300a57367",
+          "title": "In Turkey yet another television show finds itself in hot water"
+        },
+        {
+          "id": "news-global-voices-5f3381e52e05d98b327b",
+          "title": "Finding the Cultural Bridges of the Middle East in Literary Istanbul"
+        },
+        {
+          "id": "news-global-voices-ja-a1ff2228fc238e5ca0d8",
+          "title": "トルコで相次ぐ自然災害 山火事、干ばつ、洪水、将来は地震の可能性も"
         }
       ]
     },

@@ -9,17 +9,19 @@ export default function EarthGlobe({ regions, target, preview = false, onPick, o
   onArrive?: (target: EarthTarget) => void; onInterrupt?: () => void;
 }) {
   const host = useRef<HTMLDivElement>(null), api = useRef<EarthApi | undefined>(undefined);
-  const callbacks = useRef({ onPick, onArrive, onInterrupt, target });
-  callbacks.current = { onPick, onArrive, onInterrupt, target };
+  const callbacks = useRef({ onPick, onArrive, onInterrupt, target, regions });
+  callbacks.current = { onPick, onArrive, onInterrupt, target, regions };
   const [status, setStatus] = useState<'loading' | 'ready' | 'unavailable'>('loading');
   const [attempt, setAttempt] = useState(0);
   useImperativeHandle(ref, () => ({
-    flyTo: point => api.current?.flyTo(point), zoom: direction => api.current?.zoom(direction),
-    reset: () => api.current?.reset(), signals: value => api.current?.signals(value), dispose: () => api.current?.dispose(),
+    flyTo: point => api.current?.flyTo(point), zoom: (direction, animate) => api.current?.zoom(direction, animate),
+    reset: animate => api.current?.reset(animate), signals: value => api.current?.signals(value), dispose: () => api.current?.dispose(),
+    setRegions: points => api.current?.setRegions(points), cancelFlight: () => api.current?.cancelFlight(),
   }), []);
   useEffect(() => {
     let disposed = false;
     const node = host.current!;
+    setStatus('loading');
     const observer = new IntersectionObserver(async ([entry]) => {
       if (!entry.isIntersecting) return;
       observer.disconnect();
@@ -27,7 +29,7 @@ export default function EarthGlobe({ regions, target, preview = false, onPick, o
         const { createEarth } = await import('../../ui/globe/earth-scene');
         if (disposed) return;
         api.current = createEarth(node, {
-          regions, preview,
+          regions: callbacks.current.regions, preview,
           pick: point => callbacks.current.onPick?.(point),
           arrive: point => callbacks.current.onArrive?.(point),
           interrupt: () => callbacks.current.onInterrupt?.(),
@@ -41,7 +43,8 @@ export default function EarthGlobe({ regions, target, preview = false, onPick, o
     });
     observer.observe(node);
     return () => { disposed = true; observer.disconnect(); api.current?.dispose(); api.current = undefined; };
-  }, [regions, preview, attempt]);
+  }, [preview, attempt]);
+  useEffect(() => { api.current?.setRegions(regions); }, [regions]);
   useEffect(() => {
     if (target && status === 'ready') api.current?.flyTo(target);
     if (target && status === 'unavailable') callbacks.current.onArrive?.(target);

@@ -3,6 +3,7 @@ import { useContent } from '../../app/content-context';
 import { useBookmarks } from '../../app/bookmarks-context';
 import { formatDate, languageName } from '../../content/format';
 import { SELECTION_RULES } from '../../domain/modes';
+import { newsTopicName, topicsForItem } from '../../domain/news-topics';
 import type { WanderItem } from '../../domain/item-schema';
 
 /** A dispatch belongs to a place; it has no simulated browser chrome. */
@@ -15,7 +16,8 @@ export default function NewsDispatch({ item, expanded }: { item: WanderItem; exp
   const lastUpdated = newsSnapshot.sourceStates[item.sourceId]?.lastSuccessAt;
   return <article className="news-letter kind-news" data-testid="wander-card" key={item.id}>
     <div className="dispatch-edition"><span>{source?.name ?? '远方消息'}</span><span className="news-edition">{historical ? '历史新闻' : '新闻档案'}</span></div>
-    <h2 lang={item.language}>{item.title}</h2>
+    <div className="dispatch-topics" aria-label="报道主题">{topicsForItem(item).length ? topicsForItem(item).map(topic => <span key={topic}>{newsTopicName(topic)}</span>) : <span>主题待归类</span>}</div>
+    <h2 tabIndex={-1} lang={item.language}>{item.title}</h2>
     <div className="news-context"><p>发表于 {item.publishedAt ? formatDate(item.publishedAt, true) : '时间未记录'}</p><p>{languageName(item.language)} · {source?.publisherType === 'institution' ? '机构资讯' : '新闻报道'}</p></div>
     {item.blurb && <p className="dispatch-summary">{item.blurb}</p>}
     <div className="dispatch-byline">{item.author && <p>作者：{item.author}</p>}{item.translator && <p>译者：{item.translator}</p>}</div>
